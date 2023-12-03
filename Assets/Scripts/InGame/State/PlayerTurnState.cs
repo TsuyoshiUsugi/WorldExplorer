@@ -19,6 +19,8 @@ public class PlayerTurnState : IInGameState
         _playerManager.DrawCard();
         //アクションコストを回復
         _playerManager.RestActionCost();    //アクションコストは3
+        //酒力を追加する処理
+        Debug.Log("ここまできた");
         //プレイヤーの選択待ち処理を開始
         await UniTask.WaitUntil(() => _playerManager.ActionCost.Value <= 0);
         OnExit().Forget();

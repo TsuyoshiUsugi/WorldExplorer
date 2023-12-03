@@ -12,4 +12,15 @@ public class CardData : ScriptableObject
     public GameObject CardEntity;
     [SerializeReference, SubclassSelector]
     public List<ICardEffect> CardEffects; 
+
+    /// <summary>
+    /// カードの効果を発動する
+    /// </summary>
+    public void PlayCard()
+    {
+        foreach (var effet in CardEffects)
+        {
+            effet.ExcuteCardEffect();
+        }
+    }
 }
