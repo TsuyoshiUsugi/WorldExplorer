@@ -9,5 +9,11 @@ using UnityEngine;
 /// </summary>
 public class InGameSequenceManager : MonoBehaviour
 {
-    
+    IInGameState _playerTurnState;
+    IInGameState _enemyTurnState;
+
+    private void Start()
+    {
+        
+    }
 }
