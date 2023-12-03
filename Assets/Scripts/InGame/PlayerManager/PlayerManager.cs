@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
@@ -8,11 +7,17 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager
 {
-    private List<PlayerCard> _handcards = new ();
-    private List<PlayerCard> _deckCards = new();
-    private static readonly int _defaultActionCost = 3; 
-    private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);  //プレイヤーの行動回数は3
+    private List<CardData> _handcards = new ();       //手札
+    private List<CardData> _deckCards = new();        //山札
+    private int _sakePower = 0;                          //酒力
+    private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
+    private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);  
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
+
+    public PlayerManager()
+    {
+        _deckCards = GameDataManager.Instance.DeckInfo.Cards;
+    }
 
     /// <summary>
     /// 山札からカードを引く処理
@@ -20,13 +25,15 @@ public class PlayerManager
     /// </summary>
     public void DrawCard(int drawCount = 5)
     {
-        if (_handcards.Count == 0) return;
+        Debug.Log(_deckCards.Count);
+        if (_deckCards.Count == 0) return;
         for (var i = 0; i < drawCount; i++)
         {
             var index = Random.Range(0, _deckCards.Count);
             _handcards.Add(_deckCards[index]);  //山札から手札に加える
             _deckCards.RemoveAt(index);         //山札から引いたカードを消す
         }
+        Debug.Log(_handcards.Count);
     }
 
     /// <summary>
