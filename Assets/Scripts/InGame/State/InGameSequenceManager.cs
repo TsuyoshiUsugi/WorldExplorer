@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public class InGameSequenceManager : MonoBehaviour
 {
+    [SerializeReference, subclass]
     IInGameState _playerTurnState;
     IInGameState _enemyTurnState;
 
