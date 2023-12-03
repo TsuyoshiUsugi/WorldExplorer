@@ -6,11 +6,12 @@ using UnityEngine;
 /// <summary>
 /// プレイヤーの手札・山札の情報、ドロー処理などを行うクラス
 /// </summary>
-public class PlayerManager : MonoBehaviour
+public class PlayerManager
 {
     private List<PlayerCard> _handcards = new ();
     private List<PlayerCard> _deckCards = new();
-    private readonly IntReactiveProperty _actionCost = new(3);  //プレイヤーの行動回数は3
+    private static readonly int _defaultActionCost = 3; 
+    private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);  //プレイヤーの行動回数は3
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
 
     /// <summary>
@@ -19,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     /// </summary>
     public void DrawCard(int drawCount = 5)
     {
+        if (_handcards.Count == 0) return;
         for (var i = 0; i < drawCount; i++)
         {
             var index = Random.Range(0, _deckCards.Count);
@@ -39,5 +41,14 @@ public class PlayerManager : MonoBehaviour
         _handcards[handCardIndex].PlayCard();
         _deckCards.Add(_handcards[handCardIndex]);
         _handcards.RemoveAt(handCardIndex);
+    }
+
+    /// <summary>
+    /// アクションコストをリセットする
+    /// </summary>
+    /// <param name=""></param>
+    public void RestActionCost()
+    {
+        _actionCost.Value += _defaultActionCost;
     }
 }

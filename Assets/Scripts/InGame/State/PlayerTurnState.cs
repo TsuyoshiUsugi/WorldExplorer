@@ -1,23 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
+using UniRx;
 
+/// <summary>
+/// プレイヤーターンの処理を管理するクラス
+/// </summary>
 public class PlayerTurnState : IInGameState
 {
-    public void OnEnter()
-    {
-        //デッキをから手札を取得
-        //アクションカウントを回復
-        //プレイヤーの選択待ち処理を開始
-    }
+    public event Func<UniTask> OnEnterEvent;
+    public event Func<UniTask> OnExitEvent;
+    private PlayerManager _playerManager;
 
-    public void OnExit()
+    public async UniTask OnEnter()
     {
-        throw new System.NotImplementedException();
+        if (_playerManager == null) _playerManager = new();
+        //デッキをから手札を取得
+        _playerManager.DrawCard();
+        //アクションコストを回復
+        _playerManager.RestActionCost();    //アクションコストは3
+        //プレイヤーの選択待ち処理を開始
+        await UniTask.WaitUntil(() => _playerManager.ActionCost.Value <= 0);
+        OnExit().Forget();
     }
 
     public void OnUpdate()
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    public UniTask OnExit()
+    {
+        return OnExitEvent?.Invoke() ?? UniTask.FromResult(Unit.Default);
     }
 }
