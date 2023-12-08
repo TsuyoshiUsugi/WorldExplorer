@@ -25,7 +25,6 @@ public class PlayerManager
     /// </summary>
     public void DrawCard(int drawCount = 5)
     {
-        Debug.Log(_deckCards.Count);
         if (_deckCards.Count == 0) return;
         for (var i = 0; i < drawCount; i++)
         {
@@ -33,7 +32,6 @@ public class PlayerManager
             _handcards.Add(_deckCards[index]);  //山札から手札に加える
             _deckCards.RemoveAt(index);         //山札から引いたカードを消す
         }
-        Debug.Log(_handcards.Count);
     }
 
     /// <summary>
