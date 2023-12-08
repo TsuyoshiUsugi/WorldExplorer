@@ -18,9 +18,10 @@ public class EnemyManager
 
     public EnemyManager(List<IEnemyBehavior> enemyBehaviors)
     {
-        //ここはステータス全てを
-        _behaviors = enemyBehaviors;
         FieldInfo.Instance.EnemyManager = this;
+        Debug.Log(FieldInfo.Instance.EnemyManager);
+        //ここはステータス全てを入れるようにする
+        _behaviors = enemyBehaviors;
     }
 
     /// <summary>
