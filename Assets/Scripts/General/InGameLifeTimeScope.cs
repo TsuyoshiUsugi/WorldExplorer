@@ -12,13 +12,11 @@ public class InGameLifeTimeScope : LifetimeScope
     protected override void Configure(IContainerBuilder builder)
     {
         //アプリケーション層
+        builder.Register<PlayerManager>(Lifetime.Singleton);
         builder.Register<EnemyTurnState>(Lifetime.Singleton);
         builder.Register<PlayerTurnState>(Lifetime.Singleton);
-        builder.Register<PlayerManager>(Lifetime.Singleton);
 
         //Presenter
         builder.RegisterComponent(_ingamePresenter);
-
-        
     }
 }
