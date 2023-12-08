@@ -36,6 +36,7 @@ public class PlayerManager
             _deckCards.Value.Add(new CardDataEntity(card));
         }
         _maxDeckCount = _deckCards.Value.Count;
+        FieldInfo.Instance.PlayerManager = this;
     }
 
 
@@ -112,5 +113,14 @@ public class PlayerManager
     public void RestActionCost()
     {
         _actionCost.Value = _defaultActionCost;
+    }
+
+    /// <summary>
+    /// 指定したダメージを与える
+    /// </summary>
+    public void ApplyDamage(int damage)
+    {
+        _hp -= damage;
+        _hp = 0;
     }
 }

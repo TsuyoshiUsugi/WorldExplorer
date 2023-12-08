@@ -16,6 +16,14 @@ public class EnemyManager
     public int AttackPower => _attackPower;
     public int BlockPower => _blockPower;
 
+    public EnemyManager()
+    {
+        FieldInfo.Instance.EnemyManager = this;
+    }
+
+    /// <summary>
+    /// 自身が持つ行動からランダムで実行する
+    /// </summary>
     public void ExcuteEnemyAction()
     {
         var index = Random.Range(0, _behaviors.Count);

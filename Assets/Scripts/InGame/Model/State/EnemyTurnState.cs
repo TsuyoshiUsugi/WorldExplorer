@@ -10,7 +10,6 @@ public class EnemyTurnState : IInGameState
     public event Func<UniTask> OnEnterEvent;
     public event Func<UniTask> OnExitEvent;
 
-
     public async UniTask OnEnter()
     {
         OnEnterEvent?.Invoke();
