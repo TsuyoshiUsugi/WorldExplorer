@@ -29,6 +29,8 @@ public class PlayerManager
 
     public PlayerManager()
     {
+        FieldInfo.Instance.PlayerManager = this;
+        Debug.Log(FieldInfo.Instance.PlayerManager);
         _deckCards = new(new List<CardDataEntity>());
         foreach (var card in GameDataManager.Instance.DeckInfo.Cards)
         {
@@ -36,7 +38,6 @@ public class PlayerManager
             _deckCards.Value.Add(new CardDataEntity(card));
         }
         _maxDeckCount = _deckCards.Value.Count;
-        FieldInfo.Instance.PlayerManager = this;
     }
 
 
