@@ -23,14 +23,11 @@ public class InGamePresenter : MonoBehaviour
     /// </summary>
     private void SubscribeMethod()
     {
-        _playerManager.Handcards.Subscribe(cards =>
+        _playerManager.DeckCardsChanged += cards =>
         {
-            Debug.Log("手札に変更あり");
-
-            foreach (var view in _cardViews)
-            {
-                Destroy(view);
-            }
+            Debug.Log($"これまでに生成済みのカード数{_cardViews.Count}");
+            _cardViews.ForEach(cardViews => Destroy(cardViews.gameObject));
+            _cardViews.Clear();
 
             for (var i = 0; i < cards.Count; i++)
             {
@@ -40,6 +37,6 @@ public class InGamePresenter : MonoBehaviour
                 var view = cardEntity.GetComponent<CardView>();
                 view.OnCardSelect += index => _playerManager.PlayCard(index);
             }
-        });
+        };
     }
 }

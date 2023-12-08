@@ -8,18 +8,17 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager
 {
-    private readonly ReactiveProperty<List<CardData>> _handcards;       //手札
+    private List<CardData> _handcards = new();       //手札
     private List<CardData> _deckCards = new();        //山札
     private int _sakePower = 0;                          //酒力
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
     private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);  
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
-    public IReadOnlyReactiveProperty<List<CardData>> Handcards => _handcards;
+    public event Action<List<CardData>> DeckCardsChanged;
 
     public PlayerManager()
     {
         _deckCards = new List<CardData>(GameDataManager.Instance.DeckInfo.Cards);
-        _handcards = new ReactiveProperty<List<CardData>>(new List<CardData>());
     }
 
     /// <summary>
@@ -38,10 +37,11 @@ public class PlayerManager
                 return;
             }
             
-            _handcards.Value.Add(_deckCards[index]);  //山札から手札に加える
+            _handcards.Add(_deckCards[index]);  //山札から手札に加える
             _deckCards.RemoveAt(index);         //山札から引いたカードを消す
         }
-        Debug.Log(_handcards.Value.Count);
+        DeckCardsChanged?.Invoke(_deckCards);
+        Debug.Log(_handcards.Count);
     }
 
     /// <summary>
@@ -53,9 +53,10 @@ public class PlayerManager
     public void PlayCard(int handCardIndex)
     {
         _actionCost.Value--;
-        _handcards.Value[handCardIndex].PlayCard();
-        _deckCards.Add(_handcards.Value[handCardIndex]);
-        _handcards.Value.RemoveAt(handCardIndex);
+        _handcards[handCardIndex].PlayCard();
+        _deckCards.Add(_handcards[handCardIndex]);
+        _handcards.RemoveAt(handCardIndex);
+        DeckCardsChanged?.Invoke(_handcards);
         Debug.Log("call");
     }
 
