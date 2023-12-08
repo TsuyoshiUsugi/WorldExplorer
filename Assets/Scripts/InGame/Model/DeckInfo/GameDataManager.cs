@@ -7,4 +7,5 @@ public class GameDataManager : AbstractSingleton<GameDataManager>
 {
     [SerializeField] private DeckInfo _deckInfo;
     public DeckInfo DeckInfo => _deckInfo;
+    public EnemyData EnemyData;
 }

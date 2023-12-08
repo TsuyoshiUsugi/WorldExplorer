@@ -10,6 +10,8 @@ public class EnemyAttack : IEnemyBehavior
 {
     public void Excute()
     {
-        FieldInfo.Instance.PlayerManager.ApplyDamage(FieldInfo.Instance.EnemyManager.AttackPower);
+        //var player = FieldInfo.Instance.PlayerManager;
+        //var enemyPower = FieldInfo.Instance.EnemyManager.AttackPower;
+        //player?.ApplyDamage(enemyPower);
     }
 }
