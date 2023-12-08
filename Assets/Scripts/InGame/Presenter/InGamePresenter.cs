@@ -8,9 +8,10 @@ using System.Collections.Generic;
 /// </summary>
 public class InGamePresenter : MonoBehaviour
 {
-    [SerializeField] Transform _deckTransform;
     [Inject]
     PlayerManager _playerManager;
+    [SerializeField] Transform _deckTransform;
+    [SerializeField] InGameView _gameView;
     private List<GameObject> _cardViews = new List<GameObject>();
 
     private void Awake()
@@ -23,9 +24,8 @@ public class InGamePresenter : MonoBehaviour
     /// </summary>
     private void SubscribeMethod()
     {
-        _playerManager.DeckCardsChanged += cards =>
+        _playerManager.HandCardsChanged += cards =>
         {
-            Debug.Log($"これまでに生成済みのカード数{_cardViews.Count}");
             _cardViews.ForEach(cardViews => Destroy(cardViews.gameObject));
             _cardViews.Clear();
 
@@ -38,5 +38,15 @@ public class InGamePresenter : MonoBehaviour
                 view.OnCardSelect += index => _playerManager.PlayCard(index);
             }
         };
+
+        _playerManager.ActionCost.Subscribe(num =>
+        {
+            _gameView.SetActionSimbleImage(num);
+        });
+
+        _playerManager.Deck.Subscribe(deck =>
+        {
+            _gameView.SetDeckCardNumText(deck.Count, _playerManager.MaxDeckCount);
+        });
     }
 }

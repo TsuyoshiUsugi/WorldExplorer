@@ -8,18 +8,29 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager
 {
-    private List<CardData> _handcards = new();       //手札
-    private List<CardData> _deckCards = new();        //山札
+    bool _active = false;
+    private int _maxDeckCount = 0;
+    private List<CardDataEntity> _handcards = new();       //手札
+    private ReactiveProperty<List<CardDataEntity>> _deckCards = new();        //山札
     private int _sakePower = 0;                          //酒力
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
-    private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);  
+    private readonly IntReactiveProperty _actionCost = new(3);  
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
-    public event Action<List<CardData>> DeckCardsChanged;
+    public IReadOnlyReactiveProperty<List<CardDataEntity>> Deck => _deckCards;
+    public event Action<List<CardDataEntity>> HandCardsChanged;
+    public int MaxDeckCount => _maxDeckCount;
 
     public PlayerManager()
     {
-        _deckCards = new List<CardData>(GameDataManager.Instance.DeckInfo.Cards);
+        _deckCards = new(new List<CardDataEntity>());
+        foreach (var card in GameDataManager.Instance.DeckInfo.Cards)
+        {
+            // ここでCardDataのディープコピーを作成
+            _deckCards.Value.Add(new CardDataEntity(card));
+        }
+        _maxDeckCount = _deckCards.Value.Count;
     }
+
 
     /// <summary>
     /// 山札からカードを引く処理
@@ -27,21 +38,38 @@ public class PlayerManager
     /// </summary>
     public void DrawCard(int drawCount = 5)
     {
-        if (_deckCards.Count == 0) return;
+        if (!_active) return;
+        if (_deckCards.Value.Count == 0) return;
+
         for (var i = 0; i < drawCount; i++)
-        {
-            var index = UnityEngine.Random.Range(0, _deckCards.Count);
-            if (_deckCards[index] == null)
+        {   //ドロー処理
+            var index = UnityEngine.Random.Range(0, _deckCards.Value.Count);
+            if (_deckCards.Value[index] == null)
             {
                 Debug.Log("カードが足りません！");
                 return;
             }
-            
-            _handcards.Add(_deckCards[index]);  //山札から手札に加える
-            _deckCards.RemoveAt(index);         //山札から引いたカードを消す
+
+            _handcards.Add(_deckCards.Value[index]);  //山札から手札に加える
+            _deckCards.Value.RemoveAt(index);         //山札から引いたカードを消す
         }
-        DeckCardsChanged?.Invoke(_deckCards);
+        HandCardsChanged?.Invoke(_handcards);
         Debug.Log(_handcards.Count);
+    }
+
+    /// <summary>
+    /// ターン開始時に最初に呼ばれる
+    /// </summary>
+    public void ResetHandCard()
+    {
+        //前のターンで引いていたカードを山札に戻して_handcardsをリセット
+        for (var i = 0; i < _handcards.Count; i++)
+        {
+            var card = _handcards[i];
+            _deckCards.Value.Add(card);
+            _handcards.Remove(card);
+        }
+        _handcards.Clear();
     }
 
     /// <summary>
@@ -52,12 +80,22 @@ public class PlayerManager
     /// <param name="handCardIndex"></param>
     public void PlayCard(int handCardIndex)
     {
-        _actionCost.Value--;
-        _handcards[handCardIndex].PlayCard();
-        _deckCards.Add(_handcards[handCardIndex]);
+        if (!_active) return;
+        if (_actionCost.Value == 0) return;
+        _actionCost.Value -= 1;
+        _handcards[handCardIndex].PlayCard();   //ここでカードの効果呼び出し
+        _deckCards.Value.Add(_handcards[handCardIndex]);
         _handcards.RemoveAt(handCardIndex);
-        DeckCardsChanged?.Invoke(_handcards);
-        Debug.Log("call");
+        HandCardsChanged?.Invoke(_handcards);
+    }
+
+    /// <summary>
+    /// プレイヤーの行動を設定する
+    /// </summary>
+    /// <param name="active">アクティブにする場合true</param>
+    public void SetActivePlayer(bool active)
+    {
+        _active = active;
     }
 
     /// <summary>
@@ -66,6 +104,6 @@ public class PlayerManager
     /// <param name=""></param>
     public void RestActionCost()
     {
-        _actionCost.Value += _defaultActionCost;
+        _actionCost.Value = _defaultActionCost;
     }
 }
