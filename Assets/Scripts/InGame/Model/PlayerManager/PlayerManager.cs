@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager
 {
+    private int _hp = 100;
+    private int _attackPower = 10;
+    private int _blockPower = 10;
     bool _active = false;
     private int _maxDeckCount = 0;
     private List<CardDataEntity> _handcards = new();       //手札
@@ -15,6 +18,10 @@ public class PlayerManager
     private int _sakePower = 0;                          //酒力
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
     private readonly IntReactiveProperty _actionCost = new(3);  
+
+    public int HP => _hp;
+    public int AttackPower => _attackPower;
+    public int BlockPower => _blockPower;
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
     public IReadOnlyReactiveProperty<List<CardDataEntity>> Deck => _deckCards;
     public event Action<List<CardDataEntity>> HandCardsChanged;
