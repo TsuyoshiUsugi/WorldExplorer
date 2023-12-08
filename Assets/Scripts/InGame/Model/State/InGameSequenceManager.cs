@@ -1,6 +1,8 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 
 /// <summary>
 /// インゲームの進行管理を行う
@@ -9,16 +11,15 @@ using UnityEngine;
 /// </summary>
 public class InGameSequenceManager : MonoBehaviour
 {
-    IInGameState _playerTurnState;
-    IInGameState _enemyTurnState;
+    [Inject]
+    PlayerTurnState _playerTurnState;
+    [Inject]
+    EnemyTurnState _enemyTurnState;
 
     private void Start()
     {
-        _playerTurnState = new PlayerTurnState();
-        _enemyTurnState = new EnemyTurnState();
-
         BindEvent();
-        _playerTurnState.OnEnter();
+        _playerTurnState.OnEnter().Forget();
     }
 
     /// <summary>
