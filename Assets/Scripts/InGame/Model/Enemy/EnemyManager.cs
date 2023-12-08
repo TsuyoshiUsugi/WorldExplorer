@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyManager
 {
-    private int _hp = 10;
+    private int _hp = 100;
     private int _attackPower = 1;
     private int _blockPower = 1;
     List<IEnemyBehavior> _behaviors;
@@ -16,8 +16,10 @@ public class EnemyManager
     public int AttackPower => _attackPower;
     public int BlockPower => _blockPower;
 
-    public EnemyManager()
+    public EnemyManager(List<IEnemyBehavior> enemyBehaviors)
     {
+        //ここはステータス全てを
+        _behaviors = enemyBehaviors;
         FieldInfo.Instance.EnemyManager = this;
     }
 
@@ -28,5 +30,6 @@ public class EnemyManager
     {
         var index = Random.Range(0, _behaviors.Count);
         _behaviors[index].Excute();
+        //Debug.Log(FieldInfo.Instance.PlayerManager.HP);
     }
 }

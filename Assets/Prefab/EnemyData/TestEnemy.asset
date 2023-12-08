@@ -13,3 +13,11 @@ MonoBehaviour:
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 0}
+  EnemyBehavior:
+  - rid: 3382217806381580288
+  references:
+    version: 2
+    RefIds:
+    - rid: 3382217806381580288
+      type: {class: EnemyAttack, ns: , asm: Assembly-CSharp}
+      data: 

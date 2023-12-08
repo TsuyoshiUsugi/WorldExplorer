@@ -62,7 +62,6 @@ public class PlayerManager
             _deckCards.Value.RemoveAt(index);         //山札から引いたカードを消す
         }
         HandCardsChanged?.Invoke(_handcards);
-        Debug.Log(_handcards.Count);
     }
 
     /// <summary>
@@ -112,7 +111,7 @@ public class PlayerManager
     /// <param name=""></param>
     public void RestActionCost()
     {
-        _actionCost.Value = _defaultActionCost;
+        _actionCost.Value = 3;
     }
 
     /// <summary>
