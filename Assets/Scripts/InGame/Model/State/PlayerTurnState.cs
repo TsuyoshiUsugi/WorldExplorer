@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System;
-using UnityEngine;
-using UniRx;
+using System.Collections.Generic;
 
 /// <summary>
 /// プレイヤーターンの処理を管理するクラス
@@ -12,9 +11,13 @@ public class PlayerTurnState : IInGameState
     public event Func<UniTask> OnExitEvent;
     private PlayerManager _playerManager;
 
+    public PlayerTurnState(PlayerManager playerManager)
+    {
+        _playerManager = playerManager;
+    }
+
     public async UniTask OnEnter()
     {
-        if (_playerManager == null) _playerManager = new();
         //デッキをから手札を取得
         _playerManager.DrawCard();
         //アクションコストを回復

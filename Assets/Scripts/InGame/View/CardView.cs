@@ -8,14 +8,19 @@ using UnityEngine.UI;
 public class CardView : MonoBehaviour
 {
     [SerializeField] Button _cardSelectButton;
-    public event Action OnCardSelect;
+    public event Action<int> OnCardSelect;
+    private int _index = 0;
 
     private void Start()
     {
         _cardSelectButton?.onClick.AddListener(() =>
         {
-            Debug.Log("Call");
-            OnCardSelect?.Invoke();
+            OnCardSelect?.Invoke(_index);
         });
+    }
+
+    public void SetIndex(int index)
+    {
+        _index = index;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
@@ -7,16 +8,18 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager
 {
-    private List<CardData> _handcards = new ();       //手札
+    private readonly ReactiveProperty<List<CardData>> _handcards;       //手札
     private List<CardData> _deckCards = new();        //山札
     private int _sakePower = 0;                          //酒力
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
     private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);  
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
+    public IReadOnlyReactiveProperty<List<CardData>> Handcards => _handcards;
 
     public PlayerManager()
     {
-        _deckCards = GameDataManager.Instance.DeckInfo.Cards;
+        _deckCards = new List<CardData>(GameDataManager.Instance.DeckInfo.Cards);
+        _handcards = new ReactiveProperty<List<CardData>>(new List<CardData>());
     }
 
     /// <summary>
@@ -28,10 +31,17 @@ public class PlayerManager
         if (_deckCards.Count == 0) return;
         for (var i = 0; i < drawCount; i++)
         {
-            var index = Random.Range(0, _deckCards.Count);
-            _handcards.Add(_deckCards[index]);  //山札から手札に加える
+            var index = UnityEngine.Random.Range(0, _deckCards.Count);
+            if (_deckCards[index] == null)
+            {
+                Debug.Log("カードが足りません！");
+                return;
+            }
+            
+            _handcards.Value.Add(_deckCards[index]);  //山札から手札に加える
             _deckCards.RemoveAt(index);         //山札から引いたカードを消す
         }
+        Debug.Log(_handcards.Value.Count);
     }
 
     /// <summary>
@@ -43,9 +53,10 @@ public class PlayerManager
     public void PlayCard(int handCardIndex)
     {
         _actionCost.Value--;
-        _handcards[handCardIndex].PlayCard();
-        _deckCards.Add(_handcards[handCardIndex]);
-        _handcards.RemoveAt(handCardIndex);
+        _handcards.Value[handCardIndex].PlayCard();
+        _deckCards.Add(_handcards.Value[handCardIndex]);
+        _handcards.Value.RemoveAt(handCardIndex);
+        Debug.Log("call");
     }
 
     /// <summary>
