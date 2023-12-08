@@ -24,3 +24,29 @@ public class CardData : ScriptableObject
         }
     }
 }
+
+/// <summary>
+/// カードのデータを持つクラス
+/// </summary>
+public class CardDataEntity
+{
+    public GameObject CardEntity;
+    public List<ICardEffect> CardEffects;
+
+    public CardDataEntity(CardData cardData) 
+    {
+        CardEntity = cardData.CardEntity;
+        CardEffects = cardData.CardEffects;
+    }
+
+    /// <summary>
+    /// カードの効果を発動する
+    /// </summary>
+    public void PlayCard()
+    {
+        foreach (var effet in CardEffects)
+        {
+            effet.ExcuteCardEffect();
+        }
+    }
+}

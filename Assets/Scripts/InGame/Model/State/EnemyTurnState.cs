@@ -13,7 +13,8 @@ public class EnemyTurnState : IInGameState
 
     public async UniTask OnEnter()
     {
-        await OnEnterEvent.Invoke();
+        OnEnterEvent?.Invoke();
+        await UniTask.CompletedTask;
         OnExit().Forget();
     }
 
