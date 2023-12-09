@@ -13,6 +13,8 @@ public class InGameSequenceManager : MonoBehaviour
     PlayerTurnState _playerTurnState;
     [Inject]
     EnemyTurnState _enemyTurnState;
+    [Inject]
+    ResultState _resultState;
 
     private void Start()
     {
