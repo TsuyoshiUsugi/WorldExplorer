@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UniRx;
@@ -12,7 +13,8 @@ public class EnemyManager
     public int MaxHp { get; private set; }
     private int _attackPower = 1;
     private int _blockPower = 1;
-    List<IEnemyBehavior> _behaviors;
+    private List<IEnemyBehavior> _behaviors;
+    public event Action<Winner> OnGameEnd;
 
     public IReadOnlyReactiveProperty<int> HP => _hp;
     public int AttackPower => _attackPower;
@@ -30,7 +32,7 @@ public class EnemyManager
     /// </summary>
     public void ExcuteEnemyAction()
     {
-        var index = Random.Range(0, _behaviors.Count);
+        var index = UnityEngine.Random.Range(0, _behaviors.Count);
         _behaviors[index].Excute();
     }
 
@@ -40,6 +42,10 @@ public class EnemyManager
     public void ApplyDamage(int damage)
     {
         _hp.Value -= damage;
-        if (_hp.Value < 0) _hp.Value = 0;
+        if (_hp.Value < 0)
+        {
+            _hp.Value = 0;
+            OnGameEnd?.Invoke(Winner.Player);
+        }
     }
 }

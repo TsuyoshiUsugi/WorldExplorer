@@ -2088,6 +2088,7 @@ GameObject:
   - component: {fileID: 938038494}
   - component: {fileID: 938038493}
   - component: {fileID: 938038497}
+  - component: {fileID: 938038498}
   m_Layer: 5
   m_Name: InGameCanvas
   m_TagString: Untagged
@@ -2204,6 +2205,24 @@ MonoBehaviour:
   _deckCount: {fileID: 510778424}
   _playerHPBar: {fileID: 1750153639}
   _enemyHPBar: {fileID: 1679865847}
+--- !u!114 &938038498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938038492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e5c2674b8234e45877f7efb2e80167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _winResultPanel: {fileID: 819860183}
+  _healRewardButton: {fileID: 337939544}
+  _powerUpRewardButton: {fileID: 1355211575}
+  _lsoeResultPanel: {fileID: 1403661391}
+  _retryButton: {fileID: 822512219}
+  _backToTitleButton: {fileID: 754413342}
 --- !u!1 &947105945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,6 +2658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deckTransform: {fileID: 790307362}
   _gameView: {fileID: 938038497}
+  _resultView: {fileID: 938038498}
 --- !u!1 &1266553744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,7 +2951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1403661392
 RectTransform:
   m_ObjectHideFlags: 0
