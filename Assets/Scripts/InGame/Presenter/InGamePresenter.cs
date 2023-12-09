@@ -46,9 +46,10 @@ public class InGamePresenter : MonoBehaviour
             _gameView.SetActionSimbleImage(num);
         });
 
-        _playerManager.Deck.Subscribe(deck =>
+        _playerManager.Deck.ObserveCountChanged().Subscribe(deckCount =>
         {
-            _gameView.SetDeckCardNumText(deck.Count, _playerManager.MaxDeckCount);
+            Debug.Log("変更");
+            _gameView.SetDeckCardNumText(deckCount, _playerManager.MaxDeckCount);
         });
 
         _playerManager.HP.Subscribe(hp =>

@@ -11,11 +11,6 @@ public class FieldInfo : AbstractSingleton<FieldInfo>
     [Inject]
     public EnemyManager EnemyManager;
 
-    protected override void OnAwake()
-    {
-        Debug.Log("FieldInfo Awake");
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

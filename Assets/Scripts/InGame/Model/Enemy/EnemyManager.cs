@@ -32,6 +32,5 @@ public class EnemyManager
     {
         var index = Random.Range(0, _behaviors.Count);
         _behaviors[index].Excute();
-        Debug.Log("敵の攻撃！");
     }
 }
