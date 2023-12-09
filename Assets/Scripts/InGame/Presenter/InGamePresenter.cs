@@ -9,6 +9,8 @@ using System.Collections.Generic;
 public class InGamePresenter : MonoBehaviour
 {
     [Inject]
+    EnemyManager _enemyManager;
+    [Inject]
     PlayerManager _playerManager;
     [SerializeField] Transform _deckTransform;
     [SerializeField] InGameView _gameView;
@@ -47,6 +49,16 @@ public class InGamePresenter : MonoBehaviour
         _playerManager.Deck.Subscribe(deck =>
         {
             _gameView.SetDeckCardNumText(deck.Count, _playerManager.MaxDeckCount);
+        });
+
+        _playerManager.HP.Subscribe(hp =>
+        {
+            _gameView.ShowPlayerHP(hp, _playerManager.MaxHp);
+        });
+
+        _enemyManager.HP.Subscribe(hp =>
+        {
+            _gameView.ShowEnemyHP(hp, _enemyManager.MaxHp);
         });
     }
 }

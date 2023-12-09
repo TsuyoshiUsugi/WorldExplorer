@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 /// <summary>
@@ -7,21 +8,21 @@ using UnityEngine;
 /// </summary>
 public class EnemyManager
 {
-    private int _hp = 100;
+    private IntReactiveProperty _hp = new(100);
+    public int MaxHp { get; private set; }
     private int _attackPower = 1;
     private int _blockPower = 1;
     List<IEnemyBehavior> _behaviors;
 
-    public int HP => _hp;
+    public IReadOnlyReactiveProperty<int> HP => _hp;
     public int AttackPower => _attackPower;
     public int BlockPower => _blockPower;
 
     public EnemyManager(List<IEnemyBehavior> enemyBehaviors)
     {
-        FieldInfo.Instance.EnemyManager = this;
-        Debug.Log(FieldInfo.Instance.EnemyManager);
         //ここはステータス全てを入れるようにする
         _behaviors = enemyBehaviors;
+        MaxHp = _hp.Value;
     }
 
     /// <summary>
@@ -31,6 +32,6 @@ public class EnemyManager
     {
         var index = Random.Range(0, _behaviors.Count);
         _behaviors[index].Excute();
-        //Debug.Log(FieldInfo.Instance.PlayerManager.HP);
+        Debug.Log("敵の攻撃！");
     }
 }
