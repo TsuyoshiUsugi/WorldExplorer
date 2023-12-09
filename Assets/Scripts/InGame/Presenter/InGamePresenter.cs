@@ -48,7 +48,6 @@ public class InGamePresenter : MonoBehaviour
 
         _playerManager.Deck.ObserveCountChanged().Subscribe(deckCount =>
         {
-            Debug.Log("変更");
             _gameView.SetDeckCardNumText(deckCount, _playerManager.MaxDeckCount);
         });
 

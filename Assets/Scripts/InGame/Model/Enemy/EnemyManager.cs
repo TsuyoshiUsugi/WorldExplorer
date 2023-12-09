@@ -33,4 +33,13 @@ public class EnemyManager
         var index = Random.Range(0, _behaviors.Count);
         _behaviors[index].Excute();
     }
+
+    /// <summary>
+    /// 指定したダメージを与える
+    /// </summary>
+    public void ApplyDamage(int damage)
+    {
+        _hp.Value -= damage;
+        if (_hp.Value < 0) _hp.Value = 0;
+    }
 }
