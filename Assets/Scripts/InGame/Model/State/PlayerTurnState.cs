@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine;
+using UniRx;
 
 /// <summary>
 /// プレイヤーターンの処理を管理するクラス
@@ -10,15 +11,19 @@ public class PlayerTurnState : IInGameState
     public event Func<UniTask> OnEnterEvent;
     public event Func<UniTask> OnExitEvent;
     private PlayerManager _playerManager;
+    public event Action<Winner> OnGameEnd;
 
     public PlayerTurnState(PlayerManager playerManager)
     {
         _playerManager = playerManager;
+        _playerManager.HP.Subscribe(hp =>
+        {
+            if (hp <= 0) OnGameEnd?.Invoke(Winner.Enemy);
+        });
     }
 
     public async UniTask OnEnter()
     {
-        Debug.Log("playerターン開始");
         _playerManager.SetActivePlayer(true);
         //前のターンで残っている手札を戻す
         _playerManager.ResetHandCard();

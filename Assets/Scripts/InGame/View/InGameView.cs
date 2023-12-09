@@ -11,6 +11,8 @@ public class InGameView : MonoBehaviour
     [SerializeField] List<GameObject> _actionSymbolCount;
     [SerializeField] Text _actionSymbolCountText;
     [SerializeField] Text _deckCount;
+    [SerializeField] Slider _playerHPBar;
+    [SerializeField] Slider _enemyHPBar;
 
     /// <summary>
     /// 行動可能回数を表示するシンボルカウントを指定した個数表示する
@@ -40,5 +42,15 @@ public class InGameView : MonoBehaviour
     public void SetDeckCardNumText(int remainDecknum, int maxDeckNum)
     {
         _deckCount.text = $"{remainDecknum}/{maxDeckNum}";
+    }
+
+    public void ShowPlayerHP(int current, int max)
+    {
+        _playerHPBar.value = (float)current / max;
+    }
+
+    public void ShowEnemyHP(int current, int max)
+    {
+        _enemyHPBar.value = (float)current / max;
     }
 }

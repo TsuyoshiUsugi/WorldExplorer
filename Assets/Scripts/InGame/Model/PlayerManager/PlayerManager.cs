@@ -8,22 +8,24 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager
 {
-    private int _hp = 100;
+    private IntReactiveProperty _hp = new(100);
+    public int MaxHp { get; private set; }
     private int _attackPower = 10;
     private int _blockPower = 10;
     bool _active = false;
     private int _maxDeckCount = 0;
     private List<CardDataEntity> _handcards = new();       //手札
-    private ReactiveProperty<List<CardDataEntity>> _deckCards = new();        //山札
+    private ReactiveCollection<CardDataEntity> _deckCards = new();        //山札
     private int _sakePower = 0;                          //酒力
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
-    private readonly IntReactiveProperty _actionCost = new(3);  
+    private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);
+    public event Action<Winner> OnGameEnd;
 
-    public int HP => _hp;
+    public IReadOnlyReactiveProperty<int> HP => _hp;
     public int AttackPower => _attackPower;
     public int BlockPower => _blockPower;
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
-    public IReadOnlyReactiveProperty<List<CardDataEntity>> Deck => _deckCards;
+    public ReactiveCollection<CardDataEntity> Deck => _deckCards;
     public event Action<List<CardDataEntity>> HandCardsChanged;
     public int MaxDeckCount => _maxDeckCount;
 
@@ -33,10 +35,10 @@ public class PlayerManager
         foreach (var card in GameDataManager.Instance.DeckInfo.Cards)
         {
             // ここでCardDataのディープコピーを作成
-            _deckCards.Value.Add(new CardDataEntity(card));
+            _deckCards.Add(new CardDataEntity(card));
         }
-        _maxDeckCount = _deckCards.Value.Count;
-        FieldInfo.Instance.PlayerManager = this;
+        _maxDeckCount = _deckCards.Count;
+        MaxHp = _hp.Value;
     }
 
 
@@ -47,19 +49,19 @@ public class PlayerManager
     public void DrawCard(int drawCount = 5)
     {
         if (!_active) return;
-        if (_deckCards.Value.Count == 0) return;
+        if (_deckCards.Count == 0) return;
 
         for (var i = 0; i < drawCount; i++)
         {   //ドロー処理
-            var index = UnityEngine.Random.Range(0, _deckCards.Value.Count);
-            if (_deckCards.Value[index] == null)
+            var index = UnityEngine.Random.Range(0, _deckCards.Count);
+            if (_deckCards.Count <= index)
             {
-                Debug.Log("カードが足りません！");
+                Debug.Log($"カードが足りません！ 呼び出しインデックス{index},デッキの枚数{_deckCards.Count}");
                 return;
             }
 
-            _handcards.Add(_deckCards.Value[index]);  //山札から手札に加える
-            _deckCards.Value.RemoveAt(index);         //山札から引いたカードを消す
+            _handcards.Add(_deckCards[index]);  //山札から手札に加える
+            _deckCards.RemoveAt(index);         //山札から引いたカードを消す
         }
         HandCardsChanged?.Invoke(_handcards);
     }
@@ -70,11 +72,11 @@ public class PlayerManager
     public void ResetHandCard()
     {
         //前のターンで引いていたカードを山札に戻して_handcardsをリセット
-        for (var i = 0; i < _handcards.Count; i++)
+        for (var i = _handcards.Count - 1; i >= 0; i--)
         {
             var card = _handcards[i];
-            _deckCards.Value.Add(card);
-            _handcards.Remove(card);
+            _deckCards.Add(card);
+            _handcards.RemoveAt(i);
         }
         _handcards.Clear();
     }
@@ -91,7 +93,7 @@ public class PlayerManager
         if (_actionCost.Value == 0) return;
         _actionCost.Value -= 1;
         _handcards[handCardIndex].PlayCard();   //ここでカードの効果呼び出し
-        _deckCards.Value.Add(_handcards[handCardIndex]);
+        _deckCards.Add(_handcards[handCardIndex]);
         _handcards.RemoveAt(handCardIndex);
         HandCardsChanged?.Invoke(_handcards);
     }
@@ -119,7 +121,19 @@ public class PlayerManager
     /// </summary>
     public void ApplyDamage(int damage)
     {
-        _hp -= damage;
-        _hp = 0;
+        _hp.Value -= damage;
+        if (_hp.Value <= 0)
+        {
+            _hp.Value = 0;
+        }
     }
+}
+
+/// <summary>
+/// 勝敗を表す
+/// </summary>
+public enum Winner
+{
+    Player,
+    Enemy,
 }
