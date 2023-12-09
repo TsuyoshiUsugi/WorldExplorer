@@ -2,16 +2,25 @@ using UnityEngine;
 using UniRx;
 using VContainer;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
 /// <summary>
 /// インゲームのViewとModelをつなぐクラス
 /// </summary>
 public class InGamePresenter : MonoBehaviour
 {
+    //モデル
     [Inject]
-    PlayerManager _playerManager;
-    [SerializeField] Transform _deckTransform;
-    [SerializeField] InGameView _gameView;
+    private EnemyManager _enemyManager;
+    [Inject]
+    private PlayerManager _playerManager;
+    [Inject]
+    private ResultState _resultState;
+
+    //ビュー
+    [SerializeField] private Transform _deckTransform;
+    [SerializeField] private InGameView _gameView;
+    [SerializeField] private ResultView _resultView;
     private List<GameObject> _cardViews = new List<GameObject>();
 
     private void Awake()
@@ -44,9 +53,32 @@ public class InGamePresenter : MonoBehaviour
             _gameView.SetActionSimbleImage(num);
         });
 
-        _playerManager.Deck.Subscribe(deck =>
+        _playerManager.Deck.ObserveCountChanged().Subscribe(deckCount =>
         {
-            _gameView.SetDeckCardNumText(deck.Count, _playerManager.MaxDeckCount);
+            _gameView.SetDeckCardNumText(deckCount, _playerManager.MaxDeckCount);
         });
+
+        _playerManager.HP.Subscribe(hp =>
+        {
+            _gameView.ShowPlayerHP(hp, _playerManager.MaxHp);
+        });
+
+        _enemyManager.HP.Subscribe(hp =>
+        {
+            _gameView.ShowEnemyHP(hp, _enemyManager.MaxHp);
+        });
+
+        _resultState.OnGameEnd += async (winner) =>
+        {
+            if (winner == Winner.Player)
+            {
+                _resultView.ShowWinResultPanel();
+            }
+            else
+            {
+                _resultView.ShowLoseResultPanel();
+            }
+            await UniTask.CompletedTask;
+        };
     }
 }
