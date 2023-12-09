@@ -31,7 +31,7 @@ public abstract class AbstractSingleton<T> : MonoBehaviour where T : Component
         }
     }
 
-    protected virtual void Awake()
+    private void Awake()
     {
         if (_instance == null)
         {
@@ -40,6 +40,7 @@ public abstract class AbstractSingleton<T> : MonoBehaviour where T : Component
         }
         else
         {
+            Debug.Log("既に存在しているため削除");
             Destroy(gameObject);
         }
         OnAwake();

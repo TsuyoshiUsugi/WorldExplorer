@@ -8,7 +8,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager
 {
-    private int _hp = 100;
+    private IntReactiveProperty _hp = new(100);
+    public int MaxHp { get; private set; }
     private int _attackPower = 10;
     private int _blockPower = 10;
     bool _active = false;
@@ -19,7 +20,7 @@ public class PlayerManager
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
     private readonly IntReactiveProperty _actionCost = new(3);  
 
-    public int HP => _hp;
+    public IReadOnlyReactiveProperty<int> HP => _hp;
     public int AttackPower => _attackPower;
     public int BlockPower => _blockPower;
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
@@ -29,8 +30,6 @@ public class PlayerManager
 
     public PlayerManager()
     {
-        FieldInfo.Instance.PlayerManager = this;
-        Debug.Log(FieldInfo.Instance.PlayerManager);
         _deckCards = new(new List<CardDataEntity>());
         foreach (var card in GameDataManager.Instance.DeckInfo.Cards)
         {
@@ -38,6 +37,7 @@ public class PlayerManager
             _deckCards.Value.Add(new CardDataEntity(card));
         }
         _maxDeckCount = _deckCards.Value.Count;
+        MaxHp = _hp.Value;
     }
 
 
@@ -63,6 +63,8 @@ public class PlayerManager
             _deckCards.Value.RemoveAt(index);         //山札から引いたカードを消す
         }
         HandCardsChanged?.Invoke(_handcards);
+
+        Debug.Log($"デッキの枚数{_deckCards.Value.Count}");
     }
 
     /// <summary>
@@ -75,7 +77,7 @@ public class PlayerManager
         {
             var card = _handcards[i];
             _deckCards.Value.Add(card);
-            _handcards.Remove(card);
+            _handcards.RemoveAt(i);
         }
         _handcards.Clear();
     }
@@ -120,7 +122,7 @@ public class PlayerManager
     /// </summary>
     public void ApplyDamage(int damage)
     {
-        _hp -= damage;
-        _hp = 0;
+        _hp.Value -= damage;
+      　if (_hp.Value < 0)  _hp.Value = 0;
     }
 }
