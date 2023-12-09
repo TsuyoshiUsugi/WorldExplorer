@@ -18,7 +18,8 @@ public class PlayerManager
     private ReactiveCollection<CardDataEntity> _deckCards = new();        //山札
     private int _sakePower = 0;                          //酒力
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
-    private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);  
+    private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);
+    public event Action<Winner> OnGameEnd;
 
     public IReadOnlyReactiveProperty<int> HP => _hp;
     public int AttackPower => _attackPower;
@@ -121,6 +122,18 @@ public class PlayerManager
     public void ApplyDamage(int damage)
     {
         _hp.Value -= damage;
-      　if (_hp.Value < 0)  _hp.Value = 0;
+        if (_hp.Value <= 0)
+        {
+            _hp.Value = 0;
+        }
     }
+}
+
+/// <summary>
+/// 勝敗を表す
+/// </summary>
+public enum Winner
+{
+    Player,
+    Enemy,
 }

@@ -2,18 +2,25 @@ using UnityEngine;
 using UniRx;
 using VContainer;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
 /// <summary>
 /// インゲームのViewとModelをつなぐクラス
 /// </summary>
 public class InGamePresenter : MonoBehaviour
 {
+    //モデル
     [Inject]
-    EnemyManager _enemyManager;
+    private EnemyManager _enemyManager;
     [Inject]
-    PlayerManager _playerManager;
-    [SerializeField] Transform _deckTransform;
-    [SerializeField] InGameView _gameView;
+    private PlayerManager _playerManager;
+    [Inject]
+    private ResultState _resultState;
+
+    //ビュー
+    [SerializeField] private Transform _deckTransform;
+    [SerializeField] private InGameView _gameView;
+    [SerializeField] private ResultView _resultView;
     private List<GameObject> _cardViews = new List<GameObject>();
 
     private void Awake()
@@ -60,5 +67,18 @@ public class InGamePresenter : MonoBehaviour
         {
             _gameView.ShowEnemyHP(hp, _enemyManager.MaxHp);
         });
+
+        _resultState.OnGameEnd += async (winner) =>
+        {
+            if (winner == Winner.Player)
+            {
+                _resultView.ShowWinResultPanel();
+            }
+            else
+            {
+                _resultView.ShowLoseResultPanel();
+            }
+            await UniTask.CompletedTask;
+        };
     }
 }

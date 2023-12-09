@@ -11,10 +11,15 @@ public class EnemyTurnState : IInGameState
     public event Func<UniTask> OnEnterEvent;
     public event Func<UniTask> OnExitEvent;
     private EnemyManager _enemyManager;
+    public event Action<Winner> OnGameEnd;
 
     public EnemyTurnState(EnemyManager enemyManager)
     {
         _enemyManager = enemyManager;
+        _enemyManager.HP.Subscribe(hp =>
+        {
+            if (hp <= 0) OnGameEnd?.Invoke(Winner.Player);
+        });
     }
 
     public async UniTask OnEnter()
