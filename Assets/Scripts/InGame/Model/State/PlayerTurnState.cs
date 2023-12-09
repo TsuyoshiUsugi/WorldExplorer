@@ -18,7 +18,6 @@ public class PlayerTurnState : IInGameState
 
     public async UniTask OnEnter()
     {
-        Debug.Log("playerターン開始");
         _playerManager.SetActivePlayer(true);
         //前のターンで残っている手札を戻す
         _playerManager.ResetHandCard();

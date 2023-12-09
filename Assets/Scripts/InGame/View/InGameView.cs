@@ -42,6 +42,7 @@ public class InGameView : MonoBehaviour
     public void SetDeckCardNumText(int remainDecknum, int maxDeckNum)
     {
         _deckCount.text = $"{remainDecknum}/{maxDeckNum}";
+        Debug.Log($"デッキの枚数{remainDecknum}, 最大{maxDeckNum}");
     }
 
     public void ShowPlayerHP(int current, int max)

@@ -13,6 +13,5 @@ public class EnemyAttack : IEnemyBehavior
         var player = FieldInfo.Instance.PlayerManager;
         var enemyPower = FieldInfo.Instance.EnemyManager.AttackPower;
         player?.ApplyDamage(enemyPower);
-        Debug.Log($"プレイヤーの体力{player.HP.Value}, 敵の攻撃力{enemyPower}");
     }
 }
