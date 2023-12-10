@@ -44,12 +44,10 @@ public class BlockPowerUpStatus : TurnStatus
     protected override void ExecuteEffect(Status status)
     {
         status.AddBlockPower(_addBlockPower);
-        Debug.Log($"ブロック力上昇{_addBlockPower}、現在のブロック値{status.BlockPower}");
     }
 
     protected override void CancelEffect(Status status)
     {
         status.AddBlockPower(_addBlockPower *= -1);
-        Debug.Log($"ブロック力上昇状態解除{_addBlockPower}、現在のブロック値{status.BlockPower}");
     }
 }
