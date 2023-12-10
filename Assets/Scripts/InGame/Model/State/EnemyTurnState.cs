@@ -12,6 +12,7 @@ public class EnemyTurnState : IInGameState
     public event Func<UniTask> OnExitEvent;
     private EnemyManager _enemyManager;
     public event Action<Winner> OnGameEnd;
+    public EnemyManager EnemyManager => _enemyManager;
 
     public EnemyTurnState(EnemyManager enemyManager)
     {

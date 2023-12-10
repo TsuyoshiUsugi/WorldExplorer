@@ -12,6 +12,7 @@ public class PlayerTurnState : IInGameState
     public event Func<UniTask> OnExitEvent;
     private PlayerManager _playerManager;
     public event Action<Winner> OnGameEnd;
+    public PlayerManager PlayerManager => _playerManager;
 
     public PlayerTurnState(PlayerManager playerManager)
     {
