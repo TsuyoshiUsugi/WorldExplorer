@@ -58,14 +58,14 @@ public class InGamePresenter : MonoBehaviour
             _gameView.SetDeckCardNumText(deckCount, _playerManager.MaxDeckCount);
         });
 
-        _playerManager.HP.Subscribe(hp =>
+        _playerManager.Status.HP.Subscribe(hp =>
         {
-            _gameView.ShowPlayerHP(hp, _playerManager.MaxHp);
+            _gameView.ShowPlayerHP(hp, _playerManager.Status.MaxHp);
         });
 
-        _enemyManager.HP.Subscribe(hp =>
+        _enemyManager.Status.HP.Subscribe(hp =>
         {
-            _gameView.ShowEnemyHP(hp, _enemyManager.MaxHp);
+            _gameView.ShowEnemyHP(hp, _enemyManager.Status.MaxHp);
         });
 
         _resultState.OnGameEnd += async (winner) =>

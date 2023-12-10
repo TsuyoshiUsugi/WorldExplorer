@@ -8,10 +8,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager
 {
-    private IntReactiveProperty _hp = new(100);
-    public int MaxHp { get; private set; }
-    private int _attackPower = 10;
-    private int _blockPower = 10;
+    private Status _status;
     bool _active = false;
     private int _maxDeckCount = 0;
     private List<CardDataEntity> _handcards = new();       //手札
@@ -20,10 +17,8 @@ public class PlayerManager
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
     private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);
     public event Action<Winner> OnGameEnd;
-
-    public IReadOnlyReactiveProperty<int> HP => _hp;
-    public int AttackPower => _attackPower;
-    public int BlockPower => _blockPower;
+    
+    public Status Status => _status;
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
     public ReactiveCollection<CardDataEntity> Deck => _deckCards;
     public event Action<List<CardDataEntity>> HandCardsChanged;
@@ -38,7 +33,7 @@ public class PlayerManager
             _deckCards.Add(new CardDataEntity(card));
         }
         _maxDeckCount = _deckCards.Count;
-        MaxHp = _hp.Value;
+        _status = new Status(100, 10, 0);
     }
 
 
@@ -114,18 +109,6 @@ public class PlayerManager
     public void RestActionCost()
     {
         _actionCost.Value = 3;
-    }
-
-    /// <summary>
-    /// 指定したダメージを与える
-    /// </summary>
-    public void ApplyDamage(int damage)
-    {
-        _hp.Value -= damage;
-        if (_hp.Value <= 0)
-        {
-            _hp.Value = 0;
-        }
     }
 }
 

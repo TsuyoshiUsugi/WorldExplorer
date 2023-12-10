@@ -22,7 +22,7 @@ public class FieldInfo : AbstractSingleton<FieldInfo>
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("プレイヤーの行動");
-            PlayerManager.ApplyDamage(10);
+            PlayerManager.Status.ApplyDamage(10);
         }
     }
 }
