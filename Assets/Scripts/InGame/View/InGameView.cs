@@ -15,6 +15,9 @@ public class InGameView : MonoBehaviour
     [SerializeField] Text _playerHPText;
     [SerializeField] Slider _enemyHPBar;
     [SerializeField] Text _enemyHPText;
+    [SerializeField] Image _enemyActionImage;
+    [SerializeField] Text _enemyActionText;
+    [SerializeField] List<IconPair> _enemyActionIcons;
 
     /// <summary>
     /// 行動可能回数を表示するシンボルカウントを指定した個数表示する
@@ -57,4 +60,32 @@ public class InGameView : MonoBehaviour
         _enemyHPBar.value = (float)current / max;
         _enemyHPText.text = $"{current}/{max}";
     }
+
+    /// <summary>
+    /// 敵の行動を表示する
+    /// </summary>
+    /// <param name="enemyAction"></param>
+    /// <param name="actionRelatedNum">行動に関係する値がある場合は入れる</param>
+    public void ShowEnemyAction(IEnemyBehavior.EnemyAction enemyAction, int actionRelatedNum = 0)
+    {
+        switch (enemyAction)
+        {
+            case IEnemyBehavior.EnemyAction.Attack:
+                _enemyActionImage.sprite = _enemyActionIcons.Find(sprite => sprite.EnemyAction == IEnemyBehavior.EnemyAction.Attack).Sprite;
+                _enemyActionText.text = actionRelatedNum.ToString();
+                break;
+            case IEnemyBehavior.EnemyAction.Block:
+                _enemyActionImage.sprite = _enemyActionIcons.Find(sprite => sprite.EnemyAction == IEnemyBehavior.EnemyAction.Block).Sprite;
+                _enemyActionText.text = actionRelatedNum.ToString();
+                break;
+        }
+    }
+
+}
+
+[System.Serializable]
+public class IconPair
+{
+    public IEnemyBehavior.EnemyAction EnemyAction;
+    public Sprite Sprite;
 }

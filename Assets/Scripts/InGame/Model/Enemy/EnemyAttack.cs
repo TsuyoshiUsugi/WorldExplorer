@@ -8,6 +8,8 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyAttack : IEnemyBehavior
 {
+    public IEnemyBehavior.EnemyAction Action => IEnemyBehavior.EnemyAction.Attack;
+
     public void Excute()
     {
         var player = FieldInfo.Instance.PlayerManager;

@@ -15,9 +15,14 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 0}
   EnemyBehavior:
   - rid: 3382217806381580288
+  - rid: 3382217852420096002
   references:
     version: 2
     RefIds:
     - rid: 3382217806381580288
       type: {class: EnemyAttack, ns: , asm: Assembly-CSharp}
       data: 
+    - rid: 3382217852420096002
+      type: {class: EnemyBlock, ns: , asm: Assembly-CSharp}
+      data:
+        _addBlockPower: 10
