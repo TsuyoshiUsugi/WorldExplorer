@@ -28,9 +28,8 @@ public class InGameSequenceManager : MonoBehaviour
     /// </summary>
     private void SetFieldInfo()
     {
-        var fieldInfo = FindObjectOfType<FieldInfo>();
-        fieldInfo.PlayerManager = _playerTurnState.PlayerManager;
-        fieldInfo.EnemyManager = _enemyTurnState.EnemyManager;
+        _enemyTurnState.SetEnemyInfo();
+        _playerTurnState.SetPlayerInfo();
     }
 
     /// <summary>
