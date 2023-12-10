@@ -18,6 +18,7 @@ public class EnemyManager
         //ここはステータス全てを入れるようにする
         _status = new Status(100, 10, 0);
         _behaviors = enemyBehaviors;
+        _turnStatuses = new List<TurnStatus>();
     }
 
     /// <summary>
@@ -35,6 +36,18 @@ public class EnemyManager
     /// <param name="turnStatus"></param>
     public void ApplyEffect(TurnStatus turnStatus)
     {
+        turnStatus.ApplyEffect(_status);
         _turnStatuses.Add(turnStatus);
+    }
+
+    /// <summary>
+    /// 持続する効果のターンを減らす
+    /// </summary>
+    public void DecreaseEffectTurn()
+    {
+        foreach (var turnStatus in _turnStatuses)
+        {
+            turnStatus.DecreaseTurn();
+        }
     }
 }
