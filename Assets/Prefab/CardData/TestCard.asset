@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
   m_Name: TestCard
   m_EditorClassIdentifier: 
-  CardEntity: {fileID: 5400089184753962535, guid: 3222759a24c3a6b43837cb2d74c51a7d, type: 3}
+  CardPrefab: {fileID: 5400089184753962535, guid: 3222759a24c3a6b43837cb2d74c51a7d, type: 3}
   CardEffects:
   - rid: 4606560170361749505
+  - rid: 3382217852420096001
   references:
     version: 2
     RefIds:
+    - rid: 3382217852420096001
+      type: {class: ApplyAttackPowerDownEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _turn: 1
+        _downPower: 10
     - rid: 4606560170361749505
       type: {class: ApplyDamageEffect, ns: , asm: Assembly-CSharp}
       data: 

@@ -1,39 +1,51 @@
+using System;
+using UniRx;
 /// <summary>
 /// プレイヤーや敵が持つターンで持続するステータスの基底クラス
 /// </summary>
 public abstract class TurnStatus
 {
-    /// <summary>
-    /// ステータスの種類を取得するプロパティ
-    /// </summary>
-    //public StatusType StatusType { get; }
+    protected readonly ReactiveProperty<int> _remainTurn = new ReactiveProperty<int>();
+    private IDisposable _disposable;
 
     /// <summary>
     /// ステータスの効果が持続するターン数を取得するプロパティ
     /// </summary>
-    public int RemainTurn { get; }
+    public IReadOnlyReactiveProperty<int> RemainTurn => _remainTurn;
 
     /// <summary>
-    /// ステータスの効果を実行するメソッド
+    /// ステータスの効果を開始する
     /// </summary>
-    public void Run()
+    /// <param name="status">対象となるプレイヤーのステータスの参照</param>
+    public void ApplyEffect(Status status)
     {
-        Effect();
+        ExecuteEffect(status);
+        _disposable = _remainTurn.Subscribe(turn =>
+        {
+            if (turn <= 0)
+            {
+                CancelEffect(status);
+                _disposable.Dispose();
+            }
+        });
+    }
+
+    /// <summary>
+    /// ステータスの持続ターンを減らす
+    /// </summary>
+    public void DecreaseTurn()
+    {
+        _remainTurn.Value--;
     }
 
     /// <summary>
     /// ここにステータスの実際の効果を記述する
     /// </summary>
-    public abstract void Effect();
-}
+    /// <param name="status">対象となるプレイヤーのステータスの参照</param>
+    protected abstract void ExecuteEffect(Status status);
 
-/// <summary>
-/// ステータスの種類
-/// </summary>
-public enum StatusType
-{
-    PowerUp,
-    PowerDown,
-    GuardUp,
-    GuardDown,
+    /// <summary>
+    /// ステータスの効果が終了したときに呼び出すメソッド
+    /// </summary>
+    protected abstract void CancelEffect(Status status);
 }
