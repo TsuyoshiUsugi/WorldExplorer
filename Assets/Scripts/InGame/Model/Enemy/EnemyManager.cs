@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UniRx;
+using UnityEngine;
 
 /// <summary>
 /// 敵の行動等を管理するクラス

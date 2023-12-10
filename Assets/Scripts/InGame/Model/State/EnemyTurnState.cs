@@ -37,8 +37,6 @@ public class EnemyTurnState : IInGameState
     {
         //前処理
         OnEnterEvent?.Invoke();
-        Debug.Log(FieldInfo.Instance.EnemyManager.Status.AttackPower);
-        Debug.Log(FieldInfo.Instance.EnemyManager.Status.BlockPower);
         //メイン処理
         //敵の行動を実行する
         _enemyManager.ExcuteEnemyAction();
