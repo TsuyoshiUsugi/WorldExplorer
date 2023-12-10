@@ -20,6 +20,17 @@ public class InGameSequenceManager : MonoBehaviour
     {
         BindEvent();
         _playerTurnState.OnEnter().Forget();
+        SetFieldInfo();
+    }
+
+    /// <summary>
+    /// FieldInfoに各ステートのマネージャーをセットする
+    /// </summary>
+    private void SetFieldInfo()
+    {
+        var fieldInfo = FindObjectOfType<FieldInfo>();
+        fieldInfo.PlayerManager = _playerTurnState.PlayerManager;
+        fieldInfo.EnemyManager = _enemyTurnState.EnemyManager;
     }
 
     /// <summary>

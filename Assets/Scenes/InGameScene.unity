@@ -2648,7 +2648,6 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 1927094307}
-  - {fileID: 700515284}
   _ingamePresenter: {fileID: 1203788773}
 --- !u!1 &1203788771
 GameObject:
