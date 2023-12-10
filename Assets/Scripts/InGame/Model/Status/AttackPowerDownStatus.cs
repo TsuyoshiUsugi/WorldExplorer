@@ -15,11 +15,7 @@ public class AttackPowerDownStatus : TurnStatus
 
     protected override void ExecuteEffect(Status status)
     {
-        Debug.Log("現在の敵の攻撃力" + status.AttackPower);
         status.AddAttackPower(_downPower * -1);
-        Debug.Log("攻撃力を" + _downPower + "下げました");
-        Debug.Log("現在の敵の攻撃力" + status.AttackPower);
-        Debug.Log("残りターン数" + _remainTurn.Value);
     }
 
     protected override void CancelEffect(Status status)

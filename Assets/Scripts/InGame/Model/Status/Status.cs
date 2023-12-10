@@ -31,8 +31,9 @@ public class Status
     /// <param name="damage"></param>
     public void ApplyDamage(int damage)
     {
-        //計算式　残りhp =　現在のhp - (ダメージ - ブロック)
-        _hp.Value -= (damage - _blockPower);
+        //計算式　残りhp =　現在のhp - (ダメージ - ブロック) ※ダメージは0未満にならない
+        _hp.Value -= Mathf.Max((damage - _blockPower), 0);
+        Debug.Log($"ダメージ{damage} - ブロック{_blockPower}");
         if (_hp.Value < 0)
         {
             _hp.Value = 0;
