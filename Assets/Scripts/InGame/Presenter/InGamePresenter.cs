@@ -48,6 +48,7 @@ public class InGamePresenter : MonoBehaviour
             }
         };
 
+        #region PlayerManagerのイベント登録処理
         _playerManager.ActionCost.Subscribe(num =>
         {
             _gameView.SetActionSimbleImage(num);
@@ -63,10 +64,22 @@ public class InGamePresenter : MonoBehaviour
             _gameView.ShowPlayerHP(hp, _playerManager.Status.MaxHp);
         });
 
+      
+
+        #endregion
+
+        #region EnemyManagerのイベント登録処理
         _enemyManager.Status.HP.Subscribe(hp =>
         {
             _gameView.ShowEnemyHP(hp, _enemyManager.Status.MaxHp);
         });
+
+        _enemyManager.NextBehaviorIndex.Subscribe(index =>
+        {
+            _gameView.ShowEnemyAction(_enemyManager.Behaviors[index].Action);
+        });
+
+        #endregion
 
         _resultState.OnGameEnd += async (winner) =>
         {

@@ -10,9 +10,11 @@ public class EnemyManager
     private Status _status;
     private List<IEnemyBehavior> _behaviors;
     private List<TurnStatus> _turnStatuses;
-    private int _nextBehaviorIndex = 0;
+    private readonly IntReactiveProperty _nextBehaviorIndex = new(0);
     public event Action<Winner> OnGameEnd;
     public Status Status => _status;
+    public List<IEnemyBehavior> Behaviors => _behaviors;
+    public IReadOnlyReactiveProperty<int> NextBehaviorIndex => _nextBehaviorIndex;
 
     public EnemyManager(List<IEnemyBehavior> enemyBehaviors)
     {
@@ -27,7 +29,7 @@ public class EnemyManager
     /// </summary>
     public void ExcuteEnemyAction()
     {
-        _behaviors[_nextBehaviorIndex].Excute();
+        _behaviors[_nextBehaviorIndex.Value].Excute();
     }
 
     /// <summary>
@@ -56,6 +58,6 @@ public class EnemyManager
     /// </summary>
     public void SetNextBehaviorIndex()
     {
-        _nextBehaviorIndex = UnityEngine.Random.Range(0, _behaviors.Count);
+        _nextBehaviorIndex.Value = UnityEngine.Random.Range(0, _behaviors.Count);
     }
 }
