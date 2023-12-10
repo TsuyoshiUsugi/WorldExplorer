@@ -7,7 +7,7 @@ public class ApplyDamageEffect : ICardEffect
     public void ExcuteCardEffect()
     {
         var enemy = FieldInfo.Instance.EnemyManager;
-        var playerPower = FieldInfo.Instance.PlayerManager.AttackPower;
-        enemy?.ApplyDamage(playerPower);
+        var playerPower = FieldInfo.Instance.PlayerManager.Status.AttackPower;
+        enemy?.Status.ApplyDamage(playerPower);
     }
 }

@@ -11,7 +11,7 @@ public class EnemyAttack : IEnemyBehavior
     public void Excute()
     {
         var player = FieldInfo.Instance.PlayerManager;
-        var enemyPower = FieldInfo.Instance.EnemyManager.AttackPower;
-        player?.ApplyDamage(enemyPower);
+        var enemyPower = FieldInfo.Instance.EnemyManager.Status.AttackPower;
+        player?.Status.ApplyDamage(enemyPower);
     }
 }
