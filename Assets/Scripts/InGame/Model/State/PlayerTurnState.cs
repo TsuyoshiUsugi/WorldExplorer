@@ -23,6 +23,14 @@ public class PlayerTurnState : IInGameState
         });
     }
 
+    /// <summary>
+    /// プレイヤーの情報をセットする
+    /// </summary>
+    public void SetPlayerInfo()
+    {
+        FieldInfo.Instance.PlayerManager = _playerManager;
+    }
+
     public async UniTask OnEnter()
     {
         _playerManager.SetActivePlayer(true);
