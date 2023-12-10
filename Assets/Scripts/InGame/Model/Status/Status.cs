@@ -55,6 +55,7 @@ public class Status
     /// <param name="power"></param>
     public void AddAttackPower(int power)
     {
+       
         _attackPower += power;
         if (_attackPower < 0)
         {
@@ -68,6 +69,7 @@ public class Status
     /// <param name="power"></param>
     public void AddBlockPower(int power)
     {
+        Debug.Log($"追加ブロック力{power}");
         _blockPower += power;
         if (_blockPower < 0)
         {
