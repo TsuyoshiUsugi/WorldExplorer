@@ -16,7 +16,7 @@ public class PlayerTurnState : IInGameState
     public PlayerTurnState(PlayerManager playerManager)
     {
         _playerManager = playerManager;
-        _playerManager.HP.Subscribe(hp =>
+        _playerManager.Status.HP.Subscribe(hp =>
         {
             if (hp <= 0) OnGameEnd?.Invoke(Winner.Enemy);
         });
