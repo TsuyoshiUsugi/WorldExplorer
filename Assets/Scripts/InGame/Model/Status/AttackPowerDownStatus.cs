@@ -1,14 +1,20 @@
 /// <summary>
 /// 指定したターン数だけ攻撃力を下げるステータス
 /// </summary>
-public class AttackPowerDownStatus : ITurnStatus
+public class AttackPowerDownStatus : TurnStatus
 {
     private int _remainTurn;
     public int RemainTurn => _remainTurn;
 
-    public void Execute()
+    public void Start()
     {
         _remainTurn--;
 
     }
+
+    public void End()
+    {
+        
+    }
+
 }
