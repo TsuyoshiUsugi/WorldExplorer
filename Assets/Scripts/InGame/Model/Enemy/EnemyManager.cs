@@ -10,8 +10,11 @@ public class EnemyManager
     private Status _status;
     private List<IEnemyBehavior> _behaviors;
     private List<TurnStatus> _turnStatuses;
+    private readonly IntReactiveProperty _nextBehaviorIndex = new(0);
     public event Action<Winner> OnGameEnd;
     public Status Status => _status;
+    public List<IEnemyBehavior> Behaviors => _behaviors;
+    public IReadOnlyReactiveProperty<int> NextBehaviorIndex => _nextBehaviorIndex;
 
     public EnemyManager(List<IEnemyBehavior> enemyBehaviors)
     {
@@ -22,12 +25,11 @@ public class EnemyManager
     }
 
     /// <summary>
-    /// 自身が持つ行動からランダムで実行する
+    /// 自身が持つ行動から指定されたものを実行する
     /// </summary>
     public void ExcuteEnemyAction()
     {
-        var index = UnityEngine.Random.Range(0, _behaviors.Count);
-        _behaviors[index].Excute();
+        _behaviors[_nextBehaviorIndex.Value].Excute();
     }
 
     /// <summary>
@@ -49,5 +51,13 @@ public class EnemyManager
         {
             turnStatus.DecreaseTurn();
         }
+    }
+
+    /// <summary>
+    /// 次に実行する行動のインデックスを設定する
+    /// </summary>
+    public void SetNextBehaviorIndex()
+    {
+        _nextBehaviorIndex.Value = UnityEngine.Random.Range(0, _behaviors.Count);
     }
 }

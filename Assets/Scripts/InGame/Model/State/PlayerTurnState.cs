@@ -12,6 +12,7 @@ public class PlayerTurnState : IInGameState
     public event Func<UniTask> OnExitEvent;
     private PlayerManager _playerManager;
     public event Action<Winner> OnGameEnd;
+    public PlayerManager PlayerManager => _playerManager;
 
     public PlayerTurnState(PlayerManager playerManager)
     {
@@ -20,6 +21,14 @@ public class PlayerTurnState : IInGameState
         {
             if (hp <= 0) OnGameEnd?.Invoke(Winner.Enemy);
         });
+    }
+
+    /// <summary>
+    /// プレイヤーの情報をセットする
+    /// </summary>
+    public void SetPlayerInfo()
+    {
+        FieldInfo.Instance.PlayerManager = _playerManager;
     }
 
     public async UniTask OnEnter()

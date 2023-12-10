@@ -12,6 +12,7 @@ public class EnemyTurnState : IInGameState
     public event Func<UniTask> OnExitEvent;
     private EnemyManager _enemyManager;
     public event Action<Winner> OnGameEnd;
+    public EnemyManager EnemyManager => _enemyManager;
 
     public EnemyTurnState(EnemyManager enemyManager)
     {
@@ -22,12 +23,27 @@ public class EnemyTurnState : IInGameState
         });
     }
 
+    /// <summary>
+    /// 敵の情報をセットする
+    /// </summary>
+    public void SetEnemyInfo()
+    {
+        FieldInfo.Instance.EnemyManager = _enemyManager;
+        _enemyManager.SetNextBehaviorIndex();
+    }
+
     public async UniTask OnEnter()
     {
         Debug.Log("enemyターン開始");
         OnEnterEvent?.Invoke();
+        
+        //メイン処理
         //敵の行動を実行する
         _enemyManager.ExcuteEnemyAction();
+
+        //後処理
+        //次に実行する行動のインデックスを設定する
+        _enemyManager.SetNextBehaviorIndex();
         //持続する効果のターンを減らす
         _enemyManager.DecreaseEffectTurn();
         OnExit().Forget();
@@ -36,8 +52,9 @@ public class EnemyTurnState : IInGameState
 
     public void OnUpdate() { }
 
-    public UniTask OnExit()
+    public async UniTask OnExit()
     {
-        return OnExitEvent?.Invoke() ?? UniTask.FromResult(Unit.Default);
+        OnExitEvent?.Invoke();
+        await UniTask.CompletedTask;
     }
 }
