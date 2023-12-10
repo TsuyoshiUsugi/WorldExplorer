@@ -26,15 +26,15 @@ public class EnemyTurnState : IInGameState
     {
         Debug.Log("enemyターン開始");
         OnEnterEvent?.Invoke();
+        //敵の行動を実行する
         _enemyManager.ExcuteEnemyAction();
-        await UniTask.CompletedTask;
+        //持続する効果のターンを減らす
+        _enemyManager.DecreaseEffectTurn();
         OnExit().Forget();
+        await UniTask.CompletedTask;
     }
 
-    public void OnUpdate()
-    {
-
-    }
+    public void OnUpdate() { }
 
     public UniTask OnExit()
     {

@@ -12,7 +12,9 @@ public class InGameView : MonoBehaviour
     [SerializeField] Text _actionSymbolCountText;
     [SerializeField] Text _deckCount;
     [SerializeField] Slider _playerHPBar;
+    [SerializeField] Text _playerHPText;
     [SerializeField] Slider _enemyHPBar;
+    [SerializeField] Text _enemyHPText;
 
     /// <summary>
     /// 行動可能回数を表示するシンボルカウントを指定した個数表示する
@@ -47,10 +49,12 @@ public class InGameView : MonoBehaviour
     public void ShowPlayerHP(int current, int max)
     {
         _playerHPBar.value = (float)current / max;
+        _playerHPText.text = $"{current}/{max}";
     }
 
     public void ShowEnemyHP(int current, int max)
     {
         _enemyHPBar.value = (float)current / max;
+        _enemyHPText.text = $"{current}/{max}";
     }
 }

@@ -52,17 +52,25 @@ public class Status
     /// 引き数で指定した値だけ攻撃力を上げる
     /// </summary>
     /// <param name="power"></param>
-    public void ApplyAttackPower(int power)
+    public void AddAttackPower(int power)
     {
         _attackPower += power;
+        if (_attackPower < 0)
+        {
+            _attackPower = 0;
+        }
     }
 
     /// <summary>
     /// 引き数で指定した値だけブロック力を上げる
     /// </summary>
     /// <param name="power"></param>
-    public void ApplyBlockPower(int power)
+    public void AddBlockPower(int power)
     {
         _blockPower += power;
+        if (_blockPower < 0)
+        {
+            _blockPower = 0;
+        }
     }
 }
