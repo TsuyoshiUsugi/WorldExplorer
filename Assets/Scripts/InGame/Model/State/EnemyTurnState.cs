@@ -30,13 +30,15 @@ public class EnemyTurnState : IInGameState
     {
         FieldInfo.Instance.EnemyManager = _enemyManager;
         _enemyManager.SetNextBehaviorIndex();
+
     }
 
     public async UniTask OnEnter()
     {
-        Debug.Log("enemyターン開始");
+        //前処理
         OnEnterEvent?.Invoke();
-        
+        Debug.Log(FieldInfo.Instance.EnemyManager.Status.AttackPower);
+        Debug.Log(FieldInfo.Instance.EnemyManager.Status.BlockPower);
         //メイン処理
         //敵の行動を実行する
         _enemyManager.ExcuteEnemyAction();
