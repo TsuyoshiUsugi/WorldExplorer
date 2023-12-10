@@ -13,6 +13,7 @@ public class EnemyBlock : IEnemyBehavior
 
     public void Excute()
     {
-        FieldInfo.Instance.EnemyManager.Status.AddBlockPower(_addBlockPower);
+        //FieldInfo.Instance.EnemyManager.Status.AddBlockPower(_addBlockPower);
+        FieldInfo.Instance.EnemyManager.ApplyEffect(new BlockPowerUpStatus(_addBlockPower, 2)); //実行したターンも含めて2ターン持続する
     }
 }

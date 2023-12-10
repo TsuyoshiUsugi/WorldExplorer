@@ -23,3 +23,27 @@ public class AttackPowerDownStatus : TurnStatus
         status.AddAttackPower(_downPower);
     }
 }
+
+/// <summary>
+/// 指定したターン数だけブロック力を上げるステータス
+/// </summary>
+public class BlockPowerUpStatus : TurnStatus
+{
+    private int _addBlockPower = 10;
+
+    public BlockPowerUpStatus(int downPower, int turn)
+    {
+        _addBlockPower = downPower;
+        _remainTurn.Value = turn;
+    }
+
+    protected override void ExecuteEffect(Status status)
+    {
+        status.AddBlockPower(_addBlockPower);
+    }
+
+    protected override void CancelEffect(Status status)
+    {
+        status.AddAttackPower(_addBlockPower * -1);
+    }
+}

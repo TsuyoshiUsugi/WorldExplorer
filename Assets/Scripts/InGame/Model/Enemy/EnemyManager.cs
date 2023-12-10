@@ -19,7 +19,7 @@ public class EnemyManager
     public EnemyManager(List<IEnemyBehavior> enemyBehaviors)
     {
         //ここはステータス全てを入れるようにする
-        _status = new Status(100, 10, 0);
+        _status = new Status(100, 10, 10);
         _behaviors = enemyBehaviors;
         _turnStatuses = new List<TurnStatus>();
     }
