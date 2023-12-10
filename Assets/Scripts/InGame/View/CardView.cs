@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// プレイヤーが選択するカードのクラス
+/// 現状はボタンを押したら選択されたカードのインデックスを返す
 /// </summary>
 public class CardView : MonoBehaviour
 {

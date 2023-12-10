@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 497981618}
   - component: {fileID: 497981617}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: HPText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2240,7 +2240,9 @@ MonoBehaviour:
   _actionSymbolCountText: {fileID: 1981389957}
   _deckCount: {fileID: 510778424}
   _playerHPBar: {fileID: 1750153639}
+  _playerHPText: {fileID: 497981617}
   _enemyHPBar: {fileID: 1679865847}
+  _enemyHPText: {fileID: 1739227419}
 --- !u!114 &938038498
 MonoBehaviour:
   m_ObjectHideFlags: 0
