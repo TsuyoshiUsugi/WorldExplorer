@@ -52,7 +52,6 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         GoBackToStartAnim();
         if (_isPlay) 
         {
-            Debug.Log("Play");
             OnCardSelect?.Invoke(_index);
         }
     }
