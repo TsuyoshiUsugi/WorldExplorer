@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UniRx;
+using UnityEngine;
 
 /// <summary>
 /// 敵の行動等を管理するクラス
@@ -19,7 +20,7 @@ public class EnemyManager
     public EnemyManager(List<IEnemyBehavior> enemyBehaviors)
     {
         //ここはステータス全てを入れるようにする
-        _status = new Status(100, 10, 0);
+        _status = new Status(100, 10, 10);
         _behaviors = enemyBehaviors;
         _turnStatuses = new List<TurnStatus>();
     }

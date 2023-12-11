@@ -33,7 +33,6 @@ public class Status
     {
         //計算式　残りhp =　現在のhp - (ダメージ - ブロック) ※ダメージは0未満にならない
         _hp.Value -= Mathf.Max((damage - _blockPower), 0);
-        Debug.Log($"ダメージ{damage} - ブロック{_blockPower}");
         if (_hp.Value < 0)
         {
             _hp.Value = 0;
@@ -55,6 +54,7 @@ public class Status
     /// <param name="power"></param>
     public void AddAttackPower(int power)
     {
+       
         _attackPower += power;
         if (_attackPower < 0)
         {

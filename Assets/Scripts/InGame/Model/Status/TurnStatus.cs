@@ -1,5 +1,6 @@
 using System;
 using UniRx;
+using UnityEngine;
 /// <summary>
 /// プレイヤーや敵が持つターンで持続するステータスの基底クラス
 /// </summary>
