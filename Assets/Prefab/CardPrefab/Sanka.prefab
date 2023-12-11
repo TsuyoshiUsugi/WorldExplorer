@@ -416,7 +416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 239ae84ebe23a7348aaf66e29b0aba67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c18952c3c41451b4693d2cf019c8af6d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -493,7 +493,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 21
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "a\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\n\u6575\u306E\u653B\u6483\u529B\u3092a\u4E0B\u3052\u308B\n\u203B\u3053\u306E\u52B9\u679C\u306Fa\u3067\u7D42\u4E86"
+  m_Text: "\u03B1\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\r\n\r\n\u300C\u9154\u3044\u72B6\u614B\u300D\u306E\u5834\u5408\r\n\u8FFD\u52A0\u3067\u03B1\u30C0\u30E1\u30FC\u30B8\u4E0E\u3048\u308B"
 --- !u!1 &5400089184753962535
 GameObject:
   m_ObjectHideFlags: 0
