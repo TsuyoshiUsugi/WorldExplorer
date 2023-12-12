@@ -13,7 +13,7 @@ public class PlayerManager
     private int _maxDeckCount = 0;
     private List<CardDataEntity> _handcards = new();       //手札
     private ReactiveCollection<CardDataEntity> _deckCards = new();        //山札
-    private int _sakePower = 0;                          //酒力
+    private SakePower _sakePower;                          //酒力
     private static readonly int _defaultActionCost = 3; //行動回数、デフォルトは3
     private readonly IntReactiveProperty _actionCost = new(_defaultActionCost);
     public event Action<Winner> OnGameEnd;
@@ -23,8 +23,9 @@ public class PlayerManager
     public ReactiveCollection<CardDataEntity> Deck => _deckCards;
     public event Action<List<CardDataEntity>> HandCardsChanged;
     public int MaxDeckCount => _maxDeckCount;
+    public SakePower SakePower => _sakePower;
 
-    public PlayerManager()
+    public PlayerManager(Status status)
     {
         _deckCards = new(new List<CardDataEntity>());
         foreach (var card in GameDataManager.Instance.DeckInfo.Cards)
@@ -33,7 +34,8 @@ public class PlayerManager
             _deckCards.Add(new CardDataEntity(card));
         }
         _maxDeckCount = _deckCards.Count;
-        _status = new Status(100, 10, 0);
+        _status = new Status(status);
+        _sakePower = new SakePower(_maxDeckCount);
     }
 
 
@@ -87,6 +89,7 @@ public class PlayerManager
         if (!_active) return;
         if (_actionCost.Value == 0) return;
         _actionCost.Value -= 1;
+        _sakePower.AddSakePower(1);             //カードをプレイすると酒力が1増える
         _handcards[handCardIndex].PlayCard();   //ここでカードの効果呼び出し
         _deckCards.Add(_handcards[handCardIndex]);
         _handcards.RemoveAt(handCardIndex);
@@ -110,6 +113,16 @@ public class PlayerManager
     {
         _actionCost.Value = 3;
     }
+
+    /// <summary>
+    /// 手札に引き数のカードを追加する
+    /// </summary>
+    /// <param name="card"></param>
+    public void AddHandCard(CardDataEntity card)
+    {
+        _handcards.Add(card);
+        HandCardsChanged?.Invoke(_handcards);
+    }
 }
 
 /// <summary>
@@ -119,4 +132,63 @@ public enum Winner
 {
     Player,
     Enemy,
+}
+
+/// <summary>
+/// 酒力を表す
+/// </summary>
+public class SakePower
+{
+    private readonly IntReactiveProperty _currentSakePower = new(0);
+    private int _maxSakePower = 0;
+    private bool _isDrank = false;
+    private int _remainDrunkTurn = 0;
+    private int _maxDrunkTurn = 0;
+
+    public IReadOnlyReactiveProperty<int> CurrentSakePower => _currentSakePower;
+    public int MaxSakePower => _maxSakePower;
+    public bool IsDrank => _isDrank;
+
+    public SakePower(int maxSakePower)
+    {
+        _maxSakePower = maxSakePower;
+    }
+
+    /// <summary>
+    /// 酒力を指定した値だけ追加する
+    /// </summary>
+    /// <param name="power"></param>
+    public void AddSakePower(int power)
+    {
+        if (_isDrank) return;
+        _currentSakePower.Value += power;
+        if (_currentSakePower.Value >= _maxSakePower)
+        {
+            _currentSakePower.Value = _maxSakePower;
+            _isDrank = true;
+            ActiveDrunkPower();
+        }
+    }
+
+    /// <summary>
+    /// 酔い状態の効果を発揮する
+    /// </summary>
+    private void ActiveDrunkPower()
+    {
+        _remainDrunkTurn = _maxDrunkTurn;
+        //ここに酔い状態の効果を書く
+    }
+
+    /// <summary>
+    /// 酔い状態の残りターンを減らす
+    /// </summary>
+    public void DecreaseDrunkTurn()
+    {
+        if (!_isDrank) return;
+        _remainDrunkTurn--;
+        if (_remainDrunkTurn == 0)
+        {
+            _isDrank = false;
+        }
+    }
 }

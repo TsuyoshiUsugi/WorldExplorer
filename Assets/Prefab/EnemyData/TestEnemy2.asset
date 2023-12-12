@@ -10,9 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bcf40a0e743171409f9d6992c1a347c, type: 3}
-  m_Name: TestEnemy
+  m_Name: TestEnemy2
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 0}
+  EnemySprite: {fileID: 21300000, guid: c567a1343bdece04284e95a10b8a4f86, type: 3}
+  Status:
+    _hp:
+      value: 100
+    _attackPower: 10
+    _blockPower: 10
   EnemyBehavior:
   - rid: 3382217852420096002
   - rid: 3382217852420096003
@@ -23,6 +28,8 @@ MonoBehaviour:
       type: {class: EnemyBlock, ns: , asm: Assembly-CSharp}
       data:
         _addBlockPower: 10
+        _afterActionAddValue: 5
     - rid: 3382217852420096003
       type: {class: EnemyAttack, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        _afterActionAddValue: 5

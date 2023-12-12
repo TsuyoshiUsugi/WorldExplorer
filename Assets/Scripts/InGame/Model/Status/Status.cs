@@ -6,11 +6,12 @@ using UnityEngine;
 /// <summary>
 /// 敵とプレイヤーに共通するステータスを管理するクラス
 /// </summary>
+[System.Serializable]
 public class Status
 {
-    private IntReactiveProperty _hp;
-    private int _attackPower = 50;
-    private int _blockPower = 1;
+    [SerializeField] private IntReactiveProperty _hp;
+    [SerializeField] private int _attackPower = 50;
+    [SerializeField] private int _blockPower = 1;
     public int MaxHp { get; private set; }
 
     public IReadOnlyReactiveProperty<int> HP => _hp;
@@ -23,6 +24,14 @@ public class Status
         MaxHp = _hp.Value;
         _attackPower = attackPower;
         _blockPower = blockPower;
+    }
+
+    public Status(Status status)
+    {
+        _hp = new(status.HP.Value);
+        MaxHp = _hp.Value;
+        _attackPower = status.AttackPower;
+        _blockPower = status.BlockPower;
     }
 
     /// <summary>
