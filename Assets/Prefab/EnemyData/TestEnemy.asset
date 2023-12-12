@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcf40a0e743171409f9d6992c1a347c, type: 3}
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 0}
+  EnemySprite: {fileID: 21300000, guid: c567a1343bdece04284e95a10b8a4f86, type: 3}
+  Status:
+    _hp:
+      value: 100
+    _attackPower: 10
+    _blockPower: 10
   EnemyBehavior:
   - rid: 3382217852420096002
   - rid: 3382217852420096003

@@ -25,7 +25,7 @@ public class PlayerManager
     public int MaxDeckCount => _maxDeckCount;
     public SakePower SakePower => _sakePower;
 
-    public PlayerManager()
+    public PlayerManager(Status status)
     {
         _deckCards = new(new List<CardDataEntity>());
         foreach (var card in GameDataManager.Instance.DeckInfo.Cards)
@@ -34,7 +34,7 @@ public class PlayerManager
             _deckCards.Add(new CardDataEntity(card));
         }
         _maxDeckCount = _deckCards.Count;
-        _status = new Status(100, 10, 0);
+        _status = new Status(status);
         _sakePower = new SakePower(_maxDeckCount);
     }
 
