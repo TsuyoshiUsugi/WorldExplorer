@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
+  m_Name: SanakaSake
+  m_EditorClassIdentifier: 
+  CardPrefab: {fileID: 5400089184753962535, guid: 6408225071e5dae459c3ffb82db91804, type: 3}
+  CardEffects:
+  - rid: 3382217890634137600
+  references:
+    version: 2
+    RefIds:
+    - rid: 3382217890634137600
+      type: {class: SanakaSakeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _sanka: {fileID: 11400000, guid: b0be8d5ed69717143b3c98277be1f7e4, type: 2}
+        _shinkaSanka: {fileID: 11400000, guid: 42331632c504b8c4ca006652937307f5, type: 2}

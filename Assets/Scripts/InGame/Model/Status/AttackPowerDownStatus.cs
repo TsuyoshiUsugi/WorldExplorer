@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 指定したターン数だけ攻撃力を下げるステータス
 /// </summary>
-public class AttackPowerDownStatus : TurnStatus
+public class AttackPowerDownStatus : TurnStatusBase
 {
     private int _downPower = 10;
 
@@ -31,7 +31,7 @@ public class AttackPowerDownStatus : TurnStatus
 /// <summary>
 /// 指定したターン数だけブロック力を上げるステータス
 /// </summary>
-public class BlockPowerUpStatus : TurnStatus
+public class BlockPowerUpStatus : TurnStatusBase
 {
     private int _addBlockPower = 10;
 

@@ -10,7 +10,7 @@ public class EnemyManager
 {
     private Status _status;
     private List<IEnemyBehavior> _behaviors;
-    private List<TurnStatus> _turnStatuses;
+    private List<TurnStatusBase> _turnStatuses;
     private readonly IntReactiveProperty _nextBehaviorIndex = new(0);
     public event Action<Winner> OnGameEnd;
     public Status Status => _status;
@@ -22,7 +22,7 @@ public class EnemyManager
         //ここはステータス全てを入れるようにする
         _status = new Status(status);
         _behaviors = enemyBehaviors;
-        _turnStatuses = new List<TurnStatus>();
+        _turnStatuses = new List<TurnStatusBase>();
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ public class EnemyManager
     /// ターンで発動する効果を追加する
     /// </summary>
     /// <param name="turnStatus"></param>
-    public void ApplyEffect(TurnStatus turnStatus)
+    public void ApplyEffect(TurnStatusBase turnStatus)
     {
         turnStatus.ApplyEffect(_status);
         _turnStatuses.Add(turnStatus);

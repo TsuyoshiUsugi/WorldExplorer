@@ -47,6 +47,7 @@ public class CardDataEntity
         foreach (var effet in CardEffects)
         {
             effet.ExcuteCardEffect();
+            Debug.Log($"{CardEntity.name}の効果を発動しました");
         }
     }
 }
