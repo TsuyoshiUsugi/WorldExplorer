@@ -14,7 +14,7 @@ public class InGameLifeTimeScope : LifetimeScope
         //アプリケーション層
         builder.Register(resolver => new EnemyManager(new (GameDataManager.Instance.EnemyData.EnemyBehavior),
             GameDataManager.Instance.EnemyData.Status), Lifetime.Singleton);
-        builder.Register(resolver => new PlayerManager(GameDataManager.Instance.PlayerManager.Status), Lifetime.Singleton);
+        builder.Register(resolver => new PlayerManager(GameDataManager.Instance.PlayerData.Status), Lifetime.Singleton);
         builder.Register<EnemyTurnState>(Lifetime.Singleton);
         builder.Register<PlayerTurnState>(Lifetime.Singleton);
         builder.Register<ResultState>(Lifetime.Singleton);

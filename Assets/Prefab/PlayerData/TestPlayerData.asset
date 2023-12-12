@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d73d66ecd00fd439a7797bf660caaf, type: 3}
   m_Name: TestPlayerData
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 0}
+  PlayerSprite: {fileID: 21300000, guid: 3bced5991385dc649af862b41814fb16, type: 3}
   Status:
     _hp:
       value: 100

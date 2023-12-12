@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2430,9 +2430,11 @@ MonoBehaviour:
   - {fileID: 41510303}
   _actionSymbolCountText: {fileID: 1981389957}
   _deckCount: {fileID: 510778424}
+  _playerImage: {fileID: 159403252}
   _playerHPBar: {fileID: 1750153639}
   _playerHPText: {fileID: 497981617}
   _enemyHPBar: {fileID: 1679865847}
+  _enemyImage: {fileID: 1266553746}
   _enemyHPText: {fileID: 1739227419}
   _sakePowerText: {fileID: 165883648}
   _enemyActionImage: {fileID: 1720902620}
@@ -4125,7 +4127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3faa6894e793245b107276cb6d8b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerManager: {fileID: 11400000, guid: 3607c92903c064f40b1af2499ee66495, type: 2}
+  PlayerData: {fileID: 11400000, guid: 3607c92903c064f40b1af2499ee66495, type: 2}
   DeckInfo: {fileID: 11400000, guid: 1204cfcd1787121489bbb7382836f37a, type: 2}
   EnemyData: {fileID: 11400000, guid: 40869e4475ef78a4f9280d4668538253, type: 2}
 --- !u!1 &1844279683
