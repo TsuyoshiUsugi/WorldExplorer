@@ -2244,6 +2244,7 @@ MonoBehaviour:
   _playerHPText: {fileID: 497981617}
   _enemyHPBar: {fileID: 1679865847}
   _enemyHPText: {fileID: 1739227419}
+  _sakePowerText: {fileID: 165883648}
   _enemyActionImage: {fileID: 1720902620}
   _enemyActionText: {fileID: 2035365838}
   _enemyActionIcons:

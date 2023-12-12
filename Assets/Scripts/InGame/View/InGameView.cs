@@ -15,6 +15,7 @@ public class InGameView : MonoBehaviour
     [SerializeField] Text _playerHPText;
     [SerializeField] Slider _enemyHPBar;
     [SerializeField] Text _enemyHPText;
+    [SerializeField] Text _sakePowerText;
     [SerializeField] Image _enemyActionImage;
     [SerializeField] Text _enemyActionText;
     [SerializeField] List<IconPair> _enemyActionIcons;
@@ -37,6 +38,11 @@ public class InGameView : MonoBehaviour
             }
         }
         _actionSymbolCountText.text = $"{count}/3";
+    }
+
+    public void ShowSakePower(int current, int max)
+    {
+        _sakePowerText.text = $"{current}/{max}";
     }
 
     /// <summary>

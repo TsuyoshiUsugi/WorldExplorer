@@ -64,7 +64,10 @@ public class InGamePresenter : MonoBehaviour
             _gameView.ShowPlayerHP(hp, _playerManager.Status.MaxHp);
         });
 
-      
+        _playerManager.SakePower.CurrentSakePower.Subscribe(power =>
+        {
+            _gameView.ShowSakePower(power, _playerManager.SakePower.MaxSakePower);
+        });
 
         #endregion
 
