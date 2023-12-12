@@ -38,7 +38,7 @@ public class InGamePresenter : MonoBehaviour
 
         _playerManager.HandCardsChanged += cards =>
         {
-            _cardViews.ForEach(cardViews => Destroy(cardViews.gameObject));
+            _cardViews.ForEach(cardViews => Destroy(cardViews));
             _cardViews.Clear();
 
             for (var i = 0; i < cards.Count; i++)
@@ -47,8 +47,12 @@ public class InGamePresenter : MonoBehaviour
                 var cardPrefab = Instantiate(card.CardEntity, _deckTransform);
                 _cardViews.Add(cardPrefab);
                 var view = cardPrefab.GetComponent<CardView>();
-                view.OnCardSelect += index => _playerManager.PlayCard(index);
-                view.OnCardSelect += index => Debug.Log(index);
+                // ここで新しいローカル変数を作成
+                var localIndex = i;
+
+                // localIndexをラムダ式にキャプチャさせる
+                view.SetIndex(localIndex);
+                view.OnCardSelect += _ => _playerManager.PlayCard(localIndex);
             }
         };
 
