@@ -13,7 +13,7 @@ public class SanakaSakeEffect : ICardEffect
     [SerializeField] CardData _sanka;
     [SerializeField] CardData _shinkaSanka;
 
-    public void EvolveCardEffect()
+    public void EvolveCardEffect(int addPower)
     {
         //特になし
     }
@@ -24,12 +24,7 @@ public class SanakaSakeEffect : ICardEffect
         var playerHand = player.HandCard;
 
         //手札に「三河武士」があるかどうか
-        var cardsWithBothEffects = playerHand
-            .Where(card => card.CardEffects.OfType<ApplyDamageEffect>().Any() 
-            && card.CardEffects.OfType<ApplyDamageEffectIfDrunk>().Any())
-            .ToList();
-
-        if (player.TryGetTargetCard(4, out var card))
+        if (player.TryGetTargetCard(4, out var card))   //4は「三河武士」のID
         {
             Debug.Log(card.CardEntity.name);
             //手札に「三河武士」がある場合、行動回数を減らさずに使用できる
