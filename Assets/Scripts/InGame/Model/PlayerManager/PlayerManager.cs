@@ -11,6 +11,7 @@ public class PlayerManager
     private Status _status;
     bool _active = false;
     private int _maxDeckCount = 0;
+    private List<TurnStatusBase> _turnStatuses;
     private List<CardDataEntity> _handcards = new();       //手札
     private ReactiveCollection<CardDataEntity> _deckCards = new();        //山札
     private SakePower _sakePower;                          //酒力
@@ -19,6 +20,7 @@ public class PlayerManager
     public event Action<Winner> OnGameEnd;
     
     public Status Status => _status;
+    public List<CardDataEntity> HandCard => _handcards;
     public IReadOnlyReactiveProperty<int> ActionCost => _actionCost;
     public ReactiveCollection<CardDataEntity> Deck => _deckCards;
     public event Action<List<CardDataEntity>> HandCardsChanged;
@@ -36,6 +38,7 @@ public class PlayerManager
         _maxDeckCount = _deckCards.Count;
         _status = new Status(status);
         _sakePower = new SakePower(_maxDeckCount);
+        _turnStatuses = new List<TurnStatusBase>();
     }
 
 
@@ -59,6 +62,8 @@ public class PlayerManager
 
             _handcards.Add(_deckCards[index]);  //山札から手札に加える
             _deckCards.RemoveAt(index);         //山札から引いたカードを消す
+
+            Debug.Log($"インデックス：{index}、カード{_deckCards[index].CardEntity.name}");
         }
         HandCardsChanged?.Invoke(_handcards);
     }
@@ -105,6 +110,11 @@ public class PlayerManager
         _active = active;
     }
 
+    public void AddActionCost(int cost)
+    {
+        _actionCost.Value += cost;
+    }
+
     /// <summary>
     /// アクションコストをリセットする
     /// </summary>
@@ -122,6 +132,27 @@ public class PlayerManager
     {
         _handcards.Add(card);
         HandCardsChanged?.Invoke(_handcards);
+    }
+
+    /// <summary>
+    /// ターンで発動する効果を追加する
+    /// </summary>
+    /// <param name="turnStatus"></param>
+    public void ApplyEffect(TurnStatusBase turnStatus)
+    {
+        turnStatus.ApplyEffect(_status);
+        _turnStatuses.Add(turnStatus);
+    }
+
+    /// <summary>
+    /// 持続する効果のターンを減らす
+    /// </summary>
+    public void DecreaseEffectTurn()
+    {
+        foreach (var turnStatus in _turnStatuses)
+        {
+            turnStatus.DecreaseTurn();
+        }
     }
 }
 

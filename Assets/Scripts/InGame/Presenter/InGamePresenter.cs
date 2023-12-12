@@ -44,10 +44,11 @@ public class InGamePresenter : MonoBehaviour
             for (var i = 0; i < cards.Count; i++)
             {
                 var card = cards[i];
-                var cardEntity = Instantiate(card.CardEntity, _deckTransform);
-                _cardViews.Add(cardEntity);
-                var view = cardEntity.GetComponent<CardView>();
+                var cardPrefab = Instantiate(card.CardEntity, _deckTransform);
+                _cardViews.Add(cardPrefab);
+                var view = cardPrefab.GetComponent<CardView>();
                 view.OnCardSelect += index => _playerManager.PlayCard(index);
+                view.OnCardSelect += index => Debug.Log(index);
             }
         };
 

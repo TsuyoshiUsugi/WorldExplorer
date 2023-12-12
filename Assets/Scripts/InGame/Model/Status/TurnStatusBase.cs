@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// プレイヤーや敵が持つターンで持続するステータスの基底クラス
 /// </summary>
-public abstract class TurnStatus
+public abstract class TurnStatusBase
 {
     protected readonly ReactiveProperty<int> _remainTurn = new ReactiveProperty<int>();
     private IDisposable _disposable;
