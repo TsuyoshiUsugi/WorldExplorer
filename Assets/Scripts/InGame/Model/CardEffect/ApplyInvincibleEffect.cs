@@ -10,7 +10,7 @@ public class ApplyInvincibleEffect : ICardEffect
 {
     [SerializeField] private int _turn = 1;
 
-    public void EvolveCardEffect()
+    public void EvolveCardEffect(int addPower)
     {
         //特になし
     }

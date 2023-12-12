@@ -11,5 +11,5 @@ public interface ICardEffect
     /// <summary>
     /// カードの効果を進化させる
     /// </summary>
-    public void EvolveCardEffect();
+    public void EvolveCardEffect(int addPower);
 }
