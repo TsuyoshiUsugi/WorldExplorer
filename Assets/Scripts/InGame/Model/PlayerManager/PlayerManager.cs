@@ -60,10 +60,10 @@ public class PlayerManager
                 return;
             }
 
+            Debug.Log($"インデックス：{i}、カード{_deckCards[index].CardEntity.name}");
             _handcards.Add(_deckCards[index]);  //山札から手札に加える
             _deckCards.RemoveAt(index);         //山札から引いたカードを消す
 
-            Debug.Log($"インデックス：{index}、カード{_deckCards[index].CardEntity.name}");
         }
         HandCardsChanged?.Invoke(_handcards);
     }

@@ -26,10 +26,7 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     private void Start()
     {
-        //_cardSelectButton?.onClick.AddListener(() =>
-        //{
-        //    OnCardSelect?.Invoke(_index);
-        //});
+        OnCardSelect += _ => Debug.Log($"選択されたカードのインデックスは{_index}");
     }
 
     public void SetIndex(int index)
