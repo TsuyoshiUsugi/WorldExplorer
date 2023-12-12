@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,14 +12,23 @@ public class InGameView : MonoBehaviour
     [SerializeField] List<GameObject> _actionSymbolCount;
     [SerializeField] Text _actionSymbolCountText;
     [SerializeField] Text _deckCount;
+    [SerializeField] Image _playerImage;
     [SerializeField] Slider _playerHPBar;
     [SerializeField] Text _playerHPText;
     [SerializeField] Slider _enemyHPBar;
+    [SerializeField] Image _enemyImage;
     [SerializeField] Text _enemyHPText;
     [SerializeField] Text _sakePowerText;
     [SerializeField] Image _enemyActionImage;
     [SerializeField] Text _enemyActionText;
     [SerializeField] List<IconPair> _enemyActionIcons;
+
+    #region プレイヤー関連の表示
+
+    public void ShowPlayerImage(Sprite sprite)
+    {
+        _playerImage.sprite = sprite;
+    }
 
     /// <summary>
     /// 行動可能回数を表示するシンボルカウントを指定した個数表示する
@@ -61,6 +71,14 @@ public class InGameView : MonoBehaviour
         _playerHPText.text = $"{current}/{max}";
     }
 
+    #endregion
+
+    #region 敵関連の表示
+    public void ShowEnemyImage(Sprite sprite)
+    {
+        _enemyImage.sprite = sprite;
+    }
+
     public void ShowEnemyHP(int current, int max)
     {
         _enemyHPBar.value = (float)current / max;
@@ -86,6 +104,8 @@ public class InGameView : MonoBehaviour
                 break;
         }
     }
+
+    #endregion
 
 }
 

@@ -28,6 +28,8 @@ MonoBehaviour:
       type: {class: EnemyBlock, ns: , asm: Assembly-CSharp}
       data:
         _addBlockPower: 10
+        _afterActionAddValue: 5
     - rid: 3382217852420096003
       type: {class: EnemyAttack, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        _afterActionAddValue: 5

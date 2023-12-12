@@ -33,6 +33,9 @@ public class InGamePresenter : MonoBehaviour
     /// </summary>
     private void SubscribeMethod()
     {
+        #region PlayerManagerのイベント登録処理
+        _gameView.ShowPlayerImage(GameDataManager.Instance.PlayerData.PlayerSprite);
+
         _playerManager.HandCardsChanged += cards =>
         {
             _cardViews.ForEach(cardViews => Destroy(cardViews.gameObject));
@@ -48,7 +51,6 @@ public class InGamePresenter : MonoBehaviour
             }
         };
 
-        #region PlayerManagerのイベント登録処理
         _playerManager.ActionCost.Subscribe(num =>
         {
             _gameView.SetActionSimbleImage(num);
@@ -72,6 +74,9 @@ public class InGamePresenter : MonoBehaviour
         #endregion
 
         #region EnemyManagerのイベント登録処理
+
+        _gameView.ShowEnemyImage(GameDataManager.Instance.EnemyData.EnemySprite);
+
         _enemyManager.Status.HP.Subscribe(hp =>
         {
             _gameView.ShowEnemyHP(hp, _enemyManager.Status.MaxHp);

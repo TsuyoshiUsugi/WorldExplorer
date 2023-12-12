@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class GameDataManager : AbstractSingleton<GameDataManager>
 {
-    public PlayerData PlayerManager;
+    public PlayerData PlayerData;
     public DeckInfo DeckInfo;
     public EnemyData EnemyData;
 }
