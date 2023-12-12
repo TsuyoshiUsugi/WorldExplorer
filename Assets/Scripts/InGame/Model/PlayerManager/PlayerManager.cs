@@ -113,6 +113,16 @@ public class PlayerManager
     {
         _actionCost.Value = 3;
     }
+
+    /// <summary>
+    /// 手札に引き数のカードを追加する
+    /// </summary>
+    /// <param name="card"></param>
+    public void AddHandCard(CardDataEntity card)
+    {
+        _handcards.Add(card);
+        HandCardsChanged?.Invoke(_handcards);
+    }
 }
 
 /// <summary>

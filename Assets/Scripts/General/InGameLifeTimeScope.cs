@@ -12,7 +12,8 @@ public class InGameLifeTimeScope : LifetimeScope
     protected override void Configure(IContainerBuilder builder)
     {
         //アプリケーション層
-        builder.Register(resolver => new EnemyManager(new (GameDataManager.Instance.EnemyData.EnemyBehavior)), Lifetime.Singleton);
+        builder.Register(resolver => new EnemyManager(new (GameDataManager.Instance.EnemyData.EnemyBehavior),
+            GameDataManager.Instance.EnemyData.Status), Lifetime.Singleton);
         builder.Register<PlayerManager>(Lifetime.Singleton);
         builder.Register<EnemyTurnState>(Lifetime.Singleton);
         builder.Register<PlayerTurnState>(Lifetime.Singleton);
