@@ -17,10 +17,10 @@ public class EnemyManager
     public List<IEnemyBehavior> Behaviors => _behaviors;
     public IReadOnlyReactiveProperty<int> NextBehaviorIndex => _nextBehaviorIndex;
 
-    public EnemyManager(List<IEnemyBehavior> enemyBehaviors)
+    public EnemyManager(List<IEnemyBehavior> enemyBehaviors, Status status)
     {
         //ここはステータス全てを入れるようにする
-        _status = new Status(100, 10, 10);
+        _status = new Status(status);
         _behaviors = enemyBehaviors;
         _turnStatuses = new List<TurnStatus>();
     }

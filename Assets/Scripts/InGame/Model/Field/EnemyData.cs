@@ -8,6 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyData", menuName = "ScriptableObjects/CreateEnemyDataAsset")]
 public class EnemyData : ScriptableObject
 {
-    [SerializeField] public GameObject EnemyPrefab;
+    [SerializeField, Header("敵の画像")] public Sprite EnemySprite;
+    [SerializeField] public Status Status;
     [SerializeReference, SubclassSelector] public List<IEnemyBehavior> EnemyBehavior;
 }
