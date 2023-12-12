@@ -9,6 +9,6 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [SerializeField, Header("敵の画像")] public Sprite EnemySprite;
-    [SerializeField] public Status Status;
+    [SerializeField, Header("敵のステータス")] public Status Status;
     [SerializeReference, SubclassSelector] public List<IEnemyBehavior> EnemyBehavior;
 }
