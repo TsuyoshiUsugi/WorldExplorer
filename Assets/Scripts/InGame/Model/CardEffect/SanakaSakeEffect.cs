@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -28,19 +29,19 @@ public class SanakaSakeEffect : ICardEffect
             && card.CardEffects.OfType<ApplyDamageEffectIfDrunk>().Any())
             .ToList();
 
-        if (cardsWithBothEffects.Count > 0)
+        if (player.TryGetTargetCard(4, out var card))
         {
-            Debug.Log(cardsWithBothEffects[0].CardEntity.name);
+            Debug.Log(card.CardEntity.name);
             //手札に「三河武士」がある場合、行動回数を減らさずに使用できる
             player.AddActionCost(1);
             //手札から「三河武士」を捨て、進化した「三河武士」を加える
-            playerHand.Remove(cardsWithBothEffects[0]);
-            player.AddHandCard(new CardDataEntity(_shinkaSanka));   
+            playerHand.Remove(card);
+            player.AddHandCard(new CardDataEntity(_shinkaSanka, _shinkaSanka.Id));   
         }
         else
         {
             //手札に「三河武士」がない場合、手札に「三河武士」を加える
-            player.AddHandCard(new CardDataEntity(_sanka));
+            player.AddHandCard(new CardDataEntity(_sanka, _sanka.Id));
         }
     }
 }
