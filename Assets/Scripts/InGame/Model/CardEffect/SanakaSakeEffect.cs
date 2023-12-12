@@ -23,14 +23,20 @@ public class SanakaSakeEffect : ICardEffect
     {
         var player = FieldInfo.Instance.PlayerManager;
         var playerHand = player.HandCard;
-        var cardEntities = playerHand.Where(x => x.CardEffects.Exists(e => e is ApplyDamageEffect) 
-            && x.CardEffects.Exists(e => e is ApplyDamageEffect)).ToList();
-        if (cardEntities.Count > 0)
+
+        //手札に「三河武士」があるかどうか
+        var cardsWithBothEffects = playerHand
+            .Where(card => card.CardEffects.OfType<ApplyDamageEffect>().Any() 
+            && card.CardEffects.OfType<ApplyDamageEffectIfDrunk>().Any())
+            .ToList();
+
+        if (cardsWithBothEffects.Count > 0)
         {
+            Debug.Log(cardsWithBothEffects[0].CardEntity.name);
             //手札に「三河武士」がある場合、行動回数を減らさずに使用できる
             player.AddActionCost(1);
             //手札から「三河武士」を捨て、進化した「三河武士」を加える
-            playerHand.Remove(cardEntities[0]);
+            playerHand.Remove(cardsWithBothEffects[0]);
             player.AddHandCard(new CardDataEntity(_shinkaSanka));   
         }
         else
