@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniRx;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ public class PlayerManager
         foreach (var card in GameDataManager.Instance.DeckInfo.Cards)
         {
             // ここでCardDataのディープコピーを作成
-            _deckCards.Add(new CardDataEntity(card));
+            _deckCards.Add(new CardDataEntity(card, card.Id));
         }
         _maxDeckCount = _deckCards.Count;
         _status = new Status(status);
@@ -153,6 +154,30 @@ public class PlayerManager
         {
             turnStatus.DecreaseTurn();
         }
+    }
+
+    /// <summary>
+    /// 手札に目的のカードがあるかどうかを返す
+    /// ある場合はそのカードの参照も返す
+    /// </summary>
+    public bool TryGetTargetCard(int id, out CardDataEntity card)
+    {
+        // 出力パラメータを初期化
+        card = null;
+
+        // _handcardsの各カードを検査
+        foreach (var cardEntity in _handcards)
+        {
+            if (cardEntity.ID == id)
+            {
+                // 条件を満たすカードが見つかった場合
+                card = cardEntity;
+                return true;
+            }
+        }
+
+        // 条件を満たすカードが見つからなかった場合
+        return false;
     }
 }
 
