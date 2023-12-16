@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: TestDeck1
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 11400000, guid: b0be8d5ed69717143b3c98277be1f7e4, type: 2}
   - {fileID: 11400000, guid: 7a407a507d2ea95439c3e225f34ffa07, type: 2}
-  - {fileID: 11400000, guid: 7a407a507d2ea95439c3e225f34ffa07, type: 2}
+  - {fileID: 11400000, guid: 696f4de25e7e88443945f154434cc97f, type: 2}
+  - {fileID: 11400000, guid: e5ca4f4bd7b45994da197e073cfd4461, type: 2}
   - {fileID: 11400000, guid: b0be8d5ed69717143b3c98277be1f7e4, type: 2}
   - {fileID: 11400000, guid: f2edf2cbea30fba4d9e7f577e5137ac1, type: 2}
-  - {fileID: 11400000, guid: 7a407a507d2ea95439c3e225f34ffa07, type: 2}
-  - {fileID: 11400000, guid: f2edf2cbea30fba4d9e7f577e5137ac1, type: 2}
-  - {fileID: 11400000, guid: b0be8d5ed69717143b3c98277be1f7e4, type: 2}
+  - {fileID: 11400000, guid: 9078dff30caa32a4388f2f7afeec9165, type: 2}
+  - {fileID: 11400000, guid: a57232b878d5ff94981789de4d834f22, type: 2}
+  - {fileID: 11400000, guid: 42331632c504b8c4ca006652937307f5, type: 2}
   - {fileID: 11400000, guid: 7a407a507d2ea95439c3e225f34ffa07, type: 2}
   - {fileID: 11400000, guid: 7a407a507d2ea95439c3e225f34ffa07, type: 2}

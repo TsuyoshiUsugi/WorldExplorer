@@ -36,7 +36,7 @@ public class EnemyTurnState : IInGameState
     public async UniTask OnEnter()
     {
         //前処理
-        OnEnterEvent?.Invoke();
+        await OnEnterEvent.Invoke();
         //メイン処理
         //敵の行動を実行する
         _enemyManager.ExcuteEnemyAction();
