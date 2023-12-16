@@ -179,6 +179,48 @@ public class PlayerManager
         // 条件を満たすカードが見つからなかった場合
         return false;
     }
+
+    /// <summary>
+    /// 山札に目的のカードがあるかどうかを返す
+    /// ある場合はそのカードの参照も返す
+    /// </summary>
+    public bool TryGetDeckTargetCard(int id, out CardDataEntity card)
+    {
+        // 出力パラメータを初期化
+        card = null;
+
+        // _deckCardsの各カードを検査
+        foreach (var cardEntity in _deckCards)
+        {
+            if (cardEntity.ID == id)
+            {
+                // 条件を満たすカードが見つかった場合
+                card = cardEntity;
+                return true;
+            }
+        }
+
+        // 条件を満たすカードが見つからなかった場合
+        return false;
+    }
+
+    /// <summary>
+    /// 山札に目的のカードがあるかどうかを返す
+    /// </summary>
+    public bool TryGetDeckTargetCard(int id)
+    {
+        // _deckCardsの各カードを検査
+        foreach (var cardEntity in _deckCards)
+        {
+            if (cardEntity.ID == id)
+            {
+                // 条件を満たすカードが見つかった場合
+                return true;
+            }
+        }
+        // 条件を満たすカードが見つからなかった場合
+        return false;
+    }
 }
 
 /// <summary>
