@@ -15,4 +15,10 @@ public class DamageCountView : MonoBehaviour
         await transform.DOMoveY(transform.position.y + 100, 1f)
             .OnComplete(() => Destroy(this.gameObject));
     }
+
+    public void SetColor(Color color)
+    {
+        var text = GetComponent<Text>();
+        text.color = color;
+    }
 }
