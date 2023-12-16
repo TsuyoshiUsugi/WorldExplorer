@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
+  m_Name: Hyoutan
+  m_EditorClassIdentifier: 
+  Id: 7
+  CardPrefab: {fileID: 5400089184753962535, guid: f05ad20270d87464389b45c3c638f937, type: 3}
+  CardEffects:
+  - rid: 6092417385810624513
+  - rid: 6092417385810624515
+  references:
+    version: 2
+    RefIds:
+    - rid: 6092417385810624513
+      type: {class: HyoutanEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _sakePoint: 2
+    - rid: 6092417385810624515
+      type: {class: ApplyDamageEffectIfDrunk, ns: , asm: Assembly-CSharp}
+      data:
+        _damage: 10
