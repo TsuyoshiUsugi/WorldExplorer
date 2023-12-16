@@ -221,6 +221,23 @@ public class PlayerManager
         // 条件を満たすカードが見つからなかった場合
         return false;
     }
+
+
+    /// <summary>
+    /// 山札から特定のカードを手札に加える
+    /// </summary>
+    public bool TryFromDeckAddSpecificCard(int id)
+    {
+        if (TryGetDeckTargetCard(id, out var card))
+        {
+            //山札から手札へ
+            _deckCards.Remove(card);
+            _handcards.Add(card);
+            return true;
+        }
+        // 条件を満たすカードが見つからなかった場合
+        return false;
+    }
 }
 
 /// <summary>
