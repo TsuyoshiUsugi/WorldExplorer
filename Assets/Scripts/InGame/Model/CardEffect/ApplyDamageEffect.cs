@@ -10,6 +10,7 @@ public class ApplyDamageEffect : ICardEffect
     public void EvolveCardEffect(int addPower)
     {
         //ここに強化後のカードの効果を書く
+        //_cardDamage += addPower;
     }
 
     public void ExcuteCardEffect()
