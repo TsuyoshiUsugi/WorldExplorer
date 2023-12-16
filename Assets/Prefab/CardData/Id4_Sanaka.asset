@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
-  m_Name: Sanaka
+  m_Name: Id4_Sanaka
   m_EditorClassIdentifier: 
   Id: 4
   CardPrefab: {fileID: 5400089184753962535, guid: 7f28994f62dfcc1469bdbe0c3dd0aa0a, type: 3}

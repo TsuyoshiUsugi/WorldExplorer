@@ -28,7 +28,7 @@ MonoBehaviour:
     - rid: 8991444719476670468
       type: {class: GourdNotDecreasingActionEffect, ns: , asm: Assembly-CSharp}
       data:
-        _gourdId: 1
+        _gourdId: 7
     - rid: 8991444719476670469
       type: {class: IfNotHaveGourdAddHandEffect, ns: , asm: Assembly-CSharp}
       data:
