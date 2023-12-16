@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,13 +22,60 @@ public class InGameView : MonoBehaviour
     [SerializeField] Text _enemyActionText;
     [SerializeField] List<IconPair> _enemyActionIcons;
     [SerializeField] Button _turnEndButton;
+    [SerializeField] GameObject _turnObject;
+    [SerializeField] Text _turnNotifyText;
+    [SerializeField] GameObject _damageCountPrefab;
     public Button TurnEndButton => _turnEndButton;
+
+    private void Awake()
+    {
+        _turnObject.SetActive(false);
+    }
 
     #region プレイヤー関連の表示
 
+    public async UniTask ShowTurnNotify(Turn turn)
+    {
+        _turnObject.SetActive(true);
+        if (turn == Turn.PlayerTurn)
+        {
+            _turnNotifyText.text = "プレイヤーのターン";
+        }
+        else
+        {
+            _turnNotifyText.text = "敵のターン";
+        }
+        await UniTask.Delay(1000);
+        _turnObject.SetActive(false);
+    }
+
+    public enum Turn
+    {
+        PlayerTurn,
+        EnemyTurn,
+    }
+
+    /// <summary>
+    /// プレイヤーの画像をSpriteにセットする
+    /// </summary>
+    /// <param name="sprite"></param>
     public void ShowPlayerImage(Sprite sprite)
     {
         _playerImage.sprite = sprite;
+    }
+
+    public void ShowDamageCount(Turn turn, int count)
+    {
+        if (turn == Turn.PlayerTurn)
+        {
+            var showPos = _enemyImage.transform.position;
+            Instantiate(_damageCountPrefab, showPos, Quaternion.identity);
+        }
+        else
+        {
+            var showPos = _playerImage.transform.position;
+            Instantiate(_damageCountPrefab, showPos, Quaternion.identity);
+        }
     }
 
     /// <summary>
