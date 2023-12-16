@@ -18,6 +18,8 @@ public class InGamePresenter : MonoBehaviour
     private ResultState _resultState;
     [Inject]
     private PlayerTurnState _playerTurnState;
+    [Inject]
+    private EnemyTurnState _enemyTurnState;
 
     //ビュー
     [SerializeField] private Transform _deckTransform;
@@ -56,6 +58,11 @@ public class InGamePresenter : MonoBehaviour
                 view.SetIndex(localIndex);
                 view.OnCardSelect += _ => _playerManager.PlayCard(localIndex);
             }
+        };
+
+        _playerTurnState.OnEnterEvent += async () =>
+        {
+            await _gameView.ShowTurnNotify(InGameView.TurnNotify.PlayerTurn);
         };
 
         _gameView.TurnEndButton.OnClickAsObservable().Subscribe(_ =>
@@ -98,6 +105,11 @@ public class InGamePresenter : MonoBehaviour
         #region EnemyManagerのイベント登録処理
 
         _gameView.ShowEnemyImage(GameDataManager.Instance.EnemyData.EnemySprite);
+
+        _enemyTurnState.OnEnterEvent += async () =>
+        {
+            await _gameView.ShowTurnNotify(InGameView.TurnNotify.EnemyTurn);
+        };
 
         _enemyManager.Status.HP.Subscribe(hp =>
         {
