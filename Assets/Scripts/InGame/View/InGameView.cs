@@ -64,17 +64,25 @@ public class InGameView : MonoBehaviour
         _playerImage.sprite = sprite;
     }
 
+    /// <summary>
+    /// ダメージを表示する
+    /// ダメージを受けた側の画像の位置に表示する
+    /// </summary>
+    /// <param name="turn"></param>
+    /// <param name="count"></param>
     public void ShowDamageCount(Turn turn, int count)
     {
         if (turn == Turn.PlayerTurn)
         {
             var showPos = _enemyImage.transform.position;
-            Instantiate(_damageCountPrefab, showPos, Quaternion.identity);
+            var view = Instantiate(_damageCountPrefab, _enemyImage.transform).GetComponent<DamageCountView>();
+            view.ShowDamage(count).Forget();
         }
         else
         {
             var showPos = _playerImage.transform.position;
-            Instantiate(_damageCountPrefab, showPos, Quaternion.identity);
+            var view = Instantiate(_damageCountPrefab, _playerImage.transform).GetComponent<DamageCountView>();
+            view.ShowDamage(count).Forget();
         }
     }
 
