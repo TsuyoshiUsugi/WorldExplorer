@@ -37,7 +37,6 @@ public class ApplyAttackPowerDownEffect : ICardEffect
 
     public void ExcuteCardEffect()
     {
-        Debug.Log("敵の攻撃力を" + _downPower + "下げる");
         var enemy = FieldInfo.Instance.EnemyManager;
         enemy?.ApplyEffect(new AttackPowerDownStatus(_downPower, _turn));
     }

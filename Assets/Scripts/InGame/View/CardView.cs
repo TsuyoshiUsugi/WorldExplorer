@@ -24,11 +24,6 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [Tooltip("カードをPlayできるかどうか")]
     private bool _isPlay = false;
 
-    private void Start()
-    {
-        OnCardSelect += _ => Debug.Log($"選択されたカードのインデックスは{_index}");
-    }
-
     public void SetIndex(int index)
     {
         _index = index;

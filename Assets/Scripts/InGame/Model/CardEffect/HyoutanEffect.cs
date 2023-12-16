@@ -21,6 +21,5 @@ public class HyoutanEffect : ICardEffect
         var player = FieldInfo.Instance.PlayerManager; 
         //酒力を得る
         player.SakePower.AddSakePower(_sakePoint);
-        Debug.Log($"Sake:{player.SakePower.CurrentSakePower}");
     }
 }
