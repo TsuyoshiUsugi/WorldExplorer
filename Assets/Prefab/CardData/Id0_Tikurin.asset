@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
-  m_Name: Hyoutan
+  m_Name: Id0_Tikurin
   m_EditorClassIdentifier: 
-  Id: 7
-  CardPrefab: {fileID: 5400089184753962535, guid: f05ad20270d87464389b45c3c638f937, type: 3}
+  CardPrefab: {fileID: 5400089184753962535, guid: 5cb99a6688437a04489a9dfa6928e4f0, type: 3}
   CardEffects:
-  - rid: 6092417385810624513
-  - rid: 6092417385810624515
+  - rid: 4606560170361749505
+  - rid: 3382217852420096001
   references:
     version: 2
     RefIds:
-    - rid: 6092417385810624513
-      type: {class: HyoutanEffect, ns: , asm: Assembly-CSharp}
+    - rid: 3382217852420096001
+      type: {class: ApplyAttackPowerDownEffect, ns: , asm: Assembly-CSharp}
       data:
-        _sakePoint: 2
-    - rid: 6092417385810624515
-      type: {class: ApplyDamageEffectIfDrunk, ns: , asm: Assembly-CSharp}
-      data:
-        _damage: 10
+        _turn: 1
+        _downPower: 10
+    - rid: 4606560170361749505
+      type: {class: ApplyDamageEffect, ns: , asm: Assembly-CSharp}
+      data: 
