@@ -74,14 +74,15 @@ public class InGameView : MonoBehaviour
     {
         if (turn == Turn.PlayerTurn)
         {
-            var showPos = _enemyImage.transform.position;
             var view = Instantiate(_damageCountPrefab, _enemyImage.transform).GetComponent<DamageCountView>();
+            view.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
             view.ShowDamage(count).Forget();
         }
         else
         {
-            var showPos = _playerImage.transform.position;
+            _playerImage.transform.rotation = Quaternion.Euler(0, 0, 0);
             var view = Instantiate(_damageCountPrefab, _playerImage.transform).GetComponent<DamageCountView>();
+           
             view.ShowDamage(count).Forget();
         }
     }
