@@ -15,17 +15,7 @@ public class CardData : ScriptableObject
     public GameObject CardPrefab;
     [SerializeReference, SubclassSelector, Header("カードの効果一覧")]
     public List<ICardEffect> CardEffects;
-
-    /// <summary>
-    /// カードの効果を発動する
-    /// </summary>
-    public void PlayCard()
-    {
-        foreach (var effet in CardEffects)
-        {
-            effet.ExcuteCardEffect();
-        }
-    }
+    public ICardEffectView CardEffectView;
 }
 
 /// <summary>
