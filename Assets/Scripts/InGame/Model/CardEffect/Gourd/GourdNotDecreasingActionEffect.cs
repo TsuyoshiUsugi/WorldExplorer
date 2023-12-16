@@ -12,7 +12,7 @@ public class GourdNotDecreasingActionEffect : ICardEffect
     [SerializeField] private int _gourdId; 
     public void EvolveCardEffect(int addPower)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void ExcuteCardEffect()
