@@ -86,7 +86,7 @@ public class InGamePresenter : MonoBehaviour
         });
 
         _playerManager.Status.HP.Skip(1).Where(hp => hp > 0).Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
-            .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.PlayerTurn, t.OldValue - t.NewValue));
+            .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.EnemyTurn, t.OldValue, t.NewValue));
         
         _playerManager.Status.HP.Where(hp => hp > 0).Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => Debug.Log($"Player:{t.OldValue}→{t.NewValue}"));
@@ -113,7 +113,7 @@ public class InGamePresenter : MonoBehaviour
         _gameView.ShowEnemyImage(GameDataManager.Instance.EnemyData.EnemySprite);
 
         _enemyManager.Status.HP.Where(hp => hp > 0).Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
-            .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.PlayerTurn, t.OldValue - t.NewValue));
+            .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.PlayerTurn, t.OldValue, t.NewValue));
         
         _enemyManager.Status.HP.Where(hp => hp > 0).Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => Debug.Log($"Enemy:{t.OldValue}→{t.NewValue}"));

@@ -95,6 +95,7 @@ public class PlayerManager
         _actionCost.Value -= 1;
         _sakePower.AddSakePower(1);             //カードをプレイすると酒力が1増える
         _handcards[handCardIndex].PlayCard();   //ここでカードの効果呼び出し
+        CardEffectViewManager.Instance.ShowCardEffect(_handcards[handCardIndex].ID);
         _deckCards.Add(_handcards[handCardIndex]);
         _handcards.RemoveAt(handCardIndex);
         HandCardsChanged?.Invoke(_handcards);
