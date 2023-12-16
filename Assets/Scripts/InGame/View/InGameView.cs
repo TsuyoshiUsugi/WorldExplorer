@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +20,8 @@ public class InGameView : MonoBehaviour
     [SerializeField] Image _enemyActionImage;
     [SerializeField] Text _enemyActionText;
     [SerializeField] List<IconPair> _enemyActionIcons;
+    [SerializeField] Button _turnEndButton;
+    public Button TurnEndButton => _turnEndButton;
 
     #region プレイヤー関連の表示
 
@@ -102,6 +102,21 @@ public class InGameView : MonoBehaviour
                 _enemyActionImage.sprite = _enemyActionIcons.Find(sprite => sprite.EnemyAction == IEnemyBehavior.EnemyAction.Block).Sprite;
                 _enemyActionText.text = actionRelatedNum.ToString();
                 break;
+        }
+    }
+
+    /// <summary>
+    /// ターン終了ボタンを表示する
+    /// </summary>
+    public void SetTurnEndButtonActive(bool visible)
+    {
+        if (visible)
+        {
+            _turnEndButton.enabled = true;
+        }
+        else
+        {
+            _turnEndButton.enabled = false;
         }
     }
 

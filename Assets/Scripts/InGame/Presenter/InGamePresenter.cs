@@ -16,6 +16,8 @@ public class InGamePresenter : MonoBehaviour
     private PlayerManager _playerManager;
     [Inject]
     private ResultState _resultState;
+    [Inject]
+    private PlayerTurnState _playerTurnState;
 
     //ビュー
     [SerializeField] private Transform _deckTransform;
@@ -56,6 +58,11 @@ public class InGamePresenter : MonoBehaviour
             }
         };
 
+        _gameView.TurnEndButton.OnClickAsObservable().Subscribe(_ =>
+        {
+            _playerTurnState.EndTurn();
+        });
+
         _playerManager.ActionCost.Subscribe(num =>
         {
             _gameView.SetActionSimbleImage(num);
@@ -74,6 +81,16 @@ public class InGamePresenter : MonoBehaviour
         _playerManager.SakePower.CurrentSakePower.Subscribe(power =>
         {
             _gameView.ShowSakePower(power, _playerManager.SakePower.MaxSakePower);
+        });
+
+        _playerManager.ActionCost.Where(x => x == 0).Subscribe(cost =>
+        {
+            _gameView.SetTurnEndButtonActive(true);
+        });
+        
+        _playerManager.ActionCost.Where(x => x > 0).Subscribe(cost =>
+        {
+            _gameView.SetTurnEndButtonActive(false);
         });
 
         #endregion

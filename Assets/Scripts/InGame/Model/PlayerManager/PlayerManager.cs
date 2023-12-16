@@ -233,6 +233,10 @@ public class SakePower
     {
         _remainDrunkTurn = _maxDrunkTurn;
         //ここに酔い状態の効果を書く
+        foreach (var card in FieldInfo.Instance.PlayerManager.HandCard)
+        {
+            card.CardEffects.ForEach(c => c.EvolveCardEffect());
+        }
     }
 
     /// <summary>
