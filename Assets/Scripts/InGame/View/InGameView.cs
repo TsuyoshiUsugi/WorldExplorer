@@ -24,6 +24,7 @@ public class InGameView : MonoBehaviour
     [SerializeField] Button _turnEndButton;
     [SerializeField] GameObject _turnObject;
     [SerializeField] Text _turnNotifyText;
+    [SerializeField] GameObject _damageCountPrefab;
     public Button TurnEndButton => _turnEndButton;
 
     private void Awake()
@@ -33,10 +34,10 @@ public class InGameView : MonoBehaviour
 
     #region プレイヤー関連の表示
 
-    public async UniTask ShowTurnNotify(TurnNotify turn)
+    public async UniTask ShowTurnNotify(Turn turn)
     {
         _turnObject.SetActive(true);
-        if (turn == TurnNotify.PlayerTurn)
+        if (turn == Turn.PlayerTurn)
         {
             _turnNotifyText.text = "プレイヤーのターン";
         }
@@ -48,15 +49,33 @@ public class InGameView : MonoBehaviour
         _turnObject.SetActive(false);
     }
 
-    public enum TurnNotify
+    public enum Turn
     {
         PlayerTurn,
         EnemyTurn,
     }
 
+    /// <summary>
+    /// プレイヤーの画像をSpriteにセットする
+    /// </summary>
+    /// <param name="sprite"></param>
     public void ShowPlayerImage(Sprite sprite)
     {
         _playerImage.sprite = sprite;
+    }
+
+    public void ShowDamageCount(Turn turn, int count)
+    {
+        if (turn == Turn.PlayerTurn)
+        {
+            var showPos = _enemyImage.transform.position;
+            Instantiate(_damageCountPrefab, showPos, Quaternion.identity);
+        }
+        else
+        {
+            var showPos = _playerImage.transform.position;
+            Instantiate(_damageCountPrefab, showPos, Quaternion.identity);
+        }
     }
 
     /// <summary>

@@ -656,7 +656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &285409428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2559,9 +2559,9 @@ RectTransform:
   - {fileID: 339856347}
   - {fileID: 1953406904}
   - {fileID: 1122029231}
+  - {fileID: 285409428}
   - {fileID: 819860184}
   - {fileID: 1403661392}
-  - {fileID: 285409428}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2604,6 +2604,7 @@ MonoBehaviour:
   _turnEndButton: {fileID: 1122029232}
   _turnObject: {fileID: 285409427}
   _turnNotifyText: {fileID: 40280295}
+  _damageCountPrefab: {fileID: 0}
 --- !u!114 &938038498
 MonoBehaviour:
   m_ObjectHideFlags: 0

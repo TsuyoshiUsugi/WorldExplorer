@@ -62,7 +62,7 @@ public class InGamePresenter : MonoBehaviour
 
         _playerTurnState.OnEnterEvent += async () =>
         {
-            await _gameView.ShowTurnNotify(InGameView.TurnNotify.PlayerTurn);
+            await _gameView.ShowTurnNotify(InGameView.Turn.PlayerTurn);
         };
 
         _gameView.TurnEndButton.OnClickAsObservable().Subscribe(_ =>
@@ -108,7 +108,7 @@ public class InGamePresenter : MonoBehaviour
 
         _enemyTurnState.OnEnterEvent += async () =>
         {
-            await _gameView.ShowTurnNotify(InGameView.TurnNotify.EnemyTurn);
+            await _gameView.ShowTurnNotify(InGameView.Turn.EnemyTurn);
         };
 
         _enemyManager.Status.HP.Subscribe(hp =>
