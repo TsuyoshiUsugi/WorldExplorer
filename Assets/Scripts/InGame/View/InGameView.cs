@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,9 +22,37 @@ public class InGameView : MonoBehaviour
     [SerializeField] Text _enemyActionText;
     [SerializeField] List<IconPair> _enemyActionIcons;
     [SerializeField] Button _turnEndButton;
+    [SerializeField] GameObject _turnObject;
+    [SerializeField] Text _turnNotifyText;
     public Button TurnEndButton => _turnEndButton;
 
+    private void Awake()
+    {
+        _turnObject.SetActive(false);
+    }
+
     #region プレイヤー関連の表示
+
+    public async UniTask ShowTurnNotify(TurnNotify turn)
+    {
+        _turnObject.SetActive(true);
+        if (turn == TurnNotify.PlayerTurn)
+        {
+            _turnNotifyText.text = "プレイヤーのターン";
+        }
+        else
+        {
+            _turnNotifyText.text = "敵のターン";
+        }
+        await UniTask.Delay(1000);
+        _turnObject.SetActive(false);
+    }
+
+    public enum TurnNotify
+    {
+        PlayerTurn,
+        EnemyTurn,
+    }
 
     public void ShowPlayerImage(Sprite sprite)
     {
