@@ -13,6 +13,7 @@ public class PlayerTurnState : IInGameState
     private PlayerManager _playerManager;
     public event Action<Winner> OnGameEnd;
     public PlayerManager PlayerManager => _playerManager;
+    private bool _isTurnEnd = false;
 
     public PlayerTurnState(PlayerManager playerManager)
     {
@@ -42,9 +43,15 @@ public class PlayerTurnState : IInGameState
         _playerManager.RestActionCost();    //アクションコストは3
         //酒力を追加する処理
         //プレイヤーの選択待ち処理を開始
-        await UniTask.WaitUntil(() => _playerManager.ActionCost.Value <= 0);
+        await UniTask.WaitUntil(() => _playerManager.ActionCost.Value <= 0 && _isTurnEnd);
+        _isTurnEnd = false;
         _playerManager.SetActivePlayer(false);
         OnExit().Forget();
+    }
+
+    public void EndTurn()
+    {
+        _isTurnEnd = true;
     }
 
     public void OnUpdate()
