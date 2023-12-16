@@ -7,9 +7,12 @@ using UnityEngine;
 /// 「酔い状態」の場合
 /// 追加で体力をα回復する
 /// </summary>
+[System.Serializable]
 public class MinnadeOsakeEffect : ICardEffect
 {
-    [SerializeField] private int _sakePoint;
+    [SerializeField] private int _sakePoint = 3;//数値は仮
+    [SerializeField] private int _healPoint = 3;//数値は仮
+    [SerializeField] private int _drankHealPoint = 2;//数値は仮
     public void EvolveCardEffect(int addPower)
     {
         //特になし
@@ -18,16 +21,18 @@ public class MinnadeOsakeEffect : ICardEffect
     public void ExcuteCardEffect()
     {
         var playerManager = FieldInfo.Instance.PlayerManager;
-        var playerData = GameDataManager.Instance.PlayerData;
+        var playerStatus = playerManager.Status;
         //酒力を得る
         playerManager.SakePower.AddSakePower(_sakePoint);
+        Debug.Log($"Sake:{playerManager.SakePower.CurrentSakePower}");
         //体力を回復する
-        playerData.Status.HealHp(_sakePoint);
+        playerStatus.HealHp(_healPoint);
+        Debug.Log($"Hp:{playerStatus.HP}");
         //「酔い状態」かどうか
-        if (playerManager.SakePower.IsDrank)
-        {
-            //追加で体力を回復する
-            playerData.Status.HealHp(_sakePoint);
-        }
+        if (!playerManager.SakePower.IsDrank) return;
+        //追加で体力を回復する
+        playerStatus.HealHp(_drankHealPoint);
+        Debug.Log($"Hp:{playerStatus.HP}");
+        
     }
 }
