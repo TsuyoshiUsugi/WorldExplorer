@@ -10,7 +10,7 @@ using UnityEngine;
 public class PlayerManager
 {
     private Status _status;
-    bool _active = false;
+    private bool _active = false;
     private int _maxDeckCount = 0;
     private List<TurnStatusBase> _turnStatuses;
     private List<CardDataEntity> _handcards = new();       //手札

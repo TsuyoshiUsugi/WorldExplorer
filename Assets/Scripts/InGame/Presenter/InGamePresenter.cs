@@ -83,7 +83,11 @@ public class InGamePresenter : MonoBehaviour
         _playerManager.Status.HP.Subscribe(hp =>
         {
             _gameView.ShowPlayerHP(hp, _playerManager.Status.MaxHp);
+            _gameView.ShowDamageCount(InGameView.Turn.EnemyTurn, hp);
         });
+
+        _playerManager.Status.HP.Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
+            .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.PlayerTurn, t.OldValue - t.NewValue));
 
         _playerManager.SakePower.CurrentSakePower.Subscribe(power =>
         {
@@ -105,6 +109,9 @@ public class InGamePresenter : MonoBehaviour
         #region EnemyManagerのイベント登録処理
 
         _gameView.ShowEnemyImage(GameDataManager.Instance.EnemyData.EnemySprite);
+
+        _enemyManager.Status.HP.Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
+            .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.PlayerTurn, t.OldValue - t.NewValue));
 
         _enemyTurnState.OnEnterEvent += async () =>
         {
