@@ -60,8 +60,6 @@ public class PlayerManager
                 Debug.Log($"カードが足りません！ 呼び出しインデックス{index},デッキの枚数{_deckCards.Count}");
                 return;
             }
-
-            Debug.Log($"インデックス：{i}、カード{_deckCards[index].CardEntity.name}");
             _handcards.Add(_deckCards[index]);  //山札から手札に加える
             _deckCards.RemoveAt(index);         //山札から引いたカードを消す
 
