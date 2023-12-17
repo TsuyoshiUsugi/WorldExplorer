@@ -53,7 +53,6 @@ public class InGamePresenter : MonoBehaviour
                 var view = cardPrefab.GetComponent<CardView>();
                 // ここで新しいローカル変数を作成
                 var localIndex = i;
-
                 // localIndexをラムダ式にキャプチャさせる
                 view.SetIndex(localIndex);
                 view.OnCardSelect += _ => _playerManager.PlayCard(localIndex);

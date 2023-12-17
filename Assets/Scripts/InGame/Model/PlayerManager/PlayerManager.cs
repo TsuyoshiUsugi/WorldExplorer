@@ -96,9 +96,9 @@ public class PlayerManager
         _actionCost.Value -= 1;
         _sakePower.AddSakePower(1);             //カードをプレイすると酒力が1増える
         await CardEffectViewManager.Instance.ShowCardEffect(_handcards[handCardIndex].ID);
-        _handcards[handCardIndex].PlayCard();   //ここでカードの効果呼び出し
         _deckCards.Add(_handcards[handCardIndex]);
-        _handcards.RemoveAt(handCardIndex);
+        _handcards[handCardIndex].PlayCard();   //ここでカードの効果呼び出し
+        _handcards.Remove(_handcards[handCardIndex]);
         HandCardsChanged?.Invoke(_handcards);
     }
 
@@ -133,6 +133,13 @@ public class PlayerManager
     {
         _handcards.Add(card);
         HandCardsChanged?.Invoke(_handcards);
+
+        var player = FieldInfo.Instance.PlayerManager;
+        var playerHand = player.HandCard;
+        foreach (var item in playerHand)
+        {
+            Debug.Log(item.ID);
+        }
     }
 
     /// <summary>
