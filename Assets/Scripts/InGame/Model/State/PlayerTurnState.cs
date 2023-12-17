@@ -47,6 +47,7 @@ public class PlayerTurnState : IInGameState
         await UniTask.WaitUntil(() => _playerManager.ActionCost.Value <= 0 && _isTurnEnd);
         _isTurnEnd = false;
         _playerManager.DecreaseEffectTurn();
+        _playerManager.SakePower.DecreaseDrunkTurn();
         _playerManager.SetActivePlayer(false);
         OnExit().Forget();
     }
