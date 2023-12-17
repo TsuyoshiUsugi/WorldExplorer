@@ -70,20 +70,37 @@ public class InGameView : MonoBehaviour
     /// </summary>
     /// <param name="turn"></param>
     /// <param name="count"></param>
-    public void ShowDamageCount(Turn turn, int count)
+    public void ShowDamageCount(Turn turn, int preHp, int curHp)
     {
+        var count = preHp - curHp;
         if (turn == Turn.PlayerTurn)
         {
             var view = Instantiate(_damageCountPrefab, _enemyImage.transform).GetComponent<DamageCountView>();
             view.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
             view.ShowDamage(count).Forget();
+            
+            if (count > 0)
+            {
+                view.SetColor(Color.red);
+            }
+            else
+            {
+                view.SetColor(Color.green);
+            }
         }
         else
         {
             _playerImage.transform.rotation = Quaternion.Euler(0, 0, 0);
             var view = Instantiate(_damageCountPrefab, _playerImage.transform).GetComponent<DamageCountView>();
-           
             view.ShowDamage(count).Forget();
+            if (count > 0)
+            {
+                view.SetColor(Color.red);
+            }
+            else
+            {
+                view.SetColor(Color.green);
+            }
         }
     }
 

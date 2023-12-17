@@ -37,10 +37,10 @@ public class EnemyTurnState : IInGameState
     {
         //前処理
         await OnEnterEvent.Invoke();
+        await UniTask.Delay(TimeSpan.FromSeconds(1f));  //敵のターンの表示
         //メイン処理
         //敵の行動を実行する
         _enemyManager.ExcuteEnemyAction();
-
         //後処理
         //次に実行する行動のインデックスを設定する
         _enemyManager.SetNextBehaviorIndex();

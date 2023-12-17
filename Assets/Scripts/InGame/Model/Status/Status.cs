@@ -42,6 +42,12 @@ public class Status
     {
         //計算式　残りhp =　現在のhp - (ダメージ - ブロック) ※ダメージは0未満にならない
         _hp.Value -= Mathf.Max((damage - _blockPower), 0);
+
+        if (_hp.Value > MaxHp)
+        {
+            _hp.Value = MaxHp;
+        }
+
         if (_hp.Value < 0)
         {
             _hp.Value = 0;
@@ -54,7 +60,7 @@ public class Status
     /// <param name="hp"></param>
     public void HealHp(int hp)
     {
-        _hp.Value += hp;
+        _hp.Value = Mathf.Min(_hp.Value + hp, MaxHp);
     }
 
     /// <summary>
