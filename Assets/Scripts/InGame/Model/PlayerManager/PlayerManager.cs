@@ -315,9 +315,11 @@ public class SakePower
     public void DecreaseDrunkTurn()
     {
         if (!_isDrank) return;
+        Debug.Log($"酔い状態の残りターンを減らす{_remainDrunkTurn}");
         _remainDrunkTurn--;
-        if (_remainDrunkTurn == 0)
+        if (_remainDrunkTurn <= 0)
         {
+            _currentSakePower.Value = 0;    
             _isDrank = false;
         }
     }
