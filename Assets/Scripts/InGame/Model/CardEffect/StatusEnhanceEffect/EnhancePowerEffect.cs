@@ -10,6 +10,7 @@ public class EnhancePowerEffect : ICardEffect
 {
     [SerializeField] int _enhancePower;
     [SerializeField] int _addEnhancePower;
+    [SerializeField] int _enhancePowerTurn;
 
     public void EvolveCardEffect(int addPower)
     {
@@ -18,6 +19,27 @@ public class EnhancePowerEffect : ICardEffect
 
     public void ExcuteCardEffect()
     {
+        FieldInfo.Instance.PlayerManager.ApplyEffect(new EnhancePowerStatus(_enhancePowerTurn));
+    }
+}
+
+public class EnhancePowerStatus : TurnStatusBase
+{
+    private int _enhancePower;
+
+    public EnhancePowerStatus(int turn)
+    {
+        _remainTurn.Value = turn;
+    }
+
+    protected override void CancelEffect(Status status)
+    {
+        FieldInfo.Instance.PlayerManager.Status.AddAttackPower(_enhancePower * -1);
+    }
+
+    protected override void ExecuteEffect(Status status)
+    {
         FieldInfo.Instance.PlayerManager.Status.AddAttackPower(_enhancePower);
+        Debug.Log(FieldInfo.Instance.PlayerManager.Status.AttackPower);
     }
 }
