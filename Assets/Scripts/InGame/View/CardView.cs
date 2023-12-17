@@ -24,6 +24,11 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [Tooltip("カードをPlayできるかどうか")]
     private bool _isPlay = false;
 
+    private void Start()
+    {
+       
+    }
+
     public void SetIndex(int index)
     {
         _index = index;
@@ -35,7 +40,8 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         {
             _savePos = transform.localPosition;
         }
-
+        var playCardFieldType = FieldInfo.Instance.PlayerManager.HandCard[_index].PlayFieldCardType;
+        FieldInfo.Instance.PlayCardField.ActiveField(playCardFieldType);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -46,6 +52,7 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         {
             OnCardSelect?.Invoke(_index);
         }
+        FieldInfo.Instance.PlayCardField.NonActive();
     }
 
     private void GoBackToStartAnim()
