@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,12 +39,12 @@ public class CardDataEntity
     /// <summary>
     /// カードの効果を発動する
     /// </summary>
-    public void PlayCard()
+    public async void PlayCard()
     {
         foreach (var effet in CardEffects)
         {
+            
             effet.ExcuteCardEffect();
-            CardEffectView?.PlayCardEffectView();
         }
     }
 }

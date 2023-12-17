@@ -88,14 +88,14 @@ public class PlayerManager
     /// プレイしたカードは手札から外して山札へ
     /// </summary>
     /// <param name="handCardIndex"></param>
-    public void PlayCard(int handCardIndex)
+    public async void PlayCard(int handCardIndex)
     {
         if (!_active) return;
         if (_actionCost.Value == 0) return;
         _actionCost.Value -= 1;
         _sakePower.AddSakePower(1);             //カードをプレイすると酒力が1増える
+        await CardEffectViewManager.Instance.ShowCardEffect(_handcards[handCardIndex].ID);
         _handcards[handCardIndex].PlayCard();   //ここでカードの効果呼び出し
-        CardEffectViewManager.Instance.ShowCardEffect(_handcards[handCardIndex].ID);
         _deckCards.Add(_handcards[handCardIndex]);
         _handcards.RemoveAt(handCardIndex);
         HandCardsChanged?.Invoke(_handcards);
