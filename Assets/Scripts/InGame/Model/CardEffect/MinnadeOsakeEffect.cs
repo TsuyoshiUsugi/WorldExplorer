@@ -24,15 +24,11 @@ public class MinnadeOsakeEffect : ICardEffect
         var playerStatus = playerManager.Status;
         //酒力を得る
         playerManager.SakePower.AddSakePower(_sakePoint);
-        Debug.Log($"Sake:{playerManager.SakePower.CurrentSakePower}");
         //体力を回復する
         playerStatus.HealHp(_healPoint);
-        Debug.Log($"Hp:{playerStatus.HP}");
         //「酔い状態」かどうか
         if (!playerManager.SakePower.IsDrank) return;
         //追加で体力を回復する
         playerStatus.HealHp(_drankHealPoint);
-        Debug.Log($"Hp:{playerStatus.HP}");
-        
     }
 }
