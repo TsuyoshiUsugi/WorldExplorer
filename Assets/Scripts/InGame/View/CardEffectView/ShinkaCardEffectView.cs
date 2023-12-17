@@ -1,4 +1,7 @@
 using Cysharp.Threading.Tasks;
+using System;
+using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 /// <summary>
@@ -8,13 +11,21 @@ using UnityEngine;
 public class ShinkaCardEffectView : CardEffectBase
 {
     [SerializeField] private GameObject _shinkaEffectPrefab;
+    private Animator _animator;
+
+    private void Start()
+    {
+        _animator = _shinkaEffectPrefab.GetComponent<Animator>();
+    }
     /// <summary>
     /// カードをプレイしたときの演出処理を行う
     /// </summary>
     /// <returns></returns>
     public override async UniTask PlayCardEffectView()
     {
-        Debug.Log("進化カードの演出処理を行う");
-        _shinkaEffectPrefab.GetComponent<Animator>().Play("CutinAnim");
+        _shinkaEffectPrefab.SetActive(true);
+        _animator.Play("CutinAnim");
+        await UniTask.Delay(TimeSpan.FromSeconds(1.5f));
+        _shinkaEffectPrefab.SetActive(false);
     }
 }
