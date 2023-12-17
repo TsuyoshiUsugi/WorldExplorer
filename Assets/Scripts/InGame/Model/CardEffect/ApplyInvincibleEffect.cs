@@ -8,11 +8,12 @@ using UnityEngine;
 [System.Serializable]
 public class ApplyInvincibleEffect : ICardEffect
 {
-    [SerializeField] private int _turn = 1;
+    [SerializeField] private int _turn = 2;
+    [SerializeField] private int _addTurn = 1;
 
     public void EvolveCardEffect(int addPower)
     {
-        //特になし
+        _turn += _addTurn;
     }
 
     public void ExcuteCardEffect()
