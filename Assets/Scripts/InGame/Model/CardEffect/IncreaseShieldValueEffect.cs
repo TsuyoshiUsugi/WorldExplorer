@@ -9,10 +9,11 @@ using UnityEngine;
 public class IncreaseShieldValue : ICardEffect
 {
     [SerializeField] private int _increaseValue;
+    [SerializeField] private int _addIncreaseValue;
 
     public void EvolveCardEffect(int addPower)
     {
-       _increaseValue += addPower;
+       _increaseValue += _addIncreaseValue;
     }
 
     public void ExcuteCardEffect()

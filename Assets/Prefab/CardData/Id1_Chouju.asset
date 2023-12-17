@@ -17,6 +17,7 @@ MonoBehaviour:
   CardEffects:
   - rid: 8991444719476670464
   - rid: 8991444719476670465
+  CardEffectView: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -24,7 +25,10 @@ MonoBehaviour:
       type: {class: EnhancePowerEffect, ns: , asm: Assembly-CSharp}
       data:
         _enhancePower: 1
+        _addEnhancePower: 1
+        _enhancePowerTurn: 1
     - rid: 8991444719476670465
       type: {class: IncreaseShieldValue, ns: , asm: Assembly-CSharp}
       data:
         _increaseValue: 1
+        _addIncreaseValue: 1

@@ -17,13 +17,14 @@ MonoBehaviour:
   CardEffects:
   - rid: 4606560170361749505
   - rid: 3382217890634137602
+  CardEffectView: {fileID: 0}
   references:
     version: 2
     RefIds:
     - rid: 3382217890634137602
       type: {class: ApplyInvincibleEffect, ns: , asm: Assembly-CSharp}
       data:
-        _turn: 1
+        _turn: 2
     - rid: 4606560170361749505
       type: {class: ApplyDamageEffect, ns: , asm: Assembly-CSharp}
       data:

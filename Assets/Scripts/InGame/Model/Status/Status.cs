@@ -69,7 +69,6 @@ public class Status
     /// <param name="power"></param>
     public void AddAttackPower(int power)
     {
-       
         _attackPower += power;
         if (_attackPower < 0)
         {
