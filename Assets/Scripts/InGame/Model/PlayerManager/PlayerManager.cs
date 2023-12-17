@@ -27,6 +27,7 @@ public class PlayerManager
     public event Action<List<CardDataEntity>> HandCardsChanged;
     public int MaxDeckCount => _maxDeckCount;
     public SakePower SakePower => _sakePower;
+    public List<TurnStatusBase> TurnStatuses => _turnStatuses;
 
     public PlayerManager(Status status)
     {

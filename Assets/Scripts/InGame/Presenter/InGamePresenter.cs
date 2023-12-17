@@ -87,9 +87,6 @@ public class InGamePresenter : MonoBehaviour
 
         _playerManager.Status.HP.Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.EnemyTurn, t.OldValue, t.NewValue));
-        
-        _playerManager.Status.HP.Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
-            .Subscribe(t => Debug.Log($"Player:{t.OldValue}→{t.NewValue}"));
 
         _playerManager.SakePower.CurrentSakePower.Subscribe(power =>
         {
@@ -101,7 +98,7 @@ public class InGamePresenter : MonoBehaviour
             _gameView.SetTurnEndButtonActive(true);
         });
         
-        _playerManager.ActionCost.Where(x => x >= 0).Subscribe(cost =>
+        _playerManager.ActionCost.Where(x => x > 0).Subscribe(cost =>
         {
             _gameView.SetTurnEndButtonActive(false);
         });
@@ -114,9 +111,6 @@ public class InGamePresenter : MonoBehaviour
 
         _enemyManager.Status.HP.Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.PlayerTurn, t.OldValue, t.NewValue));
-        
-        _enemyManager.Status.HP.Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
-            .Subscribe(t => Debug.Log($"Enemy:{t.OldValue}→{t.NewValue}"));
 
         _enemyTurnState.OnEnterEvent += async () =>
         {

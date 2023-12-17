@@ -15,7 +15,7 @@ public class EnemyBlock : IEnemyBehavior
     public void Excute()
     {
         //FieldInfo.Instance.EnemyManager.Status.AddBlockPower(_addBlockPower);
-        FieldInfo.Instance.EnemyManager.ApplyEffect(new BlockPowerUpStatus(_addBlockPower, 2)); //実行したターンも含めるので2ターン
+        FieldInfo.Instance.EnemyManager.ApplyEffect(new BlockPowerUpStatus(_addBlockPower, 1)); //継続するターンは1ターン
         //行動終了後VALUEの値を増やす
         FieldInfo.Instance.EnemyManager.Status.AddAttackPower(_afterActionAddValue);
         FieldInfo.Instance.EnemyManager.Status.AddBlockPower(_afterActionAddValue);
