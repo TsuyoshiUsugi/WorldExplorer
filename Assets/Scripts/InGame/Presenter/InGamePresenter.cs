@@ -85,7 +85,7 @@ public class InGamePresenter : MonoBehaviour
             _gameView.ShowPlayerHP(hp, _playerManager.Status.MaxHp);
         });
 
-        _playerManager.Status.HP.Skip(1).Where(hp => hp > 0).Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
+        _playerManager.Status.HP.Where(hp => hp > 0).Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.EnemyTurn, t.OldValue, t.NewValue));
         
         _playerManager.Status.HP.Where(hp => hp > 0).Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })

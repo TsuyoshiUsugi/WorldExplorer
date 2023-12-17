@@ -72,9 +72,9 @@ public class InGameView : MonoBehaviour
     /// <param name="count"></param>
     public void ShowDamageCount(Turn turn, int preHp, int curHp)
     {
+        var count = preHp - curHp;
         if (turn == Turn.PlayerTurn)
         {
-            var count = preHp - curHp;
             var view = Instantiate(_damageCountPrefab, _enemyImage.transform).GetComponent<DamageCountView>();
             view.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
             view.ShowDamage(count).Forget();
@@ -90,7 +90,6 @@ public class InGameView : MonoBehaviour
         }
         else
         {
-            var count = preHp - curHp;
             _playerImage.transform.rotation = Quaternion.Euler(0, 0, 0);
             var view = Instantiate(_damageCountPrefab, _playerImage.transform).GetComponent<DamageCountView>();
             view.ShowDamage(count).Forget();
