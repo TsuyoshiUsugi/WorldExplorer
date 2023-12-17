@@ -9,7 +9,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CardData", menuName = "ScriptableObjects/CreateCardDataAsset")]
 public class CardData : ScriptableObject
 {
-
+    [Header("プレイするフィールドのタイプ")]
+    public PlayCardFieldType PlayFieldCardType; 
     [Header("カードのID")]
     public int Id;
     [Header("場にでるカードのPrefab")] 
@@ -28,11 +29,13 @@ public class CardDataEntity
     public GameObject CardEntity;
     public List<ICardEffect> CardEffects;
     public CardEffectBase CardEffectView;
+    public PlayCardFieldType PlayFieldCardType;
 
     public CardDataEntity(CardData cardData, int iD)
     {
         CardEntity = cardData.CardPrefab;
         CardEffects = cardData.CardEffects;
+        PlayFieldCardType = cardData.PlayFieldCardType;
         ID = iD;
     }
 
