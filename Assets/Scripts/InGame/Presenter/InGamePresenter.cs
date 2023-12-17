@@ -80,15 +80,15 @@ public class InGamePresenter : MonoBehaviour
             _gameView.SetDeckCardNumText(deckCount, _playerManager.MaxDeckCount);
         });
 
-        _playerManager.Status.HP.Where(hp => hp > 0).Subscribe(hp =>
+        _playerManager.Status.HP.Subscribe(hp =>
         {
             _gameView.ShowPlayerHP(hp, _playerManager.Status.MaxHp);
         });
 
-        _playerManager.Status.HP.Where(hp => hp > 0).Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
+        _playerManager.Status.HP.Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.EnemyTurn, t.OldValue, t.NewValue));
         
-        _playerManager.Status.HP.Where(hp => hp > 0).Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
+        _playerManager.Status.HP.Zip(_playerManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => Debug.Log($"Player:{t.OldValue}→{t.NewValue}"));
 
         _playerManager.SakePower.CurrentSakePower.Subscribe(power =>
@@ -101,7 +101,7 @@ public class InGamePresenter : MonoBehaviour
             _gameView.SetTurnEndButtonActive(true);
         });
         
-        _playerManager.ActionCost.Where(x => x > 0).Subscribe(cost =>
+        _playerManager.ActionCost.Where(x => x >= 0).Subscribe(cost =>
         {
             _gameView.SetTurnEndButtonActive(false);
         });
@@ -112,10 +112,10 @@ public class InGamePresenter : MonoBehaviour
 
         _gameView.ShowEnemyImage(GameDataManager.Instance.EnemyData.EnemySprite);
 
-        _enemyManager.Status.HP.Where(hp => hp > 0).Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
+        _enemyManager.Status.HP.Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => _gameView.ShowDamageCount(InGameView.Turn.PlayerTurn, t.OldValue, t.NewValue));
         
-        _enemyManager.Status.HP.Where(hp => hp > 0).Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
+        _enemyManager.Status.HP.Zip(_enemyManager.Status.HP.Skip(1), (x, y) => new { OldValue = x, NewValue = y })
             .Subscribe(t => Debug.Log($"Enemy:{t.OldValue}→{t.NewValue}"));
 
         _enemyTurnState.OnEnterEvent += async () =>

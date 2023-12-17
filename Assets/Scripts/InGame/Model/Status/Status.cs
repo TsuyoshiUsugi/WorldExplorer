@@ -60,12 +60,7 @@ public class Status
     /// <param name="hp"></param>
     public void HealHp(int hp)
     {
-        _hp.Value += hp;
-
-        if (_hp.Value > MaxHp)
-        {
-            _hp.Value = MaxHp;
-        }
+        _hp.Value = Mathf.Min(_hp.Value + hp, MaxHp);
     }
 
     /// <summary>
