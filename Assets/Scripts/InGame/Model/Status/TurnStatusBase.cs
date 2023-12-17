@@ -26,7 +26,7 @@ public abstract class TurnStatusBase
             if (turn <= 0)
             {
                 CancelEffect(status);
-                _disposable.Dispose();
+                _disposable?.Dispose();
             }
         });
     }

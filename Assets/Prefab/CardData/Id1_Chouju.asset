@@ -26,6 +26,7 @@ MonoBehaviour:
       data:
         _enhancePower: 1
         _addEnhancePower: 1
+        _enhancePowerTurn: 1
     - rid: 8991444719476670465
       type: {class: IncreaseShieldValue, ns: , asm: Assembly-CSharp}
       data:

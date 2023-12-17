@@ -19,7 +19,7 @@ public class EnhancePowerEffect : ICardEffect
 
     public void ExcuteCardEffect()
     {
-        FieldInfo.Instance.PlayerManager.ApplyEffect(new EnhancePowerStatus(_enhancePowerTurn));
+        FieldInfo.Instance.PlayerManager.ApplyEffect(new EnhancePowerStatus(_enhancePowerTurn, _enhancePower));
     }
 }
 
@@ -27,9 +27,10 @@ public class EnhancePowerStatus : TurnStatusBase
 {
     private int _enhancePower;
 
-    public EnhancePowerStatus(int turn)
+    public EnhancePowerStatus(int turn, int enhancePower)
     {
         _remainTurn.Value = turn;
+        _enhancePower = enhancePower;
     }
 
     protected override void CancelEffect(Status status)
