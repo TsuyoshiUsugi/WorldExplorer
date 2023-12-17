@@ -150,9 +150,20 @@ public class PlayerManager
     /// </summary>
     public void DecreaseEffectTurn()
     {
+        var toRemove = new List<TurnStatusBase>();
+
         foreach (var turnStatus in _turnStatuses)
         {
             turnStatus.DecreaseTurn();
+            if (turnStatus.RemainTurn.Value <= 0)
+            {
+                toRemove.Add(turnStatus);
+            }
+        }
+
+        foreach (var item in toRemove)
+        {
+            _turnStatuses.Remove(item);
         }
     }
 
