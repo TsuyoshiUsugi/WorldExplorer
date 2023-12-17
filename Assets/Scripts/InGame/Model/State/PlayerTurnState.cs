@@ -46,6 +46,7 @@ public class PlayerTurnState : IInGameState
         //プレイヤーの選択待ち処理を開始
         await UniTask.WaitUntil(() => _playerManager.ActionCost.Value <= 0 && _isTurnEnd);
         _isTurnEnd = false;
+        _playerManager.DecreaseEffectTurn();
         _playerManager.SetActivePlayer(false);
         OnExit().Forget();
     }
