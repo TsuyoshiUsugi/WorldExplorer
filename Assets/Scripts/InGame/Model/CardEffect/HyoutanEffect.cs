@@ -11,9 +11,11 @@ using UnityEngine;
 public class HyoutanEffect : ICardEffect
 {
     [SerializeField] private int _sakePoint = 3; //数値は仮
+    [SerializeField] private int _drankDamagePoint = 2; //数値は仮
     public void EvolveCardEffect(int addPower)
     {
         //特になし
+        _sakePoint += addPower;
     }
 
     public void ExcuteCardEffect()

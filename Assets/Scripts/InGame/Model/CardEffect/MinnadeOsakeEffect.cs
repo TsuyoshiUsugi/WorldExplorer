@@ -13,9 +13,15 @@ public class MinnadeOsakeEffect : ICardEffect
     [SerializeField] private int _sakePoint = 3;//数値は仮
     [SerializeField] private int _healPoint = 3;//数値は仮
     [SerializeField] private int _drankHealPoint = 2;//数値は仮
+    [SerializeField] private int _addSakePoint = 1;//数値は仮
+    [SerializeField] private int _addHealPoint = 1;//数値は仮
+    [SerializeField] private int _addDrankHealPoint = 1;//数値は仮
     public void EvolveCardEffect(int addPower)
     {
         //特になし
+        _sakePoint += _addSakePoint;
+        _healPoint += _addHealPoint;
+        _drankHealPoint += _addDrankHealPoint;
     }
 
     public void ExcuteCardEffect()

@@ -9,10 +9,11 @@ using UnityEngine;
 public class EnhancePowerEffect : ICardEffect
 {
     [SerializeField] int _enhancePower;
+    [SerializeField] int _addEnhancePower;
 
     public void EvolveCardEffect(int addPower)
     {
-       _enhancePower += addPower;
+        _enhancePower += _addEnhancePower; 
     }
 
     public void ExcuteCardEffect()

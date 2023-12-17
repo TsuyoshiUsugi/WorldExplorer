@@ -7,10 +7,11 @@ using UnityEngine;
 public class ApplyDamageEffect : ICardEffect
 {
     [SerializeField] private int _cardDamage = 10;
+    [SerializeField] private int _addDamageWhenEvolved = 20;
     public void EvolveCardEffect(int addPower)
     {
         //ここに強化後のカードの効果を書く
-        //_cardDamage += addPower;
+        _cardDamage += _addDamageWhenEvolved;
     }
 
     public void ExcuteCardEffect()
@@ -29,10 +30,12 @@ public class ApplyAttackPowerDownEffect : ICardEffect
 {
     [SerializeField] private int _turn = 1;
     [SerializeField] private int _downPower = 10;
+    [SerializeField] private int _addDownPowerWhenEvolved = 10;
 
     public void EvolveCardEffect(int addPower)
     {
         //ここに強化後のカードの効果を書く
+        _downPower += _addDownPowerWhenEvolved;
     }
 
     public void ExcuteCardEffect()
@@ -49,10 +52,12 @@ public class ApplyAttackPowerDownEffect : ICardEffect
 public class ApplyDamageEffectIfDrunk : ICardEffect
 {
     [SerializeField] private int _damage = 10;
+    [SerializeField] private int _addDamageWhenEvolved = 10;
 
     public void EvolveCardEffect(int addPower)
     {
         //ここに強化後のカードの効果を書く
+        _damage += _addDamageWhenEvolved;
     }
 
     public void ExcuteCardEffect()
