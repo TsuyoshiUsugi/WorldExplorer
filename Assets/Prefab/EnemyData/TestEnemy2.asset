@@ -16,7 +16,7 @@ MonoBehaviour:
   Status:
     _hp:
       value: 100
-    _attackPower: 10
+    _attackPower: 100
     _blockPower: 10
   EnemyBehavior:
   - rid: 3382217852420096002

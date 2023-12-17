@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UniRx;
-using UnityEngine;
 
 /// <summary>
 /// 敵の行動等を管理するクラス
@@ -16,6 +15,7 @@ public class EnemyManager
     public Status Status => _status;
     public List<IEnemyBehavior> Behaviors => _behaviors;
     public IReadOnlyReactiveProperty<int> NextBehaviorIndex => _nextBehaviorIndex;
+    public List<TurnStatusBase> TurnStatuses => _turnStatuses;
 
     public EnemyManager(List<IEnemyBehavior> enemyBehaviors, Status status)
     {
@@ -48,9 +48,20 @@ public class EnemyManager
     /// </summary>
     public void DecreaseEffectTurn()
     {
+        var toRemove = new List<TurnStatusBase>();
+
         foreach (var turnStatus in _turnStatuses)
         {
             turnStatus.DecreaseTurn();
+            if (turnStatus.RemainTurn.Value <= 0)
+            {
+                toRemove.Add(turnStatus);
+            }
+        }
+
+        foreach (var item in toRemove)
+        {
+            _turnStatuses.Remove(item);
         }
     }
 
