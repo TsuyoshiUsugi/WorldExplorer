@@ -69,7 +69,7 @@ public class Status
     /// <param name="power"></param>
     public void AddAttackPower(int power)
     {
-       
+        Debug.Log("AddAttackPower" + power);
         _attackPower += power;
         if (_attackPower < 0)
         {
