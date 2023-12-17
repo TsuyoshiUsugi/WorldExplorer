@@ -26,7 +26,6 @@ public class SanakaSakeEffect : ICardEffect
         //手札に「三河武士」があるかどうか
         if (player.TryGetTargetCard(_sanka.Id, out var card))   //「三河武士」のID
         {
-            Debug.Log(card.CardEntity.name);
             //手札に「三河武士」がある場合、行動回数を減らさずに使用できる
             player.AddActionCost(1);
             //手札から「三河武士」を捨て、進化した「三河武士」を加える
