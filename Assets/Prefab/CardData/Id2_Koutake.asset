@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
   m_Name: Id2_Koutake
   m_EditorClassIdentifier: 
+  PlayFieldCardType: 1
   Id: 2
   CardPrefab: {fileID: 5400089184753962535, guid: 25172e9b01c309f47900cf2576232347, type: 3}
   CardEffects:
   - rid: 8991444719476670466
   - rid: 8991444719476670468
   - rid: 8991444719476670469
+  CardEffectView: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -25,6 +27,7 @@ MonoBehaviour:
       type: {class: ApplyDamageEffect, ns: , asm: Assembly-CSharp}
       data:
         _cardDamage: 10
+        _addDamageWhenEvolved: 20
     - rid: 8991444719476670468
       type: {class: GourdNotDecreasingActionEffect, ns: , asm: Assembly-CSharp}
       data:
