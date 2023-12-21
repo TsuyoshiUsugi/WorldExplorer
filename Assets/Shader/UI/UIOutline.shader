@@ -9,8 +9,7 @@ Shader "Custom/UIOutline"
         [HDR]_OutlineColor ("Outline Color", Color) = (1, 0, 0, 1)
         _OutlineWidth ("Outline Width", Range(0.0, 1.0)) = 0.1
         
-        [Space(20)]
-        [Header(Stencil)]
+        // HideProp
         [HideInInspector]_StencilComp ("Stencil Comparison", Float) = 8.000000
         [HideInInspector]_Stencil ("Stencil ID", Float) = 0.000000
         [HideInInspector]_StencilOp ("Stencil Operation", Float) = 0.000000
@@ -57,7 +56,7 @@ Shader "Custom/UIOutline"
             #pragma multi_compile _OUTLINE_TYPE_BLEND _OUTLINE_TYPE_OVERWRITE
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-            #include "Library/Macro.hlsl"
+            #include "../Library/Macro.hlsl"
 
             struct Attributes
             {
