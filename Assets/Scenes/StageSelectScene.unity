@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2160987963657895432, guid: 4cf86d32a8e88ef4e93a3c61a97449ae, type: 3}
+      propertyPath: DeckInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 84dbf1afe5437254ba1cc3721369797f, type: 2}
     - target: {fileID: 9011948477051835015, guid: 4cf86d32a8e88ef4e93a3c61a97449ae, type: 3}
       propertyPath: m_Name
       value: GameDataLoadManager

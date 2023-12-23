@@ -45,11 +45,11 @@ Material:
     m_Floats:
     - _ColorMask: 15
     - _EnableExternalAlpha: 0
-    - _Glow1Intensity: 5.67
-    - _Glow1Opacity: 0.224
-    - _Glow1ScrollSpeed: 0.5
+    - _Glow1Intensity: 7.4
+    - _Glow1Opacity: 0.297
+    - _Glow1ScrollSpeed: 0.16
     - _Glow1_On: 1
-    - _Glow2Intensity: 16.72
+    - _Glow2Intensity: 22.19
     - _Glow2Opacity: 0.135
     - _Glow2_On: 1
     - _Gradient: 0.94
@@ -58,12 +58,12 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _VoronoiAngleOffset: 23.4
-    - _VoronoiCellDensity: 61.7
+    - _VoronoiAngleOffset: 69.12
+    - _VoronoiCellDensity: 22.3
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Glow2ScrollSpeed: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _Glow2TillingOffset: {r: 5, g: 5, b: 0, a: 0}
+    - _Glow2ScrollSpeed: {r: 1.85, g: 0.5, b: 0, a: 0}
+    - _Glow2TillingOffset: {r: 4.2, g: 5, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
