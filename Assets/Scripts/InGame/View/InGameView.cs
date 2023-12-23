@@ -27,22 +27,19 @@ public class InGameView : MonoBehaviour
     [SerializeField] GameObject _damageCountPrefab;
     public Button TurnEndButton => _turnEndButton;
 
-    private void Awake()
-    {
-        _turnObject.SetActive(false);
-    }
-
     #region プレイヤー関連の表示
 
     public async UniTask ShowTurnNotify(Turn turn)
     {
-        _turnObject.SetActive(true);
+        _turnNotifyText.gameObject.SetActive(true);
         if (turn == Turn.PlayerTurn)
         {
+            _turnObject.SetActive(true);
             _turnNotifyText.text = "プレイヤーのターン";
         }
         else
         {
+            _turnObject.SetActive(true);
             _turnNotifyText.text = "敵のターン";
         }
         await UniTask.Delay(1000);

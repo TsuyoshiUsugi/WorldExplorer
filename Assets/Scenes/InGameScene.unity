@@ -2781,8 +2781,8 @@ MonoBehaviour:
   - EnemyAction: 1
     Sprite: {fileID: 21300000, guid: 3d50f293d84a6ef4ab63f071d54ee488, type: 3}
   _turnEndButton: {fileID: 1122029232}
-  _turnObject: {fileID: 1122029230}
-  _turnNotifyText: {fileID: 2017246974}
+  _turnObject: {fileID: 285409427}
+  _turnNotifyText: {fileID: 40280295}
   _damageCountPrefab: {fileID: 5200365046270205435, guid: d45002da155283648b97fbe990bec430, type: 3}
 --- !u!114 &938038498
 MonoBehaviour:
