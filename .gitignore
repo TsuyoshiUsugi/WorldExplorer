@@ -71,3 +71,12 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Member/
+Assets/Behavior Designer/
+Assets/Behavior Designer.meta
+Assets/Gizmos.meta
+Assets/Gizmos/Behavior Designer Hier Icon.png
+Assets/Gizmos/Behavior Designer Hier Icon.png.meta
+Assets/Gizmos/Behavior Designer Scene Icon.png
+Assets/Gizmos/Behavior Designer Scene Icon.png.meta
+Assets/Scenes/BehaviorTest.unity
+Assets/Scenes/BehaviorTest.unity.meta
