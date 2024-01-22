@@ -53,7 +53,8 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.neuecc.unirx",
-        "com.cysharp.unitask"
+        "com.cysharp.unitask",
+        "openupm add com.alelievr.node-graph-processor"
       ]
     }
   ]

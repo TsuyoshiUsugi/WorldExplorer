@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEditor.Experimental.GraphView;
 
-public class ExampleNode : MonoBehaviour
+namespace TsuyoshiBehaviorTree
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ExampleNode : Node
     {
-        
-    }
+        public ExampleNode()
+        {
+            title = "ExampleNode";
+            var inputoirt = Port.Create<Edge>(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            inputoirt.portName = "Input";
+            inputContainer.Add(inputoirt);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            var outputPort = Port.Create<Edge>(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+            outputPort.portName = "Output";
+            outputContainer.Add(outputPort);
+        }
     }
 }
+

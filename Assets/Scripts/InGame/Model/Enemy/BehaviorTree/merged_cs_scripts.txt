@@ -1,0 +1,116 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// 行動ノードの基底クラス
+    /// UpdataはWhile文で回す
+    /// 成功の可否はboolで返す
+    /// </summary>
+    [System.Serializable]
+    public abstract class ActionNode : IBehaviorNode
+    {
+        public abstract bool Execute();
+    }
+}
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace TsuyoshiBehaviorTree
+{
+    public class BehaviorTree : MonoBehaviour
+    {
+        [SerializeReference, SubclassSelector] private IBehaviorNode _rootNode;
+
+        public void AddRootNode(IBehaviorNode node)
+        {
+            _rootNode = node;
+        }
+
+        public void Start()
+        {
+            _rootNode.Execute();
+        }
+    }
+}
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// ビヘイビアツリーのノードのインターフェース
+    /// </summary>
+    public interface IBehaviorNode
+    {
+        bool Execute();
+    }
+}
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// コンポジットノードの一つ
+    /// シーケンサーノードの基底クラス
+    /// </summary>
+    [System.Serializable]
+    public class SequenceNode : IBehaviorNode
+    {
+        [SerializeReference, SubclassSelector] private List<IBehaviorNode> _nodes = new List<IBehaviorNode>();
+
+        public void AddNode(IBehaviorNode node)
+        {
+            _nodes.Add(node);
+        }
+
+        public bool Execute()
+        {
+            foreach (var node in _nodes)
+            {
+                if (!node.Execute())
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+}
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TsuyoshiBehaviorTree;
+
+[System.Serializable]
+public class TestLogBehavior : ActionNode
+{
+    public override bool Execute()
+    {
+        int i = 0;
+        int max = 100;
+        while (i < max)
+        {
+            Debug.Log("TestLogBehavior");
+            i++;
+        }
+        return true;
+    }
+}
+ 
+-------------------------------- 
