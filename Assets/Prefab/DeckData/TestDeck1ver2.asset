@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6566765804531d4ab8ac8f5a4051bce, type: 3}
   m_Name: TestDeck1ver2
   m_EditorClassIdentifier: 
+  DeckName: "\u30CE\u30FC\u30DE\u30EB\u30C7\u30C3\u30AD"
+  DeckDescription: "\u57FA\u672C\u7684\u306A\u30C7\u30C3\u30AD\u3002\u653B\u5B88\u3068\u3082\u306B\u30B9\u30AD\u304C\u306A\u3044\u3002"
   Cards:
   - {fileID: 11400000, guid: 7a407a507d2ea95439c3e225f34ffa07, type: 2}
   - {fileID: 11400000, guid: 696f4de25e7e88443945f154434cc97f, type: 2}

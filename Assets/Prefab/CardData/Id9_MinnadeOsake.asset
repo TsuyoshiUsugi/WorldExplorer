@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
   m_Name: Id9_MinnadeOsake
   m_EditorClassIdentifier: 
+  PlayFieldCardType: 0
   Id: 9
+  CardName: 
+  CardExplain: 
   CardPrefab: {fileID: 5400089184753962535, guid: d39b0cc2c6942c740ba50802146e02da, type: 3}
   CardEffects:
   - rid: 6092417385810624512
+  CardEffectView: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -25,3 +29,6 @@ MonoBehaviour:
         _sakePoint: 2
         _healPoint: 10
         _drankHealPoint: 10
+        _addSakePoint: 1
+        _addHealPoint: 1
+        _addDrankHealPoint: 1

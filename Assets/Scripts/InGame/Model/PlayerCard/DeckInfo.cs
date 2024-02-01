@@ -8,5 +8,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DeckData", menuName = "ScriptableObjects/CreateDeckDataAsset")]
 public class DeckInfo : ScriptableObject
 {
+    public string DeckName;
+    public string DeckDescription;
+    public GameObject DeckImage;
     public List<CardData> Cards;
 }
