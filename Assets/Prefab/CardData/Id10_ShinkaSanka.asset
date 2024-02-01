@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
   m_Name: Id10_ShinkaSanka
   m_EditorClassIdentifier: 
-  PlayFieldCardType: 1
+  PlayFieldCardType: 0
   Id: 10
+  CardName: 
+  CardExplain: 
   CardPrefab: {fileID: 5400089184753962535, guid: 70b87cb40f38653469c588c7c00b16a5, type: 3}
   CardEffects:
   - rid: 4606560170361749505

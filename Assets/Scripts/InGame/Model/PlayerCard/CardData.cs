@@ -13,6 +13,10 @@ public class CardData : ScriptableObject
     public PlayCardFieldType PlayFieldCardType; 
     [Header("カードのID")]
     public int Id;
+    [Header("カードの名前")]
+    public string CardName;
+    [Header("カードの説明"), TextArea(1, 3)]
+    public string CardExplain;
     [Header("場にでるカードのPrefab")] 
     public GameObject CardPrefab;
     [SerializeReference, SubclassSelector, Header("カードの効果一覧")]

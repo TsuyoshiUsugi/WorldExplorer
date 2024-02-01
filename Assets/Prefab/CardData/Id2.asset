@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
+  m_Name: Id2
+  m_EditorClassIdentifier: 
+  PlayFieldCardType: 0
+  Id: 2
+  CardName: 
+  CardExplain: 
+  CardPrefab: {fileID: 5400089184753962535, guid: 25172e9b01c309f47900cf2576232347, type: 3}
+  CardEffects:
+  - rid: 8991444719476670466
+  - rid: 8991444719476670468
+  - rid: 8991444719476670469
+  CardEffectView: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8991444719476670466
+      type: {class: ApplyDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _cardDamage: 10
+        _addDamageWhenEvolved: 20
+    - rid: 8991444719476670468
+      type: {class: GourdNotDecreasingActionEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _gourdId: 7
+    - rid: 8991444719476670469
+      type: {class: IfNotHaveGourdAddHandEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _gourdId: 7
