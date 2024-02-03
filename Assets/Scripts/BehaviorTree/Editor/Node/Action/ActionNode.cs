@@ -1,3 +1,4 @@
+using GraphProcessor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,13 @@ namespace TsuyoshiBehaviorTree
     /// 成功の可否はboolで返す
     /// </summary>
     [System.Serializable]
-    public abstract class ActionNode : IBehaviorNode
+    public abstract class ActionNode : BaseNode, IBehaviorNode
     {
         public abstract bool Execute();
+
+        protected override void Process()
+        {
+            Execute();
+        }
     }
 }
