@@ -16,12 +16,7 @@ namespace TsuyoshiBehaviorTree
 
         protected override void Process()
         {
-            Start();
-        }
 
-        public void Start()
-        {
-            ChildNode.Execute();
         }
     }
 }

@@ -416,7 +416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2631cb3c7cd733247941f76fb57bcf55, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31556e9cc7d503e4ea570022f25a53a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 7323085951935955039}
   - component: {fileID: 3700482539140019704}
   m_Layer: 5
-  m_Name: Chouju
+  m_Name: Card05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
