@@ -602,6 +602,7 @@ MonoBehaviour:
   _cardSelectButton: {fileID: 6432373134480905619}
   _cardPickMagnification: 1.5
   _cardDefaultSize: 0.3
+  _cardEffectText: {fileID: 3948932372321786060}
 --- !u!61 &3700482539140019704
 BoxCollider2D:
   m_ObjectHideFlags: 0

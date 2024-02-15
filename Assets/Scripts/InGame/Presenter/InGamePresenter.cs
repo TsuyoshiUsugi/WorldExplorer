@@ -55,6 +55,7 @@ public class InGamePresenter : MonoBehaviour
                 var localIndex = i;
                 // localIndexをラムダ式にキャプチャさせる
                 view.SetIndex(localIndex);
+                view.SetCardText(card.CardExplain);
                 view.OnCardSelect += _ => _playerManager.PlayCard(localIndex);
             }
         };

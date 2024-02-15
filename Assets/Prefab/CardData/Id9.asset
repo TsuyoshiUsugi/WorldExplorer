@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
-  m_Name: Id9_MinnadeOsake
+  m_Name: Id9
   m_EditorClassIdentifier: 
   PlayFieldCardType: 0
   Id: 9
   CardName: 
   CardExplain: "\u03B1\u9152\u529B\u3092\u5F97\u308B\r\n\u4F53\u529B\u3092\u03B1\u56DE\u5FA9\u3059\u308B\r\n\r\n\u300C\u9154\u3044\u72B6\u614B\u300D\u306E\u5834\u5408\r\n\u8FFD\u52A0\u3067\u4F53\u529B\u3092\u03B1\u56DE\u5FA9\u3059\u308B"
-  CardPrefab: {fileID: 5400089184753962535, guid: d39b0cc2c6942c740ba50802146e02da, type: 3}
+  CardPrefab: {fileID: 5400089184753962535, guid: b62da8bb7ac888443829e6c190de920a, type: 3}
   CardEffects:
   - rid: 6092417385810624512
   CardEffectView: {fileID: 0}
