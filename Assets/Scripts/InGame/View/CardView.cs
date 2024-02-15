@@ -16,7 +16,9 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [SerializeField] private float _cardPickMagnification;
     [Header("カードをデフォルトの大きさ")]
     [SerializeField] private float _cardDefaultSize;
-
+    [Header("カードの効果テキスト")]
+    [SerializeField] private Text _cardEffectText;
+    
     public event Action<int> OnCardSelect;
     private int _index = 0;
     private bool _moveFenish;
@@ -24,9 +26,9 @@ public class CardView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [Tooltip("カードをPlayできるかどうか")]
     private bool _isPlay = false;
 
-    private void Start()
+    public void SetCardText(string text)
     {
-       
+        _cardEffectText.text = text;
     }
 
     public void SetIndex(int index)

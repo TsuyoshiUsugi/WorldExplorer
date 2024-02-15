@@ -34,12 +34,14 @@ public class CardDataEntity
     public List<ICardEffect> CardEffects;
     public CardEffectBase CardEffectView;
     public PlayCardFieldType PlayFieldCardType;
+    public string CardExplain;
 
     public CardDataEntity(CardData cardData, int iD)
     {
         CardEntity = cardData.CardPrefab;
         CardEffects = cardData.CardEffects;
         PlayFieldCardType = cardData.PlayFieldCardType;
+        CardExplain = cardData.CardExplain;
         ID = iD;
     }
 
