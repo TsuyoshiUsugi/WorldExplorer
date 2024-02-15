@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 7323085951935955039}
   - component: {fileID: 3700482539140019704}
   m_Layer: 5
-  m_Name: Chouju
+  m_Name: Card01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

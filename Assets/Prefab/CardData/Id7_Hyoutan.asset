@@ -15,7 +15,7 @@ MonoBehaviour:
   PlayFieldCardType: 0
   Id: 7
   CardName: 
-  CardExplain: 
+  CardExplain: "\u03B1\u9152\u529B\u3092\u5F97\u308B\r\n\u300C\u9154\u3044\u72B6\u614B\u300D\u306E\u5834\u5408\r\n\u03B1\u30C0\u30E1\u30FC\u30B8\u4E0E\u3048\u308B"
   CardPrefab: {fileID: 5400089184753962535, guid: f05ad20270d87464389b45c3c638f937, type: 3}
   CardEffects:
   - rid: 6092417385810624513
