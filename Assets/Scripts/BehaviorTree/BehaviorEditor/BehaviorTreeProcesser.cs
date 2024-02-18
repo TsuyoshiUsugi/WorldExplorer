@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using GraphProcessor;
+using Unity.Jobs;
 
 namespace  TsuyoshiBehaviorTree
 {
@@ -15,6 +16,7 @@ namespace  TsuyoshiBehaviorTree
         private Node _runningNode;
         //最終的な実行結果
         private NodeState _resultState = NodeState.Waiting;
+        private List<BaseNode> _process;
         
         /// <summary>
         /// 継承したコンストラクタ
@@ -31,11 +33,19 @@ namespace  TsuyoshiBehaviorTree
         public override void UpdateComputeOrder()
         {
             _runningNode = graph.nodes.FirstOrDefault(n => n is Root) as Node;
+            _process = graph.nodes.OrderBy(n => n.computeOrder).ToList();
         }
 
         public override void Run()
         {
             Debug.Log("ビヘイビアツリー起動");
+
+            for (int i = 0; i < _process.Count; i++)
+            {
+                _process[i].OnProcess();
+            }
+            JobHandle.ScheduleBatchedJobs();
+            
             if (_resultState != NodeState.Waiting)
             {
                 Debug.LogError("既に実行中です");

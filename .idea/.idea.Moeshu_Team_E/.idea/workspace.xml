@@ -6,17 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e3861732-22a0-4eb6-a1ae-b343f12ad571" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviorTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BehaviorTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeProcesser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeProcesser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/DefaultBehaviorTreeGraphView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/DefaultBehaviorTreeGraphView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/BehaviorTreeRootNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/BehaviorTreeRootNode.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/TestProcesser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/TestAI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/TestProcesser.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/TestAI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,14 +20,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/37/0fe605fb/StackTraceUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/3a/8c53fbfd/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/93/939623dd/DebugLogHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/b3/fe33873f/Logger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a24131e73ec49f7805f3dfb6a69fa781d000/3a/2b624bac/Behavior.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/02/883d8249/Buffer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/19/3b36ca34/ParamsArray.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/1c/ac588a49/StringBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/4c/2d78d331/Encoding.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/4f/6a169671/UTF8Encoding.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/5c/91626323/Lazy`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/5e/5f120c09/StringBuilderCache.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/9c/cb76b40a/MemoryMarshal.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/d2/9d9e11dd/ReadOnlySpan`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/e9/48ac520a/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Branch/Branch.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,10 +96,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="39872">
+    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21460">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="39872" />
+      <option name="pid" value="21460" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -133,6 +132,7 @@
       <workItem from="1708254420817" duration="112000" />
       <workItem from="1708254643955" duration="4008000" />
       <workItem from="1708262900941" duration="3042000" />
+      <workItem from="1708266262037" duration="2197000" />
     </task>
     <servers />
   </component>
@@ -161,17 +161,30 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/TestAI.cs</url>
-          <line>15</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\TestAI.cs" initialLine="15" containingFunctionPresentation="メソッド 'Start'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs</url>
+          <line>32</line>
+          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Root\Root.cs" initialLine="31" containingFunctionPresentation="メソッド 'OnUpdate'">
             <startOffsets>
-              <option value="376" />
+              <option value="786" />
             </startOffsets>
             <endOffsets>
-              <option value="393" />
+              <option value="816" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs</url>
+          <line>20</line>
+          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Root\Root.cs" initialLine="20" containingFunctionPresentation="メソッド 'OnStart'">
+            <startOffsets>
+              <option value="482" />
+            </startOffsets>
+            <endOffsets>
+              <option value="483" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

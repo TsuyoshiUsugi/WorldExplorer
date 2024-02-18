@@ -10,7 +10,7 @@ namespace TsuyoshiBehaviorTree
     [Serializable, NodeMenuItem("Root/Root")]
     public class Root : Node
     {
-        [Output(name = "Child")]
+        [Input(name = "Child")]
         public Node ChildNode;
         
         // Override OnStart method for the root node

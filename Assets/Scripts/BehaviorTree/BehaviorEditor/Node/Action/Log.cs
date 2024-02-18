@@ -10,10 +10,15 @@ namespace TsuyoshiBehaviorTree
     [Serializable, NodeMenuItem("ActionNode/Log")]
     public class Log : ActionNode
     {
-        [Input(name = "Parent")]
-        public Node Input;
+        [Output(name = "Parent")]
+        public Node Output;
         
         [SerializeField, TextArea(1, 1)] private string _message;
+        
+        protected override void Process()
+        {
+            Output = this;
+        }
 
         protected override NodeState OnUpdateMethod()
         {
