@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
+  m_Name: Id9
+  m_EditorClassIdentifier: 
+  PlayFieldCardType: 0
+  Id: 9
+  CardName: 
+  CardExplain: "\u03B1\u9152\u529B\u3092\u5F97\u308B\r\n\u4F53\u529B\u3092\u03B1\u56DE\u5FA9\u3059\u308B\r\n\r\n\u300C\u9154\u3044\u72B6\u614B\u300D\u306E\u5834\u5408\r\n\u8FFD\u52A0\u3067\u4F53\u529B\u3092\u03B1\u56DE\u5FA9\u3059\u308B"
+  CardPrefab: {fileID: 5400089184753962535, guid: 8b969b6d0df2b8649aed7f9e5a4a13ff, type: 3}
+  CardEffects:
+  - rid: 6092417385810624512
+  CardEffectView: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6092417385810624512
+      type: {class: MinnadeOsakeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _sakePoint: 2
+        _healPoint: 10
+        _drankHealPoint: 10
+        _addSakePoint: 1
+        _addHealPoint: 1
+        _addDrankHealPoint: 1

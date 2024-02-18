@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9dbc0ea3d5ec84b9e3b6e84aecee5f, type: 3}
+  m_Name: Id5
+  m_EditorClassIdentifier: 
+  PlayFieldCardType: 0
+  Id: 5
+  CardName: 
+  CardExplain: "1.\u624B\u672D\u306B\u300C\u4E09\u6CB3\u6B66\u58EB\u300D\u304C\u3042\u308B\u5834\u5408\r\n\u884C\u52D5\u56DE\u6570\u3092\u6E1B\u3089\u3055\u305A\u306B\u4F7F\u7528\u3067\u304D\u308B\r\n2.\u624B\u672D\u306B\u300C\u4E09\u6CB3\u6B66\u58EB\u300D\u304C\u306A\u3044\u5834\u5408\r\n\u624B\u672D\u306B\u300C\u4E09\u6CB3\u6B66\u58EB\u300D\u3092\u52A0\u3048\u308B\r\n\u300C\u4E09\u6CB3\u6B66\u58EB\u300D\u3092\u9032\u5316\u3055\u305B\u308B"
+  CardPrefab: {fileID: 5400089184753962535, guid: 8b969b6d0df2b8649aed7f9e5a4a13ff, type: 3}
+  CardEffects:
+  - rid: 3382217890634137600
+  CardEffectView: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3382217890634137600
+      type: {class: SanakaSakeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _sanka: {fileID: 11400000, guid: b0be8d5ed69717143b3c98277be1f7e4, type: 2}
+        _shinkaSanka: {fileID: 11400000, guid: 42331632c504b8c4ca006652937307f5, type: 2}

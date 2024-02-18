@@ -1,11 +1,11 @@
 using UnityEngine;
 
 /// <summary>
-/// デッキのデータ、敵のデータを保持する
+/// プレイヤーステータスのデータ、デッキのデータ、敵のデータを保持する
 /// </summary>
 public class GameDataManager : AbstractSingleton<GameDataManager>
 {
-    [SerializeField] private DeckInfo _deckInfo;
-    public DeckInfo DeckInfo => _deckInfo;
+    public PlayerData PlayerData;
+    public DeckInfo DeckInfo;
     public EnemyData EnemyData;
 }

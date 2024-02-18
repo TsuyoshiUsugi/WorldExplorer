@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.alelievr.node-graph-processor": "file:../NodeGraphProcessor-master/Assets/com.alelievr.NodeGraphProcessor",
     "com.cysharp.unitask": "2.5.0",
     "com.mackysoft.serializereference-extensions": "https://github.com/mackysoft/Unity-SerializeReferenceExtensions.git?path=Assets/MackySoft/MackySoft.SerializeReferenceExtensions",
     "com.neuecc.unirx": "7.1.0",
@@ -53,7 +54,8 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.neuecc.unirx",
-        "com.cysharp.unitask"
+        "com.cysharp.unitask",
+        "openupm add com.alelievr.node-graph-processor"
       ]
     }
   ]

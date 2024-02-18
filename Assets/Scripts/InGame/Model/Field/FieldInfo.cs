@@ -6,23 +6,16 @@ using UnityEngine;
 /// </summary>
 public class FieldInfo : AbstractSingleton<FieldInfo>
 {
-    [Inject]
+    public PlayCardField PlayCardField;
     public PlayerManager PlayerManager;
-    [Inject]
     public EnemyManager EnemyManager;
-
-    private void Update()
+    
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (PlayCardField == null)
         {
-            Debug.Log("敵の行動");
-            EnemyManager.ExcuteEnemyAction();
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("プレイヤーの行動");
-            PlayerManager.Status.ApplyDamage(10);
+            PlayCardField = FindObjectOfType<PlayCardField>();
+            
         }
     }
 }

@@ -12,6 +12,8 @@ public class PlayerTurnState : IInGameState
     public event Func<UniTask> OnExitEvent;
     private PlayerManager _playerManager;
     public event Action<Winner> OnGameEnd;
+    public PlayerManager PlayerManager => _playerManager;
+    private bool _isTurnEnd = false;
 
     public PlayerTurnState(PlayerManager playerManager)
     {
@@ -22,8 +24,17 @@ public class PlayerTurnState : IInGameState
         });
     }
 
+    /// <summary>
+    /// プレイヤーの情報をセットする
+    /// </summary>
+    public void SetPlayerInfo()
+    {
+        FieldInfo.Instance.PlayerManager = _playerManager;
+    }
+
     public async UniTask OnEnter()
     {
+        await OnEnterEvent.Invoke();
         _playerManager.SetActivePlayer(true);
         //前のターンで残っている手札を戻す
         _playerManager.ResetHandCard();
@@ -33,9 +44,17 @@ public class PlayerTurnState : IInGameState
         _playerManager.RestActionCost();    //アクションコストは3
         //酒力を追加する処理
         //プレイヤーの選択待ち処理を開始
-        await UniTask.WaitUntil(() => _playerManager.ActionCost.Value <= 0);
+        await UniTask.WaitUntil(() => _playerManager.ActionCost.Value <= 0 && _isTurnEnd);
+        _isTurnEnd = false;
+        _playerManager.DecreaseEffectTurn();
+        _playerManager.SakePower.DecreaseDrunkTurn();
         _playerManager.SetActivePlayer(false);
         OnExit().Forget();
+    }
+
+    public void EndTurn()
+    {
+        _isTurnEnd = true;
     }
 
     public void OnUpdate()
