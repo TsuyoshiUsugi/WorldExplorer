@@ -8,16 +8,21 @@ public class AudioManager : AbstractSingleton<MonoBehaviour>
     public AudioSource AudioSource;
     public AudioClip[] AudioClips;
     
-    private void Awake()
+    protected override void OnAwake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        if (UnityEditor.EditorUtility.audioMasterMute)
+        {
+            Debug.LogWarning("「MuteAudio」が有効になっていました。自動で無効にします。");
+            UnityEditor.EditorUtility.audioMasterMute = false;
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         switch (scene.name)
         {
-            case "Title":
+            case "TitleScene":
                 PlayAudio(0);
                 break;
             case "DeckSelectScene":
