@@ -40,7 +40,7 @@ MonoBehaviour:
     - rid: 3100971687793655808
       type: {class: BehaviorTreeRootNode, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
       data:
-        nodeCustomName: 
+        nodeCustomName: Root
         GUID: 360092a4-8021-430e-8cc1-2836a579f364
         computeOrder: 0
         position:

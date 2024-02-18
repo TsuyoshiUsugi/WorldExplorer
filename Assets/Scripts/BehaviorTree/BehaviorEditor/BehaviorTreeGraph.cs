@@ -34,9 +34,9 @@ namespace TsuyoshiBehaviorTree
         {
             base.OnEnable();
 
-            if (!nodes.Any(x => x is BehaviorTreeRootNode))
+            if (!nodes.Any(x => x is Root))
             {
-                AddNode(BaseNode.CreateFromType<BehaviorTreeRootNode>(Vector2.zero));
+                AddNode(BaseNode.CreateFromType<Root>(Vector2.zero));
             }
         }
     }

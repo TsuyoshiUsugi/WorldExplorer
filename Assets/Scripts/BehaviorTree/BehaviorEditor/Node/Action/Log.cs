@@ -7,7 +7,7 @@ namespace TsuyoshiBehaviorTree
     /// <summary>
     /// ログ出力を行うアクションノード
     /// </summary>
-    [Serializable, NodeMenuItem("Action/Log")]
+    [Serializable, NodeMenuItem("ActionNode/Log")]
     public class Log : ActionNode
     {
         [Input(name = "Parent")]

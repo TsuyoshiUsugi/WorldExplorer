@@ -4,7 +4,7 @@ using GraphProcessor;
 using TsuyoshiBehaviorTree;
 using UnityEngine;
 
-public class TestProcesser : MonoBehaviour
+public class TestAI : MonoBehaviour
 {
     [SerializeField] BaseGraph _graph;
     private BehaviorTreeProcesser _processer;
@@ -13,12 +13,12 @@ public class TestProcesser : MonoBehaviour
     void Start()
     {
         _processer = new(_graph);
-        
+        _processer.Run();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _processer.Run();
+        _processer.OnUpdate();
     }
 }
