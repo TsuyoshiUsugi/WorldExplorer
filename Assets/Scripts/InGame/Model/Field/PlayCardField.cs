@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,11 @@ public class PlayCardField : MonoBehaviour
 {
     [SerializeField] GameObject _playerField;
     [SerializeField] GameObject _enemyField;
+
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     public void ActiveField(PlayCardFieldType playCardFieldType) 
     {

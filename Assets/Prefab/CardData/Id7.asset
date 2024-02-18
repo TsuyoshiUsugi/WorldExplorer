@@ -16,7 +16,7 @@ MonoBehaviour:
   Id: 7
   CardName: 
   CardExplain: "\u03B1\u9152\u529B\u3092\u5F97\u308B\r\n\u300C\u9154\u3044\u72B6\u614B\u300D\u306E\u5834\u5408\r\n\u03B1\u30C0\u30E1\u30FC\u30B8\u4E0E\u3048\u308B"
-  CardPrefab: {fileID: 5400089184753962535, guid: f0e011a5103cdd7448bb3fa9ea8e2b5b, type: 3}
+  CardPrefab: {fileID: 5400089184753962535, guid: bc9a6aa2efb9fbb40816215daf7eeaa4, type: 3}
   CardEffects:
   - rid: 6092417385810624513
   - rid: 6092417385810624515

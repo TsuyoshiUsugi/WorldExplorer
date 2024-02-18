@@ -9,4 +9,13 @@ public class FieldInfo : AbstractSingleton<FieldInfo>
     public PlayCardField PlayCardField;
     public PlayerManager PlayerManager;
     public EnemyManager EnemyManager;
+    
+    private void Awake()
+    {
+        if (PlayCardField == null)
+        {
+            PlayCardField = FindObjectOfType<PlayCardField>();
+            
+        }
+    }
 }
