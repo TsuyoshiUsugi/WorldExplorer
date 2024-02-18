@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9968c57099c7304093451f8ffe1ad0e, type: 3}
+  m_Name: New Behavior Tree Graph
+  m_EditorClassIdentifier: 
+  serializedNodes: []
+  nodes:
+  - rid: 3100971687793655808
+  - rid: 3100971687793655809
+  edges:
+  - GUID: fd433760-1f04-418a-b6b0-df8edd4ffd65
+    owner: {fileID: 11400000}
+    inputNodeGUID: c63d8d16-8dc0-4779-b146-bfea3e94c448
+    outputNodeGUID: 360092a4-8021-430e-8cc1-2836a579f364
+    inputFieldName: Input
+    outputFieldName: ChildNode
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  groups: []
+  stackNodes: []
+  pinnedElements: []
+  exposedParameters: []
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: 106, y: 152, z: 0}
+  scale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3100971687793655808
+      type: {class: BehaviorTreeRootNode, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 360092a4-8021-430e-8cc1-2836a579f364
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: 233
+          y: -29.040024
+          width: 175
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        ChildNode:
+          nodeCustomName: 
+          GUID: 
+          computeOrder: -1
+          position:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: 
+    - rid: 3100971687793655809
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: c63d8d16-8dc0-4779-b146-bfea3e94c448
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: 523.4
+          y: 144.00003
+          width: 145
+          height: 94
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        Input:
+          nodeCustomName: 
+          GUID: 
+          computeOrder: -1
+          position:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: 
+        _message: Test
