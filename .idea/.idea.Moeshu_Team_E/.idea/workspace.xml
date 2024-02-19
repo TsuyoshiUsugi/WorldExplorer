@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e3861732-22a0-4eb6-a1ae-b343f12ad571" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviorTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BehaviorTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/BaseNode/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/BaseNode/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/HasRequiredMoney.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/HasRequiredMoney.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +44,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/Parallel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Condition/Condition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/DecoratorBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/HasRequiredMoney.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Test/Money.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/TestAI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,27 +63,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.25",
-    "git-widget-placeholder": "feature/InGame",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.25&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/InGame&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\vantan\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\vantan\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\vantan\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\vantan\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\vantan\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\vantan\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Unity エディターにアタッチ.Unity エディターにアタッチ">
     <configuration name="ユニットテスト (バッチモード)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.14f1\Editor\Unity.exe" />
@@ -110,10 +109,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23928">
+    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="23928" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -148,6 +147,7 @@
       <workItem from="1708262900941" duration="3042000" />
       <workItem from="1708266262037" duration="2302000" />
       <workItem from="1708334383695" duration="16832000" />
+      <workItem from="1708362176058" duration="1166000" />
     </task>
     <servers />
   </component>
@@ -162,19 +162,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs</url>
-          <line>27</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Action\ActionNode.cs" initialLine="27" containingFunctionPresentation="メソッド 'OnUpdate'">
-            <startOffsets>
-              <option value="630" />
-            </startOffsets>
-            <endOffsets>
-              <option value="646" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/Sequencer.cs</url>
           <line>21</line>

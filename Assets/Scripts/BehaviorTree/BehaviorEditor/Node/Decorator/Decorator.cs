@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GraphProcessor;
 using UnityEngine;
 
 namespace  TsuyoshiBehaviorTree
@@ -9,14 +10,11 @@ namespace  TsuyoshiBehaviorTree
     /// 条件を満たしているなら子のStateを返す。そうでないならFailureを返す
     /// 子を一つだけ持つ
     /// </summary>
-    [Serializable]
-    public abstract class Decorator : Branch
+    [Serializable, NodeMenuItem("Decorator/Decorator")]
+    public class Decorator : Branch
     {
-        /// <summary>
-        /// 継承したDecoratorノードの処理を実行し、結果を返す
-        /// </summary>
-        /// <returns></returns>
-        protected abstract NodeState OnUpdateMethod();
+        [SerializeReference, SubclassSelector]
+        public DecoratorBase _decorator;
         
         public override NodeState OnUpdate()
         {
@@ -29,6 +27,11 @@ namespace  TsuyoshiBehaviorTree
             if (_childNode.Count > 1)
             {   //TODO: そもそもDecoratorノードが複数の子を持てないようにすべき
                 Debug.LogError("子ノードが複数あります");
+                return NodeState.Failure;
+            }
+            if (_decorator == null)
+            {
+                Debug.LogError("評価条件がありません");
                 return NodeState.Failure;
             }
 
@@ -48,7 +51,7 @@ namespace  TsuyoshiBehaviorTree
         protected override NodeState EvaluateChild()
         {
             var result = NodeState.Waiting;
-            _state = OnUpdateMethod();
+            _state = _decorator.Evaluate();
             if (_state == NodeState.Failure)
             {   //判定が通らないなら強制的にFailureを返す
                 return NodeState.Failure;
