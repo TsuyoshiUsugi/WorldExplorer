@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TitleScene.unity
     guid: 4956f628ee737464db02f8b3388a3e51
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StageSelectScene.unity
     guid: 9186efa6f6a701448b70a8a13b7afcf1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/InGameScene.unity
     guid: cc1c76697fb2f794b9e0cdb8a877b783
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DeckSelectScene.unity
     guid: 6dc537c973b08ac4aac540b2eb51e07f
+  - enabled: 1
+    path: Assets/Scenes/BehaviorTest.unity
+    guid: fa6835dc72892f3499107a939031230e
   m_configObjects: {}

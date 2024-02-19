@@ -1,9 +1,9 @@
 using GraphProcessor;
-using UnityEditor.Callbacks;
 using UnityEngine;
 using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.Callbacks;
 #endif
 
 namespace TsuyoshiBehaviorTree
@@ -34,11 +34,11 @@ namespace TsuyoshiBehaviorTree
         {
             base.OnEnable();
 
-            if (!nodes.Any(x => x is BehaviorTreeRootNode))
+            if (!nodes.Any(x => x is Root))
             {
-                AddNode(BaseNode.CreateFromType<BehaviorTreeRootNode>(Vector2.zero));
+                AddNode(BaseNode.CreateFromType<Root>(Vector2.zero));
             }
         }
-    }
 #endif
+    }
 }
