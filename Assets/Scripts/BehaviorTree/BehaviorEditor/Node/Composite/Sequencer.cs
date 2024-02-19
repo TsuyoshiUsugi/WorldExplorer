@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using GraphProcessor;
 
 namespace  TsuyoshiBehaviorTree
 {
@@ -8,6 +8,7 @@ namespace  TsuyoshiBehaviorTree
     /// シーケンサーノード
     /// 子が一つでも失敗したら失敗を返す。全て成功したら成功を返す
     /// </summary>
+    [Serializable, NodeMenuItem("Composite/Sequencer")]
     public class Sequencer : Branch
     {
         public override NodeState OnUpdate()

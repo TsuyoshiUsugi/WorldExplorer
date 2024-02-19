@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace  TsuyoshiBehaviorTree
     /// 条件を満たしているなら子のStateを返す。そうでないならFailureを返す
     /// 子を一つだけ持つ
     /// </summary>
+    [Serializable]
     public abstract class Decorator : Branch
     {
         /// <summary>

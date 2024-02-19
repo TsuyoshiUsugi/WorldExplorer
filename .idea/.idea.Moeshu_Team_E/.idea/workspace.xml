@@ -7,9 +7,29 @@
     <list default="true" id="e3861732-22a0-4eb6-a1ae-b343f12ad571" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviorTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BehaviorTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeProcesser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeProcesser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Branch.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Branch/Branch.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Branch/Branch.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Condition/Condition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Condition/Condition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Node.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Node.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Parallel.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Parallel/Parallel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Parallel/Parallel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Repeater.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Repeater/Repeater.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Repeater/Repeater.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Selector.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Selector/Selector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Selector/Selector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Sequencer.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Sequencer/Sequencer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Sequencer/Sequencer.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +56,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/d2/9d9e11dd/ReadOnlySpan`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/e9/48ac520a/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Branch/Branch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/Parallel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Condition/Condition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Parallel/Parallel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Repeater/Repeater.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Sequencer/Sequencer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/TestAI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InGame/Model/AudioManager/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.9/Runtime/Debugging/DebugManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -96,10 +113,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21460">
+    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="21460" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -132,7 +149,8 @@
       <workItem from="1708254420817" duration="112000" />
       <workItem from="1708254643955" duration="4008000" />
       <workItem from="1708262900941" duration="3042000" />
-      <workItem from="1708266262037" duration="2197000" />
+      <workItem from="1708266262037" duration="2302000" />
+      <workItem from="1708334383695" duration="4530000" />
     </task>
     <servers />
   </component>
@@ -149,42 +167,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs</url>
-          <line>24</line>
+          <line>35</line>
           <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Action\ActionNode.cs" initialLine="16" containingFunctionPresentation="メソッド 'OnUpdate'">
             <startOffsets>
-              <option value="590" />
+              <option value="782" />
             </startOffsets>
             <endOffsets>
-              <option value="606" />
+              <option value="798" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs</url>
-          <line>32</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Root\Root.cs" initialLine="31" containingFunctionPresentation="メソッド 'OnUpdate'">
-            <startOffsets>
-              <option value="786" />
-            </startOffsets>
-            <endOffsets>
-              <option value="816" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs</url>
-          <line>20</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Root\Root.cs" initialLine="20" containingFunctionPresentation="メソッド 'OnStart'">
-            <startOffsets>
-              <option value="482" />
-            </startOffsets>
-            <endOffsets>
-              <option value="483" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

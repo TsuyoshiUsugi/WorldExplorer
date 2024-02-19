@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using GraphProcessor;
-using TsuyoshiBehaviorTree;
 using UnityEngine;
 
 namespace TsuyoshiBehaviorTree
@@ -11,9 +11,30 @@ namespace TsuyoshiBehaviorTree
     /// </summary>
     public class Branch : Node
     {
-        [Output("ChildNode")]
-        public List<Node> _childNode;
+        [Output(name = "Parent")]
+        public Node Output;
+
+        [Input(name = "Child", allowMultiple = true)]
+        public Node Child;
+        
+        [NonSerialized]
+        public List<Node> _childNode = new List<Node>();
         protected int _childIndex = 0;
+
+        /// <summary>
+        /// Childに繋がっているノードを取得してリストに追加する
+        /// </summary>
+        protected override void Process()
+        {
+            var edges = Child.GetAllEdges();
+            foreach (var edge in edges)
+            {
+                if (edge.inputNode is Node)
+                {
+                    _childNode.Add(edge.inputNode as Node);
+                }
+            }
+        }
 
         public override void OnStart()
         {

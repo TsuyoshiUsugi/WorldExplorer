@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace  TsuyoshiBehaviorTree
     /// <summary>
     /// 条件ノードの基底クラス
     /// </summary>
+    [Serializable]
     public abstract class Condition : Node
     {
         /// <summary>

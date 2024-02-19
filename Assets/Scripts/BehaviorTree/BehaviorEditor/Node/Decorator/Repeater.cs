@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GraphProcessor;
 
 namespace TsuyoshiBehaviorTree
 {
     /// <summary>
     /// 規定の回数を子ノードが返すまでRunningを返す。条件を満たしたらSuccess
     /// </summary>
+    [Serializable, NodeMenuItem("Decorator/Parallel")]
     public class Repeater : Branch
     {
         [SerializeField] private int _repeatCount = 1;

@@ -52,7 +52,6 @@ namespace  TsuyoshiBehaviorTree
                 return;
             }
             _resultState = NodeState.Running;
-            _runningNode.OnStart();
         }
 
         /// <summary>

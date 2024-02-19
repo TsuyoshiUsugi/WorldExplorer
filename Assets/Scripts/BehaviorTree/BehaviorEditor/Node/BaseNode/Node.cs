@@ -24,6 +24,9 @@ namespace TsuyoshiBehaviorTree
     [Serializable]
     public class Node : BaseNode
     {
+        [Output(name = "Parent")]
+        protected Node Output;
+        
         private string _name;
         [SerializeField] private string _description;
         /// <summary>状態</summary>

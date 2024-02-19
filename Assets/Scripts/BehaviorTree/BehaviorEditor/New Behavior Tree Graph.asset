@@ -14,15 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedNodes: []
   nodes:
-  - rid: 3100971687793655808
   - rid: 3100971687793655809
+  - rid: 3100971756813811712
+  - rid: 3100971774855086080
+  - rid: 3100971774855086082
   edges:
-  - GUID: fd433760-1f04-418a-b6b0-df8edd4ffd65
+  - GUID: b84908d7-ade9-449a-b706-3d32df29ef4a
     owner: {fileID: 11400000}
-    inputNodeGUID: c63d8d16-8dc0-4779-b146-bfea3e94c448
-    outputNodeGUID: 360092a4-8021-430e-8cc1-2836a579f364
-    inputFieldName: Input
-    outputFieldName: ChildNode
+    inputNodeGUID: 66132610-c6c0-417c-89c1-20c3d53b7d52
+    outputNodeGUID: 7b21ad95-50f7-419d-97dd-743168141ef3
+    inputFieldName: ChildNode
+    outputFieldName: Output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 409bcf09-ac9c-4776-8cee-e914c5ec7cd8
+    owner: {fileID: 11400000}
+    inputNodeGUID: 7b21ad95-50f7-419d-97dd-743168141ef3
+    outputNodeGUID: 5b8fefee-c22b-4bd3-a628-2faef81142b4
+    inputFieldName: Child
+    outputFieldName: Output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 5620a5a0-b074-45bb-8059-8f91da1709a2
+    owner: {fileID: 11400000}
+    inputNodeGUID: 7b21ad95-50f7-419d-97dd-743168141ef3
+    outputNodeGUID: c63d8d16-8dc0-4779-b146-bfea3e94c448
+    inputFieldName: Child
+    outputFieldName: Output
     inputPortIdentifier: 
     outputPortIdentifier: 
   groups: []
@@ -32,27 +50,44 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 106, y: 152, z: 0}
-  scale: {x: 1, y: 1, z: 1}
+  position: {x: 112, y: 260, z: 0}
+  scale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
     RefIds:
-    - rid: 3100971687793655808
-      type: {class: BehaviorTreeRootNode, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+    - rid: 3100971687793655809
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
       data:
-        nodeCustomName: Root
-        GUID: 360092a4-8021-430e-8cc1-2836a579f364
+        nodeCustomName: Log
+        GUID: c63d8d16-8dc0-4779-b146-bfea3e94c448
         computeOrder: 0
         position:
           serializedVersion: 2
-          x: 233
-          y: -29.040024
-          width: 175
-          height: 75
+          x: 217.20001
+          y: -179.00005
+          width: 136
+          height: 113
         expanded: 0
         debug: 0
         nodeLock: 0
-        _description: 
+        _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
+        _message: Test1
+    - rid: 3100971756813811712
+      type: {class: Root, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: Root
+        GUID: 66132610-c6c0-417c-89c1-20c3d53b7d52
+        computeOrder: 3
+        position:
+          serializedVersion: 2
+          x: 747.4001
+          y: -65.99999
+          width: 135
+          height: 75
+        expanded: 1
+        debug: 0
+        nodeLock: 0
+        _description: "\u5143\u306E\u30CE\u30FC\u30C9"
         ChildNode:
           nodeCustomName: 
           GUID: 
@@ -67,23 +102,23 @@ MonoBehaviour:
           debug: 0
           nodeLock: 0
           _description: 
-    - rid: 3100971687793655809
-      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+    - rid: 3100971774855086080
+      type: {class: Sequencer, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
       data:
         nodeCustomName: 
-        GUID: c63d8d16-8dc0-4779-b146-bfea3e94c448
-        computeOrder: 1
+        GUID: 7b21ad95-50f7-419d-97dd-743168141ef3
+        computeOrder: 2
         position:
           serializedVersion: 2
-          x: 523.4
-          y: 144.00003
-          width: 145
-          height: 94
+          x: 470
+          y: -66
+          width: 266
+          height: 595
         expanded: 0
         debug: 0
         nodeLock: 0
         _description: 
-        Input:
+        Output:
           nodeCustomName: 
           GUID: 
           computeOrder: -1
@@ -97,4 +132,34 @@ MonoBehaviour:
           debug: 0
           nodeLock: 0
           _description: 
-        _message: Test
+        Child:
+          nodeCustomName: Log
+          GUID: 5b8fefee-c22b-4bd3-a628-2faef81142b4
+          computeOrder: 1
+          position:
+            serializedVersion: 2
+            x: 216.99997
+            y: 91.400024
+            width: 136
+            height: 113
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
+    - rid: 3100971774855086082
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: Log
+        GUID: 5b8fefee-c22b-4bd3-a628-2faef81142b4
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: 216.99997
+          y: 91.400024
+          width: 136
+          height: 113
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
+        _message: Test2

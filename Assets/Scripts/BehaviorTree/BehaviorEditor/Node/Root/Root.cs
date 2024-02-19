@@ -10,14 +10,10 @@ namespace TsuyoshiBehaviorTree
     [Serializable, NodeMenuItem("Root/Root")]
     public class Root : Node
     {
+        //Todo: 親ノードを追加できないようにする
+        
         [Input(name = "Child")]
         public Node ChildNode;
-        
-        // Override OnStart method for the root node
-        public override void OnStart()
-        {
-            base.OnStart();
-        }
 
         // Override OnUpdate method for the root node
         public override NodeState OnUpdate()
@@ -37,6 +33,7 @@ namespace TsuyoshiBehaviorTree
         public override void OnEnd()
         {
             base.OnEnd();
+            Debug.Log("ビヘイビアツリーの全ノード実行終了");
         }
     }
 }

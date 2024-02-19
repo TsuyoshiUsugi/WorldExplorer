@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GraphProcessor;
+using System;
 
 namespace TsuyoshiBehaviorTree
 {
     /// <summary>
     /// 子が一つでも成功したら成功を返す。全て失敗したら失敗を返す
     /// </summary>
+    [Serializable, NodeMenuItem("Composite/Selector")]
     public class Selector : Branch
     {
        public override NodeState OnUpdate()

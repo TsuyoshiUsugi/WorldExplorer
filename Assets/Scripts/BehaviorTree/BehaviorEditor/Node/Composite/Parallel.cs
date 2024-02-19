@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GraphProcessor;
+using System;
 
 namespace  TsuyoshiBehaviorTree
 {
     /// <summary>
     /// 子を同時に実行し、すべての子が成功したら成功を返す。一つでも失敗したら失敗を返す
     /// </summary>
+    [Serializable, NodeMenuItem("Composite/Parallel")]
     public class Parallel : Branch
     {
         public override NodeState OnUpdate()
