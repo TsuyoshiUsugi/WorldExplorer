@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedNodes: []
   nodes:
-  - rid: 3100971687793655809
   - rid: 3100971756813811712
   - rid: 3100971774855086080
   - rid: 3100971774855086082
-  - rid: 3100971774855086084
   - rid: 3100971774855086085
+  - rid: 3100971774855086086
+  - rid: 3100971774855086087
+  - rid: 3100971774855086088
+  - rid: 3100971774855086089
+  - rid: 3100971774855086090
+  - rid: 3100971774855086091
   edges:
   - GUID: 42467676-d05f-4431-9d16-fe798e69704b
     owner: {fileID: 11400000}
@@ -37,14 +41,6 @@ MonoBehaviour:
     outputFieldName: Child
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: c482eb36-bf47-47b6-a3d4-14519e2b4b7c
-    owner: {fileID: 11400000}
-    inputNodeGUID: c63d8d16-8dc0-4779-b146-bfea3e94c448
-    outputNodeGUID: 7b21ad95-50f7-419d-97dd-743168141ef3
-    inputFieldName: Parent
-    outputFieldName: Child
-    inputPortIdentifier: 
-    outputPortIdentifier: 
   - GUID: 6cf6bfb4-d4ba-4b16-b4e5-b438491a3b17
     owner: {fileID: 11400000}
     inputNodeGUID: 5b8fefee-c22b-4bd3-a628-2faef81142b4
@@ -53,9 +49,49 @@ MonoBehaviour:
     outputFieldName: Child
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: 4b80cb4a-a411-4e36-ae9d-23e37c6c8a30
+  - GUID: 4b5b0442-5a3b-4d3d-aac9-3026483969eb
     owner: {fileID: 11400000}
-    inputNodeGUID: 42d7e10d-0186-4536-830a-1a724e2ce3ab
+    inputNodeGUID: 8b25094c-843c-4f7b-a627-18162d4a5e6a
+    outputNodeGUID: 0ad12c9a-d53b-47aa-876c-742b7f22d1bc
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 0f374c5a-db77-4690-b02c-7731a29e6b14
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0ad12c9a-d53b-47aa-876c-742b7f22d1bc
+    outputNodeGUID: 7b21ad95-50f7-419d-97dd-743168141ef3
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 6f8f7ee8-d45f-4f9d-b9d3-7ce366e6309d
+    owner: {fileID: 11400000}
+    inputNodeGUID: fa9b1363-271b-45ca-8e0c-6291e34e1809
+    outputNodeGUID: 7b21ad95-50f7-419d-97dd-743168141ef3
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: f2686133-d4da-4ea8-8d64-000336488e22
+    owner: {fileID: 11400000}
+    inputNodeGUID: f48aad7d-d9cd-44f3-88bf-de99e7f3d99c
+    outputNodeGUID: fa9b1363-271b-45ca-8e0c-6291e34e1809
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 2d9fdd1f-c665-4cac-9c7c-5c03b009c05d
+    owner: {fileID: 11400000}
+    inputNodeGUID: 8a455c03-c55b-4855-9150-1fe6affdb40d
+    outputNodeGUID: fa9b1363-271b-45ca-8e0c-6291e34e1809
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 11eec343-3fc6-4764-9d79-6d7ae9d8288b
+    owner: {fileID: 11400000}
+    inputNodeGUID: bc8d87a4-8e0b-4f94-adc7-e9839afbed92
     outputNodeGUID: 7b21ad95-50f7-419d-97dd-743168141ef3
     inputFieldName: Parent
     outputFieldName: Child
@@ -68,28 +104,11 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -372, y: 578, z: 0}
-  scale: {x: 0.8695652, y: 0.8695652, z: 1}
+  position: {x: -257, y: 447, z: 0}
+  scale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
-    - rid: 3100971687793655809
-      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
-      data:
-        nodeCustomName: Log
-        GUID: c63d8d16-8dc0-4779-b146-bfea3e94c448
-        computeOrder: 2
-        position:
-          serializedVersion: 2
-          x: 1027.9999
-          y: -220
-          width: 281
-          height: 106
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
-        _message: Test1
     - rid: 3100971756813811712
       type: {class: Root, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
       data:
@@ -155,7 +174,7 @@ MonoBehaviour:
       data:
         nodeCustomName: Log
         GUID: 5b8fefee-c22b-4bd3-a628-2faef81142b4
-        computeOrder: 3
+        computeOrder: 2
         position:
           serializedVersion: 2
           x: 468.00012
@@ -166,38 +185,150 @@ MonoBehaviour:
         debug: 0
         nodeLock: 0
         _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
-        _message: Test2
-    - rid: 3100971774855086084
-      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
-      data:
-        nodeCustomName: Log
-        GUID: 42d7e10d-0186-4536-830a-1a724e2ce3ab
-        computeOrder: 4
-        position:
-          serializedVersion: 2
-          x: 749.0001
-          y: -220
-          width: 281
-          height: 106
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
-        _message: Test3
+        _message: "\u6905\u5B50\u304B\u3089\u7ACB\u3064"
     - rid: 3100971774855086085
       type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
       data:
         nodeCustomName: Log
         GUID: 77fa31f8-8e37-4cba-943d-28c6723bd9ac
-        computeOrder: 5
+        computeOrder: 3
         position:
           serializedVersion: 2
-          x: 1309.0502
-          y: -220
-          width: 281
-          height: 106
+          x: 1173.0002
+          y: -220.00003
+          width: 136
+          height: 86
         expanded: 0
         debug: 0
         nodeLock: 0
         _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
-        _message: Test4
+        _message: "\u81EA\u5E2D\u306B\u79FB\u52D5\u3059\u308B"
+    - rid: 3100971774855086086
+      type: {class: HasRequiredMoney, ns: , asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 0ad12c9a-d53b-47aa-876c-742b7f22d1bc
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: 722.4502
+          y: -207.00003
+          width: 165
+          height: 73
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        Child:
+          nodeCustomName: 
+          GUID: 
+          computeOrder: -1
+          position:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: 
+        _requiredMoney: 304
+    - rid: 3100971774855086087
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: Log
+        GUID: 8b25094c-843c-4f7b-a627-18162d4a5e6a
+        computeOrder: 5
+        position:
+          serializedVersion: 2
+          x: 736.15015
+          y: -41.14999
+          width: 136
+          height: 86
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
+        _message: "\u81EA\u8CA9\u6A5F\u306B\u79FB\u52D5\u3059\u308B"
+    - rid: 3100971774855086088
+      type: {class: Selector, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: fa9b1363-271b-45ca-8e0c-6291e34e1809
+        computeOrder: 6
+        position:
+          serializedVersion: 2
+          x: 1015.0001
+          y: -207.00005
+          width: 90
+          height: 54
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        Child:
+          nodeCustomName: 
+          GUID: 
+          computeOrder: -1
+          position:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: 
+    - rid: 3100971774855086089
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: Log
+        GUID: f48aad7d-d9cd-44f3-88bf-de99e7f3d99c
+        computeOrder: 7
+        position:
+          serializedVersion: 2
+          x: 929.6502
+          y: -41
+          width: 136
+          height: 86
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
+        _message: "\u9EA6\u8336\u3092\u8CB7\u3046"
+    - rid: 3100971774855086090
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: Log
+        GUID: 8a455c03-c55b-4855-9150-1fe6affdb40d
+        computeOrder: 8
+        position:
+          serializedVersion: 2
+          x: 1105
+          y: -40.999973
+          width: 136
+          height: 86
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
+        _message: "\u6C34\u3092\u8CB7\u3046"
+    - rid: 3100971774855086091
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: Log
+        GUID: bc8d87a4-8e0b-4f94-adc7-e9839afbed92
+        computeOrder: 9
+        position:
+          serializedVersion: 2
+          x: 1350.55
+          y: -219.99998
+          width: 136
+          height: 86
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: "\u30ED\u30B0\u3092\u51FA\u3059\u30CE\u30FC\u30C9"
+        _message: "\u6905\u5B50\u306B\u5EA7\u308B"

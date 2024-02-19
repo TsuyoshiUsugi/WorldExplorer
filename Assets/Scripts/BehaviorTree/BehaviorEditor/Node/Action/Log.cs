@@ -16,7 +16,6 @@ namespace TsuyoshiBehaviorTree
         protected override NodeState OnUpdateMethod()
         {
             Debug.Log(_message);
-            Debug.Log(_owner.name);
             _state = NodeState.Success; //直接Successを返さないのは自身の状態を保存する必要があるため
             return _state;
         }

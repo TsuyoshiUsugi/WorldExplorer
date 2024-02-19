@@ -39,18 +39,22 @@ namespace TsuyoshiBehaviorTree
             set => _state = value;
         } 
 
+        /// <summary>
+        /// エディター再生時に行う処理
+        /// </summary>
         public Node()
         {
             _name = GetType().ToString();
         }
         
         /// <summary>
-        /// OutPutに自身を格納することで、次のノードに自身を渡す
+        /// ゲーム再生時の初期化処理
         /// </summary>
         protected override void Process()
         {
             Parent = this.GetInputNodes().FirstOrDefault() as Node;
             _state = NodeState.Waiting;
+            _owner = null;
         }
         
         /// <summary>
