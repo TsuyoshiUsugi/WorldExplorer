@@ -1,5 +1,6 @@
 using GraphProcessor;
 using System;
+using System.Linq;
 using UnityEngine;
 
 namespace TsuyoshiBehaviorTree
@@ -12,8 +13,14 @@ namespace TsuyoshiBehaviorTree
     {
         //Todo: 親ノードを追加できないようにする
         
-        [Input(name = "Child")]
+        [Output(name = "Child")]
         public Node ChildNode;
+        
+        protected override void Process()
+        {
+            base.Process();
+            ChildNode = this.GetOutputNodes().FirstOrDefault() as Node;
+        }
 
         // Override OnUpdate method for the root node
         public override NodeState OnUpdate()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using GraphProcessor;
 
@@ -24,8 +25,8 @@ namespace TsuyoshiBehaviorTree
     [Serializable]
     public class Node : BaseNode
     {
-        [Output(name = "Parent")]
-        protected Node Output;
+        [Input(name = "Parent")]
+        protected Node Parent;
         
         private string _name;
         [SerializeField] private string _description;
@@ -47,7 +48,8 @@ namespace TsuyoshiBehaviorTree
         /// </summary>
         protected override void Process()
         {
-            Output = this;
+            Parent = this.GetInputNodes().FirstOrDefault() as Node;
+            _state = NodeState.Waiting;
         }
 
         /// <summary>
@@ -93,7 +95,7 @@ namespace TsuyoshiBehaviorTree
             //結果が出ていないのに終了処理を呼ぼうとしたらエラーを出す
             if (_state != NodeState.Success && _state != NodeState.Failure)
             {
-                Debug.Log("タスクの結果がでていないのに終了処理を呼び出そうとしました。");
+                Debug.LogError("タスクの結果がでていないのに終了処理を呼び出そうとしました。");
                 return;
             }
         }

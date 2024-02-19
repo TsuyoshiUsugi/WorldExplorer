@@ -16,8 +16,8 @@ namespace  TsuyoshiBehaviorTree
             base.OnUpdate();
             if (_childIndex >= _childNode.Count)
             {
-                Debug.LogError("子ノードがありません");
-                return NodeState.Failure;
+                Debug.Log("全ての子ノードが実行終了");
+                return NodeState.Success;
             }
             var childState = _childNode[_childIndex].OnUpdate();
             if (childState == NodeState.Success)

@@ -13,7 +13,7 @@ namespace TsuyoshiBehaviorTree
     /// </summary>
     public class Branch : Node
     {
-        [Input(name = "Child", allowMultiple = true)]
+        [Output(name = "Child", allowMultiple = true)]
         public Node Child;
         
         [NonSerialized]
@@ -27,7 +27,7 @@ namespace TsuyoshiBehaviorTree
         {
             base.Process();
             _childIndex = 0;
-            var nodes = this.GetInputNodes();
+            var nodes = this.GetOutputNodes();
             //エディターで上に表示されているものから順番に実行したいのでY座標でソート
             //TODO: ここでソートするのはよくないかもしれない
             nodes = nodes.OrderBy(x => x.position.y);

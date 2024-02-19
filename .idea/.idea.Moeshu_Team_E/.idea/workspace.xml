@@ -6,18 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e3861732-22a0-4eb6-a1ae-b343f12ad571" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeEditorWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeGraph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/DefaultBehaviorTreeGraphView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/DefaultBehaviorTreeGraphView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/BaseNode/Branch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/BaseNode/Branch.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/BaseNode/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/BaseNode/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/AudioManager/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/AudioManager/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/Sequencer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/Sequencer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +144,7 @@
       <workItem from="1708254643955" duration="4008000" />
       <workItem from="1708262900941" duration="3042000" />
       <workItem from="1708266262037" duration="2302000" />
-      <workItem from="1708334383695" duration="8925000" />
+      <workItem from="1708334383695" duration="11467000" />
     </task>
     <servers />
   </component>
@@ -170,7 +162,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs</url>
           <line>27</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Action\ActionNode.cs" initialLine="16" containingFunctionPresentation="メソッド 'OnUpdate'">
+          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Action\ActionNode.cs" initialLine="27" containingFunctionPresentation="メソッド 'OnUpdate'">
             <startOffsets>
               <option value="630" />
             </startOffsets>
@@ -178,20 +170,20 @@
               <option value="646" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs</url>
-          <line>17</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Action\Log.cs" initialLine="17" containingFunctionPresentation="メソッド 'OnUpdateMethod'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/Sequencer.cs</url>
+          <line>21</line>
+          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Composite\Sequencer.cs" initialLine="21" containingFunctionPresentation="メソッド 'OnUpdate'">
             <startOffsets>
-              <option value="401" />
+              <option value="539" />
             </startOffsets>
             <endOffsets>
-              <option value="421" />
+              <option value="591" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="24" />
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
