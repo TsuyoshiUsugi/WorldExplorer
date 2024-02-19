@@ -12,7 +12,7 @@ public class TestAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _processer = new(_graph);
+        _processer = new(_graph, this.gameObject);
         _processer.Run();
     }
 

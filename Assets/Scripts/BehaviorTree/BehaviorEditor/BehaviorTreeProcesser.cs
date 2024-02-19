@@ -17,14 +17,16 @@ namespace  TsuyoshiBehaviorTree
         //最終的な実行結果
         private NodeState _resultState = NodeState.Waiting;
         private List<BaseNode> _process;
+        private GameObject _owner;
         
         /// <summary>
         /// 継承したコンストラクタ
         /// ノード取得とグラフの取得を行う
         /// </summary>
         /// <param name="graph"></param>
-        public BehaviorTreeProcesser(BaseGraph graph) : base(graph)
+        public BehaviorTreeProcesser(BaseGraph graph, GameObject owner) : base(graph)
         {
+            _owner = owner;
         }
 
         /// <summary>
@@ -43,6 +45,8 @@ namespace  TsuyoshiBehaviorTree
             for (int i = 0; i < _process.Count; i++)
             {
                 _process[i].OnProcess();
+                var node = (Node)_process[i];
+                node?.SetOwnerObject(_owner);
             }
             JobHandle.ScheduleBatchedJobs();
             

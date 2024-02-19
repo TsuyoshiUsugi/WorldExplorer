@@ -25,11 +25,12 @@ namespace TsuyoshiBehaviorTree
     [Serializable]
     public class Node : BaseNode
     {
-        [Input(name = "Parent")]
+        [Input(name = "Parent"), Vertical]
         protected Node Parent;
-        
+        [SerializeField] 
+        private string _description;
         private string _name;
-        [SerializeField] private string _description;
+        protected GameObject _owner;
         /// <summary>状態</summary>
         protected NodeState _state = NodeState.Waiting;
         public NodeState State
@@ -50,6 +51,15 @@ namespace TsuyoshiBehaviorTree
         {
             Parent = this.GetInputNodes().FirstOrDefault() as Node;
             _state = NodeState.Waiting;
+        }
+        
+        /// <summary>
+        /// ノードを実行するオブジェクトを設定する
+        /// </summary>
+        /// <param name="owner"></param>
+        public void SetOwnerObject(GameObject owner)
+        {
+            _owner = owner;
         }
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace TsuyoshiBehaviorTree
     {
         //Todo: 親ノードを追加できないようにする
         
-        [Output(name = "Child")]
+        [Output(name = "Child"), Vertical]
         public Node ChildNode;
         
         protected override void Process()
