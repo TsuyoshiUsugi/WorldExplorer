@@ -16,6 +16,15 @@ namespace  TsuyoshiBehaviorTree
         [SerializeReference, SubclassSelector]
         public DecoratorBase _decorator;
         
+        public override void OnStart()
+        {
+            base.OnStart();
+            if (_decorator != null)
+            {
+                _decorator.SetOwner(_owner);
+            }
+        }
+        
         public override NodeState OnUpdate()
         {
             base.OnUpdate();

@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e3861732-22a0-4eb6-a1ae-b343f12ad571" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/HasRequiredMoney.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/HasRequiredMoney.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +18,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/37/0fe605fb/StackTraceUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/3a/8c53fbfd/Debug.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/68/442316f6/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/93/939623dd/DebugLogHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/b3/fe33873f/Logger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a24131e73ec49f7805f3dfb6a69fa781d000/3a/2b624bac/Behavior.cs" root0="SKIP_HIGHLIGHTING" />
@@ -147,7 +146,7 @@
       <workItem from="1708262900941" duration="3042000" />
       <workItem from="1708266262037" duration="2302000" />
       <workItem from="1708334383695" duration="16832000" />
-      <workItem from="1708362176058" duration="1166000" />
+      <workItem from="1708362176058" duration="3795000" />
     </task>
     <servers />
   </component>
