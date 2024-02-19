@@ -18,14 +18,6 @@ namespace  TsuyoshiBehaviorTree
         /// </summary>
         /// <returns></returns>
         protected abstract NodeState OnUpdateMethod();
-    
-        /// <summary>
-        /// 
-        /// </summary>
-        protected override void Process()
-        {
-            Output = this;
-        }
 
         /// <summary>
         /// 継承されたアクションノードの処理を実行し、結果を返す

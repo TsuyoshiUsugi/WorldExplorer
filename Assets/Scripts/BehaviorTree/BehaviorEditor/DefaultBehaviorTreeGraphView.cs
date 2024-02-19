@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GraphProcessor;
-using UnityEditor;
 using TsuyoshiBehaviorTree;
+#if UNITY_EDITOR
+using UnityEditor;
 
 /// <summary>
 /// デフォルトで使用するビヘイビアツリーグラフビュー
@@ -29,3 +30,5 @@ public class DefaultBehaviorTreeGraphView : BaseGraphView
 
     protected override bool canDeleteSelection { get { return !selection.Any(e => e is Root); } }
 }
+
+#endif

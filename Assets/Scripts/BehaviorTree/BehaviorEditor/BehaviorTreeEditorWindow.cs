@@ -1,7 +1,11 @@
 using System.IO;
 using UnityEngine;
-using UnityEditor;
 using GraphProcessor;
+
+#if UNITY_EDITOR
+
+
+using UnityEditor;
 using UnityEngine.Assertions;
 
 namespace TsuyoshiBehaviorTree
@@ -24,3 +28,5 @@ namespace TsuyoshiBehaviorTree
         }
     }
 }
+
+#endif

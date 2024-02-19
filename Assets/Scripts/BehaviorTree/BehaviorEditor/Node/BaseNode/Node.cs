@@ -41,6 +41,14 @@ namespace TsuyoshiBehaviorTree
         {
             _name = GetType().ToString();
         }
+        
+        /// <summary>
+        /// OutPutに自身を格納することで、次のノードに自身を渡す
+        /// </summary>
+        protected override void Process()
+        {
+            Output = this;
+        }
 
         /// <summary>
         /// ノード実行時に呼ばれる

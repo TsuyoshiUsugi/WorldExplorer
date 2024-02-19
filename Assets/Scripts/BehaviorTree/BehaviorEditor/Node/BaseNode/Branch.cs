@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using GraphProcessor;
 using UnityEngine;
 
@@ -8,12 +9,10 @@ namespace TsuyoshiBehaviorTree
 {
     /// <summary>
     /// 子を持つことのできるノードのベースクラス
+    /// ここでは子の設定処理や評価処理の基底クラスを実装する
     /// </summary>
     public class Branch : Node
     {
-        [Output(name = "Parent")]
-        public Node Output;
-
         [Input(name = "Child", allowMultiple = true)]
         public Node Child;
         
@@ -26,12 +25,17 @@ namespace TsuyoshiBehaviorTree
         /// </summary>
         protected override void Process()
         {
-            var edges = Child.GetAllEdges();
-            foreach (var edge in edges)
+            base.Process();
+            _childIndex = 0;
+            var nodes = this.GetInputNodes();
+            //エディターで上に表示されているものから順番に実行したいのでY座標でソート
+            //TODO: ここでソートするのはよくないかもしれない
+            nodes = nodes.OrderBy(x => x.position.y);
+            foreach (var node in nodes)
             {
-                if (edge.inputNode is Node)
+                if (node is Node)
                 {
-                    _childNode.Add(edge.inputNode as Node);
+                    _childNode.Add(node as Node);
                 }
             }
         }
