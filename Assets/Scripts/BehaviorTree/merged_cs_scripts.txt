@@ -1,93 +1,495 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using GraphProcessor;
+
+#if UNITY_EDITOR
+
+
+using UnityEditor;
+using UnityEngine.Assertions;
 
 namespace TsuyoshiBehaviorTree
 {
     /// <summary>
-    /// 行動ノードの基底クラス
-    /// UpdataはWhile文で回す
-    /// 成功の可否はboolで返す
+    /// ビヘイビアツリーを表示するウィンドウクラス
     /// </summary>
-    [System.Serializable]
-    public abstract class ActionNode : IBehaviorNode
+    public class BehaviorTreeEditorWindow : BaseGraphWindow
     {
-        public abstract bool Execute();
-    }
-}
- 
--------------------------------- 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace TsuyoshiBehaviorTree
-{
-    public class BehaviorTree : MonoBehaviour
-    {
-        [SerializeReference, SubclassSelector] private IBehaviorNode _rootNode;
-
-        public void AddRootNode(IBehaviorNode node)
+        protected override void InitializeWindow(BaseGraph graph)
         {
-            _rootNode = node;
-        }
-
-        public void Start()
-        {
-            _rootNode.Execute();
-        }
-    }
-}
- 
--------------------------------- 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace TsuyoshiBehaviorTree
-{
-    /// <summary>
-    /// ビヘイビアツリーのノードのインターフェース
-    /// </summary>
-    public interface IBehaviorNode
-    {
-        bool Execute();
-    }
-}
- 
--------------------------------- 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace TsuyoshiBehaviorTree
-{
-    /// <summary>
-    /// コンポジットノードの一つ
-    /// シーケンサーノードの基底クラス
-    /// </summary>
-    [System.Serializable]
-    public class SequenceNode : IBehaviorNode
-    {
-        [SerializeReference, SubclassSelector] private List<IBehaviorNode> _nodes = new List<IBehaviorNode>();
-
-        public void AddNode(IBehaviorNode node)
-        {
-            _nodes.Add(node);
-        }
-
-        public bool Execute()
-        {
-            foreach (var node in _nodes)
+            Assert.IsNotNull(graph);
+            var fileName = Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(graph));
+            titleContent = new GUIContent(ObjectNames.NicifyVariableName(fileName));
+            if (graphView == null)
             {
-                if (!node.Execute())
-                {
-                    return false;
-                }
+                graphView = new BaseGraphView(this);
             }
+            rootView.Add(graphView);
+        }
+    }
+}
 
+#endif
+ 
+-------------------------------- 
+using GraphProcessor;
+using UnityEngine;
+using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.Callbacks;
+#endif
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// ビヘイビアツリーのグラフを表すクラス
+    /// </summary>
+    [CreateAssetMenu(menuName = "BehaviorTreeEditorGraph")]
+    public class BehaviorTreeGraph : BaseGraph
+    {
+#if UNITY_EDITOR
+        [OnOpenAsset(0)]
+        public static bool OnBaseGraphOpened(int instanceID, int line)
+        {
+            var asset = EditorUtility.InstanceIDToObject(instanceID) as BehaviorTreeGraph;
+
+            if (asset == null) return false;
+
+            var window = EditorWindow.GetWindow<BehaviorTreeEditorWindow>();
+            window.InitializeGraph(asset);
             return true;
         }
+
+        /// <summary>
+        /// グラフ作成時にビヘイビアツリーのルートノードを追加
+        /// </summary>
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            if (!nodes.Any(x => x is Root))
+            {
+                AddNode(BaseNode.CreateFromType<Root>(Vector2.zero));
+            }
+        }
+#endif
+    }
+}
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using GraphProcessor;
+using Unity.Jobs;
+
+namespace  TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// ツリーを実行するクラス
+    /// </summary>
+    public class BehaviorTreeProcesser : BaseGraphProcessor
+    {
+        //現在実行中のノード
+        private Node _runningNode;
+        //最終的な実行結果
+        private NodeState _resultState = NodeState.Waiting;
+        private List<BaseNode> _process;
+        private GameObject _owner;
+        
+        /// <summary>
+        /// 継承したコンストラクタ
+        /// ノード取得とグラフの取得を行う
+        /// </summary>
+        /// <param name="graph"></param>
+        public BehaviorTreeProcesser(BaseGraph graph, GameObject owner) : base(graph)
+        {
+            _owner = owner;
+        }
+
+        /// <summary>
+        /// ここでスクリプタブルオブジェクトから最初のノードを取得する
+        /// </summary>
+        public override void UpdateComputeOrder()
+        {
+            _runningNode = graph.nodes.FirstOrDefault(n => n is Root) as Node;
+            _process = graph.nodes.OrderBy(n => n.computeOrder).ToList();
+        }
+
+        public override void Run()
+        {
+            Debug.Log("ビヘイビアツリー起動");
+
+            for (int i = 0; i < _process.Count; i++)
+            {
+                _process[i].OnProcess();
+                var node = (Node)_process[i];
+                node?.SetOwnerObject(_owner);
+            }
+            JobHandle.ScheduleBatchedJobs();
+            
+            if (_resultState != NodeState.Waiting)
+            {
+                Debug.LogError("既に実行中です");
+                return;
+            }
+            _resultState = NodeState.Running;
+        }
+
+        /// <summary>
+        /// ビヘイビアツリーの更新処理
+        /// </summary>
+        public void OnUpdate()
+        {
+            if (_resultState == NodeState.Success || _resultState == NodeState.Failure)
+            {
+                return;
+            }
+
+            if (_resultState == NodeState.Waiting)
+            {
+                Debug.LogError("実行していません");
+                return;
+            }
+            _resultState = _runningNode.OnUpdate();
+            if (_resultState == NodeState.Success || _resultState == NodeState.Failure)
+            {
+                _runningNode.OnEnd();
+                OnEnd();
+                Debug.Log($"ビヘイビアツリー終了:結果{_resultState}");
+            }
+        }
+
+        public void OnEnd()
+        {
+            if (_resultState != NodeState.Success && _resultState != NodeState.Failure)
+            {
+                Debug.LogError("結果が出ていないのに終了が呼ばれました");
+                return;
+            }
+            return;
+        }
+    }
+    
+}
+ 
+-------------------------------- 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using GraphProcessor;
+using TsuyoshiBehaviorTree;
+#if UNITY_EDITOR
+using UnityEditor;
+
+/// <summary>
+/// デフォルトで使用するビヘイビアツリーグラフビュー
+/// </summary>
+public class DefaultBehaviorTreeGraphView : BaseGraphView
+{
+    public DefaultBehaviorTreeGraphView(EditorWindow window) : base(window)
+    {
+    }
+
+    public override IEnumerable<(string, Type)> FilterCreateNodeMenuEntries()
+    {
+        foreach (var nodeMenuItem in NodeProvider.GetNodeMenuEntries())
+        {
+            // ResultNodeを追加できないように
+            if (nodeMenuItem.type == typeof(Root))
+            {
+                continue;
+            }
+            yield return nodeMenuItem;
+        }
+    }
+
+    protected override bool canDeleteSelection { get { return !selection.Any(e => e is Root); } }
+}
+
+#endif
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using GraphProcessor;
+using TsuyoshiBehaviorTree;
+using UnityEngine;
+
+public class TestAI : MonoBehaviour
+{
+    [SerializeField] BaseGraph _graph;
+    private BehaviorTreeProcesser _processer;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        _processer = new(_graph, this.gameObject);
+        _processer.Run();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _processer.OnUpdate();
+    }
+}
+ 
+-------------------------------- 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using GraphProcessor;
+
+namespace  TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// アクションノードの基底クラス
+    /// </summary>
+    public abstract class ActionNode : Node
+    {
+        
+        
+        /// <summary>
+        /// 継承したアクションノードで実行される処理を書く
+        /// </summary>
+        /// <returns></returns>
+        protected abstract NodeState OnUpdateMethod();
+
+        /// <summary>
+        /// 継承されたアクションノードの処理を実行し、結果を返す
+        /// </summary>
+        /// <returns></returns>
+        public override NodeState OnUpdate()
+        {
+            base.OnUpdate();
+            return OnUpdateMethod();
+        }
+    }
+}
+ 
+-------------------------------- 
+using System;
+using GraphProcessor;
+using UnityEngine;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// ログ出力を行うアクションノード
+    /// </summary>
+    [Serializable, NodeMenuItem("ActionNode/Log")]
+    public class Log : ActionNode
+    {
+        [SerializeField, TextArea(1, 1)] 
+        private string _message;
+        
+        protected override NodeState OnUpdateMethod()
+        {
+            Debug.Log(_message);
+            _state = NodeState.Success; //直接Successを返さないのは自身の状態を保存する必要があるため
+            return _state;
+        }
+    }
+}
+ 
+-------------------------------- 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using GraphProcessor;
+using UnityEngine;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// 子を持つことのできるノードのベースクラス
+    /// ここでは子の設定処理や評価処理の基底クラスを実装する
+    /// </summary>
+    public class Branch : Node
+    {
+        [Output(name = "Child", allowMultiple = true), Vertical]
+        public Node Child;
+        
+        [NonSerialized]
+        public List<Node> _childNode = new List<Node>();
+        protected int _childIndex = 0;
+
+        /// <summary>
+        /// Childに繋がっているノードを取得してリストに追加する
+        /// </summary>
+        protected override void Process()
+        {
+            base.Process();
+            _childIndex = 0;
+            var nodes = this.GetOutputNodes();
+            //エディターで左に表示されているものから順番に実行したいのでX座標でソート
+            nodes = nodes.OrderBy(x => x.position.x);
+            foreach (var node in nodes)
+            {
+                if (node is Node)
+                {
+                    _childNode.Add(node as Node);
+                }
+            }
+        }
+
+        public override void OnStart()
+        {
+            base.OnStart();
+            _childIndex = 0;
+            if (_childNode.Count == 0)
+            {
+                Debug.LogError("子ノードがありません");
+                return;
+            }
+        }
+        
+        /// <summary>
+        /// 子のステータスを評価する
+        /// </summary>
+        /// <returns></returns>
+        protected virtual NodeState EvaluateChild()
+        {
+            return NodeState.Waiting;
+        }
+
+        public virtual List<Node> GetChildren()
+        {
+            return _childNode;
+        }
+    }
+}
+ 
+-------------------------------- 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using GraphProcessor;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// ノードの状態を表す列挙型
+    /// </summary>
+    public enum NodeState
+    {
+        Waiting,
+        Success,
+        Failure,
+        Running,
+    }
+    
+    /// <summary>
+    /// ビヘイビアツリーのノードの基底クラス
+    /// NodeGraphProcessorのBaseNodeを継承してUIで使えるようにする
+    /// </summary>
+    [Serializable]
+    public class Node : BaseNode
+    {
+        [Input(name = "Parent"), Vertical]
+        protected Node Parent;
+        [SerializeField] 
+        private string _description;
+        private string _name;
+        protected GameObject _owner;
+        /// <summary>状態</summary>
+        protected NodeState _state = NodeState.Waiting;
+        public NodeState State
+        {
+            get => _state;
+            set => _state = value;
+        } 
+
+        /// <summary>
+        /// エディター再生時に行う処理
+        /// </summary>
+        public Node()
+        {
+            _name = GetType().ToString();
+        }
+        
+        /// <summary>
+        /// ゲーム再生時の初期化処理
+        /// </summary>
+        protected override void Process()
+        {
+            Parent = this.GetInputNodes().FirstOrDefault() as Node;
+            _state = NodeState.Waiting;
+            _owner = null;
+        }
+        
+        /// <summary>
+        /// ノードを実行するオブジェクトを設定する
+        /// </summary>
+        /// <param name="owner"></param>
+        public void SetOwnerObject(GameObject owner)
+        {
+            _owner = owner;
+        }
+
+        /// <summary>
+        /// ノード実行時に呼ばれる
+        /// </summary>
+        public virtual void OnStart()
+        {
+            if (_state != NodeState.Waiting)
+            {
+                Debug.LogError("Statusが待機状態ではありません。");
+                return;
+            }
+            _state = NodeState.Running;
+            Debug.Log($"{_name}ノード実行開始");
+        }
+        
+        /// <summary>
+        /// ノードの更新処理
+        /// </summary>
+        /// <returns></returns>
+        public virtual NodeState OnUpdate()
+        {
+            //待機状態なら開始処理を呼ぶ
+            if (_state == NodeState.Waiting)
+            {
+                OnStart();
+            }
+
+            //成功または失敗したら終了処理を呼んで結果を返す
+            if (_state == NodeState.Success || _state == NodeState.Failure)
+            {
+                OnEnd();
+                return _state;
+            }
+            return _state;
+        }
+
+        /// <summary>
+        /// ノードが終了したら呼ばれる
+        /// </summary>
+        public virtual void OnEnd()
+        {
+            //結果が出ていないのに終了処理を呼ぼうとしたらエラーを出す
+            if (_state != NodeState.Success && _state != NodeState.Failure)
+            {
+                Debug.LogError("タスクの結果がでていないのに終了処理を呼び出そうとしました。");
+                return;
+            }
+        }
+        
+        //TODO: 以下のメソッドは使うかどうか検討する
+        // /// <summary>
+        // /// ノードが中断した時に呼ばれる
+        // /// </summary>
+        // public virtual void OnAbort()
+        // {
+        //     OnEnd();
+        // }
     }
 }
  
@@ -95,21 +497,553 @@ namespace TsuyoshiBehaviorTree
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TsuyoshiBehaviorTree;
+using GraphProcessor;
+using System;
 
-[System.Serializable]
-public class TestLogBehavior : ActionNode
+namespace  TsuyoshiBehaviorTree
 {
-    public override bool Execute()
+    /// <summary>
+    /// 子を同時に実行し、すべての子が成功したら成功を返す。一つでも失敗したら失敗を返す
+    /// </summary>
+    [Serializable, NodeMenuItem("Composite/Parallel")]
+    public class Parallel : Branch
     {
-        int i = 0;
-        int max = 100;
-        while (i < max)
+        public override NodeState OnUpdate()
         {
-            Debug.Log("TestLogBehavior");
-            i++;
+            base.OnUpdate();
+            _state = EvaluateChild();
+            return _state;
         }
-        return true;
+
+        protected override NodeState EvaluateChild()
+        {
+            var result = NodeState.Waiting;
+            int successCount = 0;
+            int runningCount = 0;
+            foreach (var child in _childNode)
+            {
+                if (child.State == NodeState.Success)
+                {   //既に実行結果のでているものはスキップ
+                    successCount++;
+                    continue;
+                }
+
+                child.OnUpdate();
+                if (child.State != NodeState.Failure)
+                {
+                    if (child.State == NodeState.Running)
+                    {
+                        runningCount++;
+                    }
+                    else if (child.State == NodeState.Success)
+                    {
+                        successCount++;
+                        child.OnEnd();
+                    }
+                    _childIndex++;
+                    continue;
+                }
+                
+                //一つでも失敗したらほかをWaitingにして終了
+                result = NodeState.Failure;
+                child.OnEnd();
+                for (int i = 0; i < _childNode.Count; i++)
+                {
+                    if (i == _childIndex)
+                    {
+                        continue;
+                    }
+
+                    _childNode[i].State = NodeState.Waiting;
+                }
+
+                return result;
+            }
+            if (runningCount > 0)
+            {   //実行中の子があるならRunningを返す
+                result = NodeState.Running;
+            }
+            else if (successCount == _childNode.Count)
+            {   //全て成功したら成功を返す
+                result = NodeState.Success;
+            }
+
+            return result;
+        }
+    }
+}
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using GraphProcessor;
+using System;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// 子が一つでも成功したら成功を返す。全て失敗したら失敗を返す
+    /// </summary>
+    [Serializable, NodeMenuItem("Composite/Selector")]
+    public class Selector : Branch
+    {
+       public override NodeState OnUpdate()
+        {
+            base.OnUpdate();
+            _state = EvaluateChild();
+            return _state;
+        }
+        
+        /// <summary>
+        /// 子のステータスを評価する
+        /// </summary>
+        /// <returns></returns>
+        protected override NodeState EvaluateChild()
+        {
+            var result = NodeState.Waiting;
+            int failureCount = 0;
+            foreach (var child in _childNode)
+            {
+                if (child.State == NodeState.Success || child.State == NodeState.Failure)
+                {   //既に実行結果のでているものはスキップ
+                    if (child.State == NodeState.Failure)
+                    {
+                        failureCount++;
+                        _childIndex++;
+                    }
+                    continue;
+                }
+
+                child.OnUpdate();
+                if (child.State != NodeState.Success)
+                {
+                    _childIndex++;
+                    if (child.State == NodeState.Failure)
+                    {
+                        failureCount++;
+                        child.OnEnd();
+                    }
+                    continue;
+                }
+                
+                //一つでも成功したらほかをWaitingにして終了
+                child.OnEnd();
+                result = child.State;
+                for (int i = 0; i < _childNode.Count; i++)
+                {
+                    if (i == _childIndex)
+                    {
+                        continue;
+                    }
+
+                    _childNode[i].State = NodeState.Waiting;
+                }
+                return result;
+            }
+            
+            //全て失敗したら失敗を返す
+            if (failureCount >= _childNode.Count)
+            {
+                result = NodeState.Failure;
+            }
+            else
+            {
+                result = NodeState.Running;
+            }
+
+            return result;
+        }
+    }
+}
+ 
+-------------------------------- 
+using System;
+using UnityEngine;
+using GraphProcessor;
+
+namespace  TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// シーケンサーノード
+    /// 子が一つでも失敗したら失敗を返す。全て成功したら成功を返す
+    /// </summary>
+    [Serializable, NodeMenuItem("Composite/Sequencer")]
+    public class Sequencer : Branch
+    {
+        public override NodeState OnUpdate()
+        {
+            base.OnUpdate();
+            if (_childIndex >= _childNode.Count)
+            {
+                Debug.Log("全ての子ノードが実行終了");
+                return NodeState.Success;
+            }
+            var childState = _childNode[_childIndex].OnUpdate();
+            if (childState == NodeState.Success)
+            {   //現在見ている子が成功したらOnEndを呼び出して次の子を評価する
+                _childNode[_childIndex].OnEnd();
+                _childIndex++;
+            }
+
+            _state = EvaluateChild();
+            return _state;
+        }
+        
+        /// <summary>
+        /// 子のステータスを評価する
+        /// </summary>
+        /// <returns></returns>
+        protected override NodeState EvaluateChild()
+        {
+            var result = NodeState.Waiting;
+            foreach (var child in _childNode)
+            {
+                if (child.State == NodeState.Failure)
+                {
+                    result = NodeState.Failure;
+                    break;
+                }
+                else if (child.State == NodeState.Running || child.State == NodeState.Waiting)
+                {
+                    result = NodeState.Running;
+                    break;
+                }
+
+                result = NodeState.Success;
+            }
+
+            return result;
+        }
+    }
+}
+ 
+-------------------------------- 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace  TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// 条件ノードの基底クラス
+    /// </summary>
+    [Serializable]
+    public abstract class Condition : Node
+    {
+        /// <summary>
+        /// 継承した条件ノードで実行される処理を書く
+        /// </summary>
+        /// <returns></returns>
+        protected abstract NodeState OnUpdateMethod();
+        
+        public override NodeState OnUpdate()
+        {
+            base.OnUpdate();
+            return OnUpdateMethod();
+        }
+    }
+}
+ 
+-------------------------------- 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using GraphProcessor;
+using UnityEngine;
+
+namespace  TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// 条件を満たしているなら子のStateを返す。そうでないならFailureを返す
+    /// 子を一つだけ持つ
+    /// </summary>
+    [Serializable, NodeMenuItem("Decorator/Decorator")]
+    public class Decorator : Branch
+    {
+        [SerializeReference, SubclassSelector]
+        public DecoratorBase _decorator;
+        
+        public override void OnStart()
+        {
+            base.OnStart();
+            if (_decorator != null)
+            {
+                _decorator.SetOwner(_owner);
+            }
+        }
+        
+        public override NodeState OnUpdate()
+        {
+            base.OnUpdate();
+            if (_childNode.Count == null || _childNode.Count == 0)
+            {
+                Debug.LogError("子ノードがありません");
+                return NodeState.Failure;
+            }
+            if (_childNode.Count > 1)
+            {   //TODO: そもそもDecoratorノードが複数の子を持てないようにすべき
+                Debug.LogError("子ノードが複数あります");
+                return NodeState.Failure;
+            }
+            if (_decorator == null)
+            {
+                Debug.LogError("評価条件がありません");
+                return NodeState.Failure;
+            }
+
+            _state = EvaluateChild();
+            if (_state == NodeState.Running)
+            {   //実行中なら子のステータスを評価するために自身を再呼び出し
+                OnUpdate();
+            }
+
+            return _state;
+        }
+        
+        /// <summary>
+        /// 子のステータスを評価する
+        /// </summary>
+        /// <returns></returns>
+        protected override NodeState EvaluateChild()
+        {
+            var result = NodeState.Waiting;
+            _state = _decorator.Evaluate();
+            if (_state == NodeState.Failure)
+            {   //判定が通らないなら強制的にFailureを返す
+                return NodeState.Failure;
+            }
+            else if (_state == NodeState.Success)
+            {   //判定が通ったら子のステータスを返す
+                result = _childNode[0].OnUpdate();
+            }
+            if (result == NodeState.Success || result == NodeState.Failure)
+            {
+                _childNode[0].OnEnd();
+            }
+
+            return result;
+        }
+    }
+    
+}
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace  TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// decoratorノードの基底クラス
+    /// </summary>
+    public abstract class DecoratorBase
+    {
+        protected GameObject _owner;
+        
+        public void SetOwner(GameObject owner)
+        {
+            _owner = owner;
+        }
+        
+        public abstract NodeState Evaluate();
+    }
+}
+ 
+-------------------------------- 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using GraphProcessor;
+using TsuyoshiBehaviorTree;
+using UnityEngine;
+
+[Serializable, NodeMenuItem("Decorator/HasRequiredMoney")]
+public class HasRequiredMoney : DecoratorBase
+{
+    [SerializeField]
+    private int _requiredMoney = 200;
+    public override NodeState Evaluate()
+    {
+        if (_owner.GetComponent<Money>().money >= _requiredMoney)
+        {
+            return NodeState.Success;
+        }
+        else
+        {
+            return NodeState.Failure;
+        }
+    }
+}
+ 
+-------------------------------- 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using GraphProcessor;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// 規定の回数を子ノードが返すまでRunningを返す。条件を満たしたらSuccess
+    /// </summary>
+    [Serializable, NodeMenuItem("Decorator/Repeater")]
+    public class Repeater : Branch
+    {
+        [SerializeField] private int _repeatCount = 1;
+        private int _currentCount = 0;
+
+        public override NodeState OnUpdate()
+        {
+            base.OnUpdate();
+            if (_childNode.Count == null || _childNode.Count == 0)
+            {
+                Debug.LogError("子ノードがありません");
+                return NodeState.Failure;
+            }
+
+            if (_repeatCount == 0)
+            {
+                Debug.LogError("繰り返し回数が0です");
+                return NodeState.Failure;
+            }
+
+            _state = EvaluateChild();
+            if (_state == NodeState.Running)
+            {
+                OnUpdate();
+            }
+
+            return _state;
+        }
+        
+        protected override NodeState EvaluateChild()
+        {
+            var result = NodeState.Waiting;
+            int finishCount = 0;
+            foreach (var child in _childNode)
+            {
+                if (child.State == NodeState.Failure || child.State == NodeState.Success)
+                {   //既に実行結果のでているものはスキップ
+                    finishCount++;
+                    continue;
+                }
+
+                child.OnUpdate();
+                if (child.State == NodeState.Failure || child.State == NodeState.Success)
+                {
+                    child.OnEnd();
+                    finishCount++;
+                }
+            }
+            if (finishCount < _childNode.Count)
+            {   //まだ子が実行中ならRunningを返す
+                return NodeState.Running;
+            }
+
+            _currentCount++;
+            if (_currentCount >= _repeatCount)
+            {
+                result = NodeState.Success;
+                return result;
+            }
+
+            result = NodeState.Running;
+            SetChildWaiting(_childNode);
+            return result;
+        }
+        
+        /// <summary>
+        /// 子ノードをWaitingにする
+        /// </summary>
+        /// <param name="childNode"></param>
+        private void SetChildWaiting(List<Node> childNode)
+        {
+            foreach (var child in childNode)
+            {
+                child.State = NodeState.Waiting;
+                var branch = child as Branch;
+                if (branch == null)
+                {
+                    continue;
+                }
+                SetChildWaiting(branch.GetChildren());
+            }
+        }
+    }
+}
+ 
+-------------------------------- 
+using GraphProcessor;
+using System;
+using System.Linq;
+using UnityEngine;
+
+namespace TsuyoshiBehaviorTree
+{
+    /// <summary>
+    /// ビヘイビアツリーのルートノード
+    /// </summary>
+    [Serializable, NodeMenuItem("Root")]
+    public class Root : Node
+    {
+        //Todo: 親ノードを追加できないようにする
+        
+        [Output(name = "Child"), Vertical]
+        public Node ChildNode;
+        
+        protected override void Process()
+        {
+            base.Process();
+            ChildNode = this.GetOutputNodes().FirstOrDefault() as Node;
+        }
+
+        // Override OnUpdate method for the root node
+        public override NodeState OnUpdate()
+        {
+            if (ChildNode == null)
+            {
+                return NodeState.Failure;
+            }
+            // Call the base OnUpdate method
+            base.OnUpdate();
+
+            _state = ChildNode.OnUpdate();
+            return _state;
+        }
+
+        // Override OnEnd method for the root node
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            Debug.Log("ビヘイビアツリーの全ノード実行終了");
+        }
+    }
+}
+ 
+-------------------------------- 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class Money : MonoBehaviour
+{
+    public int money = 300;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
  

@@ -15,6 +15,13 @@ public class IfNotHaveGourdAddHandEffect : ICardEffect
     {
         
     }
+    
+    public string GetEffectDescription()
+    {
+        var playerManager = FieldInfo.Instance.PlayerManager;
+
+        return $"を手札に加える";
+    }
 
     public void ExcuteCardEffect()
     {

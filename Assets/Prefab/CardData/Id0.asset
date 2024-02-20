@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayFieldCardType: 0
   Id: 0
-  CardName: 
+  CardName: "\u5973\u9A0E\u58EB"
   CardExplain: "\u03B1\u30C0\u30E1\u30FC\u30B8\u4E0E\u3048\u308B\r\n\u6575\u306E\u653B\u6483\u529B\u3092\u03B1\u4E0B\u3052\u308B\r\n\u203B\u3053\u306E\u52B9\u679C\u306F\u03B1\u884C\u52D5\u3067\u7D42\u4E86"
   CardPrefab: {fileID: 5400089184753962535, guid: cc65f63994b983f49945d333b662c07a, type: 3}
   CardEffects:
-  - rid: 4606560170361749505
-  - rid: 3382217852420096001
+  - rid: 3100971783220887582
+  - rid: 3100971783220887583
   CardEffectView: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 3382217852420096001
+    - rid: 3100971783220887582
       type: {class: ApplyAttackPowerDownEffect, ns: , asm: Assembly-CSharp}
       data:
         _turn: 1
         _downPower: 10
         _addDownPowerWhenEvolved: 10
-    - rid: 4606560170361749505
+    - rid: 3100971783220887583
       type: {class: ApplyDamageEffect, ns: , asm: Assembly-CSharp}
       data:
         _cardDamage: 10

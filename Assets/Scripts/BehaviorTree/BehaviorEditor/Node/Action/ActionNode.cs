@@ -11,8 +11,6 @@ namespace  TsuyoshiBehaviorTree
     /// </summary>
     public abstract class ActionNode : Node
     {
-        
-        
         /// <summary>
         /// 継承したアクションノードで実行される処理を書く
         /// </summary>

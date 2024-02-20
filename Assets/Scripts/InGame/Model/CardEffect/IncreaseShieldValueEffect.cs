@@ -15,6 +15,11 @@ public class IncreaseShieldValue : ICardEffect
     {
        _increaseValue += _addIncreaseValue;
     }
+    
+    public string GetEffectDescription()
+    {
+        return $"防御力を{_increaseValue}得る";
+    }
 
     public void ExcuteCardEffect()
     {

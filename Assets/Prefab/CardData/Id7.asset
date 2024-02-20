@@ -14,23 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayFieldCardType: 0
   Id: 7
-  CardName: 
+  CardName: "\u9B54\u8853\u5E2B\u306E\u77E5\u6075"
   CardExplain: "\u03B1\u9152\u529B\u3092\u5F97\u308B\r\n\u300C\u9154\u3044\u72B6\u614B\u300D\u306E\u5834\u5408\r\n\u03B1\u30C0\u30E1\u30FC\u30B8\u4E0E\u3048\u308B"
   CardPrefab: {fileID: 5400089184753962535, guid: bc9a6aa2efb9fbb40816215daf7eeaa4, type: 3}
   CardEffects:
-  - rid: 6092417385810624513
-  - rid: 6092417385810624515
+  - rid: 3100971783220887592
   CardEffectView: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 6092417385810624513
+    - rid: 3100971783220887592
       type: {class: HyoutanEffect, ns: , asm: Assembly-CSharp}
       data:
-        _sakePoint: 2
+        _sakePoint: 3
         _drankDamagePoint: 2
-    - rid: 6092417385810624515
-      type: {class: ApplyDamageEffectIfDrunk, ns: , asm: Assembly-CSharp}
-      data:
-        _damage: 10
-        _addDamageWhenEvolved: 10

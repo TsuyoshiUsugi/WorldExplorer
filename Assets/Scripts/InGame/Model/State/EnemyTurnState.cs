@@ -29,8 +29,6 @@ public class EnemyTurnState : IInGameState
     public void SetEnemyInfo()
     {
         FieldInfo.Instance.EnemyManager = _enemyManager;
-        _enemyManager.SetNextBehaviorIndex();
-
     }
 
     public async UniTask OnEnter()
@@ -42,8 +40,6 @@ public class EnemyTurnState : IInGameState
         //敵の行動を実行する
         _enemyManager.ExcuteEnemyAction();
         //後処理
-        //次に実行する行動のインデックスを設定する
-        _enemyManager.SetNextBehaviorIndex();
         //持続する効果のターンを減らす
         _enemyManager.DecreaseEffectTurn();
         OnExit().Forget();

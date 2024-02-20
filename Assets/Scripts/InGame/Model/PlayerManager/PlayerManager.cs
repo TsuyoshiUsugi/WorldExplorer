@@ -136,10 +136,6 @@ public class PlayerManager
 
         var player = FieldInfo.Instance.PlayerManager;
         var playerHand = player.HandCard;
-        foreach (var item in playerHand)
-        {
-            Debug.Log(item.ID);
-        }
     }
 
     /// <summary>

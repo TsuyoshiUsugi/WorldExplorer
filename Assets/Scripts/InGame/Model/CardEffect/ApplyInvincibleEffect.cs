@@ -15,6 +15,11 @@ public class ApplyInvincibleEffect : ICardEffect
     {
         _turn += _addTurn;
     }
+    
+    public string GetEffectDescription()
+    {
+        return $"{_turn}ターン無敵になる";
+    }
 
     public void ExcuteCardEffect()
     {

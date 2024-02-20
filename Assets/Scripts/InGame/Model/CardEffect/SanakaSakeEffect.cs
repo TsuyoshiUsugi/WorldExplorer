@@ -17,6 +17,13 @@ public class SanakaSakeEffect : ICardEffect
     {
         //特になし
     }
+    
+    public string GetEffectDescription()
+    {
+        return $"進化：{_sanka.CardName}を進化させる\n" +
+               $"手札に{_sanka.CardName}がある場合、行動回数を減らさずに使用できる\n" +
+               $"手札に{_sanka.CardName}がない場合、手札に{_sanka.CardName}を加える";
+    }
 
     public void ExcuteCardEffect()
     {

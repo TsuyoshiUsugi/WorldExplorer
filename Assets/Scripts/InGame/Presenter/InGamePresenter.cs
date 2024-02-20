@@ -124,19 +124,19 @@ public class InGamePresenter : MonoBehaviour
 
         _enemyManager.NextBehaviorIndex.Subscribe(index =>
         {
-            var action = _enemyManager.Behaviors[index].Action;
-            var actionRelateNum = 0;
-
-            switch (action)
-            {
-                case IEnemyBehavior.EnemyAction.Attack:
-                    actionRelateNum = _enemyManager.Status.AttackPower;
-                    break;
-                case IEnemyBehavior.EnemyAction.Block:
-                    actionRelateNum = _enemyManager.Status.BlockPower;
-                    break;
-            }
-            _gameView.ShowEnemyAction(_enemyManager.Behaviors[index].Action, actionRelateNum);
+            // var action = _enemyManager.Behavior[index].Action;
+            // var actionRelateNum = 0;
+            //
+            // switch (action)
+            // {
+            //     case IEnemyBehavior.EnemyAction.Attack:
+            //         actionRelateNum = _enemyManager.Status.AttackPower;
+            //         break;
+            //     case IEnemyBehavior.EnemyAction.Block:
+            //         actionRelateNum = _enemyManager.Status.BlockPower;
+            //         break;
+            // }
+            // _gameView.ShowEnemyAction(_enemyManager.Behavior[index].Action, actionRelateNum);
         });
 
         #endregion
