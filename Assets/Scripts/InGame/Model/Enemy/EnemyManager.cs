@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using GraphProcessor;
+using TsuyoshiBehaviorTree;
 using UniRx;
 
 /// <summary>
@@ -8,20 +10,20 @@ using UniRx;
 public class EnemyManager
 {
     private Status _status;
-    private List<IEnemyBehavior> _behaviors;
+    private BehaviorTreeProcesser _behavior;
     private List<TurnStatusBase> _turnStatuses;
     private readonly IntReactiveProperty _nextBehaviorIndex = new(0);
     public event Action<Winner> OnGameEnd;
     public Status Status => _status;
-    public List<IEnemyBehavior> Behaviors => _behaviors;
+    public BehaviorTreeProcesser Behavior => _behavior;
     public IReadOnlyReactiveProperty<int> NextBehaviorIndex => _nextBehaviorIndex;
     public List<TurnStatusBase> TurnStatuses => _turnStatuses;
 
-    public EnemyManager(List<IEnemyBehavior> enemyBehaviors, Status status)
+    public EnemyManager(BaseGraph enemyBehavior, Status status)
     {
         //ここはステータス全てを入れるようにする
         _status = new Status(status);
-        _behaviors = enemyBehaviors;
+        _behavior = new (enemyBehavior, null);
         _turnStatuses = new List<TurnStatusBase>();
     }
 
@@ -30,7 +32,8 @@ public class EnemyManager
     /// </summary>
     public void ExcuteEnemyAction()
     {
-        _behaviors[_nextBehaviorIndex.Value].Excute();
+        _behavior.Run();
+        _behavior.OnUpdate();
     }
 
     /// <summary>
@@ -63,13 +66,5 @@ public class EnemyManager
         {
             _turnStatuses.Remove(item);
         }
-    }
-
-    /// <summary>
-    /// 次に実行する行動のインデックスを設定する
-    /// </summary>
-    public void SetNextBehaviorIndex()
-    {
-        _nextBehaviorIndex.Value = UnityEngine.Random.Range(0, _behaviors.Count);
     }
 }

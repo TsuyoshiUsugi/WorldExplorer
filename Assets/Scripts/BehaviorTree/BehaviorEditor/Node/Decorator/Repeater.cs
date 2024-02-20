@@ -9,12 +9,12 @@ namespace TsuyoshiBehaviorTree
     /// <summary>
     /// 規定の回数を子ノードが返すまでRunningを返す。条件を満たしたらSuccess
     /// </summary>
-    [Serializable, NodeMenuItem("Decorator/Parallel")]
+    [Serializable, NodeMenuItem("Decorator/Repeater")]
     public class Repeater : Branch
     {
         [SerializeField] private int _repeatCount = 1;
+        [SerializeField] private bool _isRepeat = false;
         private int _currentCount = 0;
-
         public override NodeState OnUpdate()
         {
             base.OnUpdate();
@@ -34,6 +34,13 @@ namespace TsuyoshiBehaviorTree
             if (_state == NodeState.Running)
             {
                 OnUpdate();
+            }
+
+            if (_isRepeat)
+            {
+                _state = NodeState.Running;
+                _currentCount = 0;
+                SetChildWaiting(_childNode);
             }
 
             return _state;

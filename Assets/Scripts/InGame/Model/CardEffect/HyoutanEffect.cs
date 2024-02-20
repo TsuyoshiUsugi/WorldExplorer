@@ -17,6 +17,11 @@ public class HyoutanEffect : ICardEffect
         //特になし
         _sakePoint += addPower;
     }
+    
+    public string GetEffectDescription()
+    {
+        return $"覚醒力を{_sakePoint}得る";
+    }
 
     public void ExcuteCardEffect()
     {

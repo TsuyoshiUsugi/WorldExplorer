@@ -6,10 +6,55 @@
   <component name="ChangeListManager">
     <list default="true" id="e3861732-22a0-4eb6-a1ae-b343f12ad571" name="変更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moeshu_Team_E/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardData/Id0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardData/Id0.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardData/Id1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardData/Id1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardData/Id10.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardData/Id10.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardData/Id2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardData/Id2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardData/Id4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardData/Id4.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardData/Id5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardData/Id5.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardData/Id7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardData/Id7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardData/Id9.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardData/Id9.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card02.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card03.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card03.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card04.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card04.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card05.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card05.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card06.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card06.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card07.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card07.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card08.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card08.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card09.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card09.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/CardPrefab/Card10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/EnemyData/TestEnemy2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/EnemyData/TestEnemy2.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BehaviorTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BehaviorTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/Log.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/BaseNode/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/BaseNode/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeEditorWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeProcesser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/BehaviorTreeProcesser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/New Behavior Tree Graph.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Repeater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Repeater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/merged_cs_scripts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BehaviorTree/merged_cs_scripts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/General/InGameLifeTimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/General/InGameLifeTimeScope.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/ApplyDamageEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/ApplyDamageEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/ApplyInvincibleEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/ApplyInvincibleEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/Gourd/GourdNotDecreasingActionEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/Gourd/GourdNotDecreasingActionEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/Gourd/IfNotHaveGourdAddHandEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/Gourd/IfNotHaveGourdAddHandEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/HyoutanEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/HyoutanEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/ICardEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/ICardEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/IncreaseShieldValueEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/IncreaseShieldValueEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/MinnadeOsakeEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/MinnadeOsakeEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/SanakaSakeEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/SanakaSakeEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/StatusEnhanceEffect/EnhancePowerEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/CardEffect/StatusEnhanceEffect/EnhancePowerEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/PlayerCard/CardData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/PlayerCard/CardData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/PlayerManager/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/PlayerManager/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/State/EnemyTurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Model/State/EnemyTurnState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGame/Presenter/InGamePresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGame/Presenter/InGamePresenter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +67,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/37/0fe605fb/StackTraceUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/3a/8c53fbfd/Debug.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/68/442316f6/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/93/939623dd/DebugLogHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/9c/e2a0e446/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/b3/fe33873f/Logger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a24131e73ec49f7805f3dfb6a69fa781d000/3a/2b624bac/Behavior.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c8/c1462bb2/AttributeTargets.cs" root0="SKIP_HIGHLIGHTING" />
@@ -34,6 +81,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/4c/2d78d331/Encoding.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/4f/6a169671/UTF8Encoding.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/54/e008d72e/Thread.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/5a/2cae818c/IntPtr.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/5c/91626323/Lazy`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/5e/5f120c09/StringBuilderCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/6a/60405cf1/KeyValuePair`2.cs" root0="SKIP_HIGHLIGHTING" />
@@ -42,10 +90,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/d2/9d9e11dd/ReadOnlySpan`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3b02d6f9b494355b946095ea1f25c5446ac00/e9/48ac520a/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ac8a1d1a125546cf82b0ec17802fc7c2951400/fa/17b54079/SerializedProperty.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f13d85cb8c9e4fcea57989429a4bea0c10fc00/3b/26bc3532/OrderedEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f13d85cb8c9e4fcea57989429a4bea0c10fc00/66/d85a35da/Buffer`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f13d85cb8c9e4fcea57989429a4bea0c10fc00/86/bb26a84b/EnumerableHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/AnyAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/IAnyAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/Parallel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/RandomSelector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Condition/Condition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/Decorator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/DecoratorBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Decorator/HasRequiredMoney.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Test/Money.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/TestAI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -69,7 +124,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.25",
+    "XThreadsFramesViewSplitterKey": "0.27973568",
     "git-widget-placeholder": "feature/InGame",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -110,10 +165,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23928">
+    <configuration name="Unity エディターにアタッチ" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="38148">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="23928" />
+      <option name="pid" value="38148" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -148,6 +203,8 @@
       <workItem from="1708262900941" duration="3042000" />
       <workItem from="1708266262037" duration="2302000" />
       <workItem from="1708334383695" duration="16832000" />
+      <workItem from="1708362176058" duration="3795000" />
+      <workItem from="1708399831248" duration="10149000" />
     </task>
     <servers />
   </component>
@@ -163,43 +220,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Action/ActionNode.cs</url>
-          <line>27</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Action\ActionNode.cs" initialLine="27" containingFunctionPresentation="メソッド 'OnUpdate'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/InGame/Model/Enemy/EnemyAttack.cs</url>
+          <line>14</line>
+          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\InGame\Model\Enemy\EnemyAttack.cs" initialLine="14" containingFunctionPresentation="メソッド 'OnUpdate'">
             <startOffsets>
-              <option value="630" />
+              <option value="333" />
             </startOffsets>
             <endOffsets>
-              <option value="646" />
+              <option value="379" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Composite/Sequencer.cs</url>
-          <line>21</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Composite\Sequencer.cs" initialLine="21" containingFunctionPresentation="メソッド 'OnUpdate'">
-            <startOffsets>
-              <option value="539" />
-            </startOffsets>
-            <endOffsets>
-              <option value="591" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BehaviorTree/BehaviorEditor/Node/Root/Root.cs</url>
-          <line>34</line>
-          <properties documentPath="C:\Users\vantan\Documents\Moeshu_Team_E\Assets\Scripts\BehaviorTree\BehaviorEditor\Node\Root\Root.cs" initialLine="33" containingFunctionPresentation="メソッド 'OnUpdate'">
-            <startOffsets>
-              <option value="839" />
-            </startOffsets>
-            <endOffsets>
-              <option value="869" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="30" />
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

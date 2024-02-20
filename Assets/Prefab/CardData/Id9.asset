@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayFieldCardType: 0
   Id: 9
-  CardName: 
+  CardName: "\u9ED2\u9B54\u8853"
   CardExplain: "\u03B1\u9152\u529B\u3092\u5F97\u308B\r\n\u4F53\u529B\u3092\u03B1\u56DE\u5FA9\u3059\u308B\r\n\r\n\u300C\u9154\u3044\u72B6\u614B\u300D\u306E\u5834\u5408\r\n\u8FFD\u52A0\u3067\u4F53\u529B\u3092\u03B1\u56DE\u5FA9\u3059\u308B"
   CardPrefab: {fileID: 5400089184753962535, guid: 8b969b6d0df2b8649aed7f9e5a4a13ff, type: 3}
   CardEffects:
-  - rid: 6092417385810624512
+  - rid: 3100971783220887593
   CardEffectView: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 6092417385810624512
+    - rid: 3100971783220887593
       type: {class: MinnadeOsakeEffect, ns: , asm: Assembly-CSharp}
       data:
-        _sakePoint: 2
-        _healPoint: 10
-        _drankHealPoint: 10
+        _sakePoint: 3
+        _healPoint: 3
+        _drankHealPoint: 2
         _addSakePoint: 1
         _addHealPoint: 1
         _addDrankHealPoint: 1

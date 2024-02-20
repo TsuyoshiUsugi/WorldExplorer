@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9968c57099c7304093451f8ffe1ad0e, type: 3}
+  m_Name: EnemyBehavior2
+  m_EditorClassIdentifier: 
+  serializedNodes: []
+  nodes:
+  - rid: 3100971783220887569
+  - rid: 3100971783220887570
+  - rid: 3100971783220887571
+  - rid: 3100971783220887575
+  - rid: 3100971783220887576
+  - rid: 3100971783220887577
+  - rid: 3100971783220887578
+  - rid: 3100971783220887579
+  edges:
+  - GUID: dd2d7afc-a74b-46e7-abd4-9a2c3b40d5d5
+    owner: {fileID: 11400000}
+    inputNodeGUID: 4dd3cc6e-812d-4788-8e81-4d615cfa53dc
+    outputNodeGUID: 76acdf49-c767-43d8-9f12-516182314f8a
+    inputFieldName: Parent
+    outputFieldName: ChildNode
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 9da714d8-0350-4fcf-848f-cddafa50be07
+    owner: {fileID: 11400000}
+    inputNodeGUID: bd76f5fb-b953-4c8f-aaa9-b38d159b288a
+    outputNodeGUID: 4dd3cc6e-812d-4788-8e81-4d615cfa53dc
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 9e164fee-73ac-4d57-af69-ff9bc1a67316
+    owner: {fileID: 11400000}
+    inputNodeGUID: 6ed0ac0f-90f3-4fe6-817c-0a25943af902
+    outputNodeGUID: bd76f5fb-b953-4c8f-aaa9-b38d159b288a
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: cb4f9942-6e92-43be-a0b4-a4c7be514b18
+    owner: {fileID: 11400000}
+    inputNodeGUID: b1ac7f69-e956-4278-a3cd-f2817e7b5cf6
+    outputNodeGUID: bd76f5fb-b953-4c8f-aaa9-b38d159b288a
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 0f559573-90f4-43ec-ad55-2cf34eaf6c4d
+    owner: {fileID: 11400000}
+    inputNodeGUID: e4b69379-3fe2-4dfc-9f8e-005161b6f52a
+    outputNodeGUID: 4dd3cc6e-812d-4788-8e81-4d615cfa53dc
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: ce9d012d-c898-498b-ac3a-0223858d76ce
+    owner: {fileID: 11400000}
+    inputNodeGUID: f4986a1f-1367-494f-b61d-cf901a289662
+    outputNodeGUID: e4b69379-3fe2-4dfc-9f8e-005161b6f52a
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 9d030392-2a6f-46e9-b081-3118d945c790
+    owner: {fileID: 11400000}
+    inputNodeGUID: dc0f8890-2fd7-494f-aa08-175b9002aa4b
+    outputNodeGUID: e4b69379-3fe2-4dfc-9f8e-005161b6f52a
+    inputFieldName: Parent
+    outputFieldName: Child
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  groups: []
+  stackNodes: []
+  pinnedElements: []
+  exposedParameters: []
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: 86, y: -192, z: 0}
+  scale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3100971783220887569
+      type: {class: Root, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 76acdf49-c767-43d8-9f12-516182314f8a
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: 438
+          y: 114
+          width: 69
+          height: 54
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        ChildNode:
+          nodeCustomName: 
+          GUID: 4dd3cc6e-812d-4788-8e81-4d615cfa53dc
+          computeOrder: 1
+          position:
+            serializedVersion: 2
+            x: 404
+            y: 210
+            width: 136
+            height: 54
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: 
+    - rid: 3100971783220887570
+      type: {class: RandomSelector, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 4dd3cc6e-812d-4788-8e81-4d615cfa53dc
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: 404
+          y: 210
+          width: 136
+          height: 54
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        Child:
+          nodeCustomName: 
+          GUID: 
+          computeOrder: -1
+          position:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: 
+    - rid: 3100971783220887571
+      type: {class: AnyAction, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 6ed0ac0f-90f3-4fe6-817c-0a25943af902
+        computeOrder: 3
+        position:
+          serializedVersion: 2
+          x: 185
+          y: 413
+          width: 219
+          height: 68
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        _action:
+          rid: 3100971783220887572
+    - rid: 3100971783220887572
+      type: {class: EnemyAttack, ns: , asm: Assembly-CSharp}
+      data:
+        _afterActionAddValue: 1
+    - rid: 3100971783220887575
+      type: {class: Sequencer, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: bd76f5fb-b953-4c8f-aaa9-b38d159b288a
+        computeOrder: 2
+        position:
+          serializedVersion: 2
+          x: 128
+          y: 318
+          width: 104
+          height: 54
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        Child:
+          nodeCustomName: 
+          GUID: 
+          computeOrder: -1
+          position:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: 
+    - rid: 3100971783220887576
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: b1ac7f69-e956-4278-a3cd-f2817e7b5cf6
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: -57
+          y: 413
+          width: 136
+          height: 86
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        _message: "\u653B\u6483\u304C\u5B9F\u884C\u3055\u308C\u307E\u3057\u305F"
+    - rid: 3100971783220887577
+      type: {class: Sequencer, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: e4b69379-3fe2-4dfc-9f8e-005161b6f52a
+        computeOrder: 5
+        position:
+          serializedVersion: 2
+          x: 555
+          y: 318
+          width: 104
+          height: 54
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        Child:
+          nodeCustomName: 
+          GUID: 
+          computeOrder: -1
+          position:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 0
+            height: 0
+          expanded: 0
+          debug: 0
+          nodeLock: 0
+          _description: 
+    - rid: 3100971783220887578
+      type: {class: Log, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: f4986a1f-1367-494f-b61d-cf901a289662
+        computeOrder: 6
+        position:
+          serializedVersion: 2
+          x: 472
+          y: 422
+          width: 136
+          height: 86
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        _message: "\u9632\u5FA1\u304C\u5B9F\u884C\u3055\u308C\u307E\u3057\u305F"
+    - rid: 3100971783220887579
+      type: {class: AnyAction, ns: TsuyoshiBehaviorTree, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: dc0f8890-2fd7-494f-aa08-175b9002aa4b
+        computeOrder: 7
+        position:
+          serializedVersion: 2
+          x: 678
+          y: 422
+          width: 219
+          height: 68
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        _description: 
+        _action:
+          rid: 3100971783220887581
+    - rid: 3100971783220887581
+      type: {class: EnemyBlock, ns: , asm: Assembly-CSharp}
+      data:
+        _addBlockPower: 1
+        _afterActionAddValue: 1

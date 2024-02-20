@@ -22,7 +22,7 @@ namespace TsuyoshiBehaviorTree
             titleContent = new GUIContent(ObjectNames.NicifyVariableName(fileName));
             if (graphView == null)
             {
-                graphView = new DefaultBehaviorTreeGraphView(this);
+                graphView = new BaseGraphView(this);
             }
             rootView.Add(graphView);
         }

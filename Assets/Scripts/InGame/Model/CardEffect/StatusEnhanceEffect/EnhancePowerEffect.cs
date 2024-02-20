@@ -16,6 +16,11 @@ public class EnhancePowerEffect : ICardEffect
     {
         _enhancePower += _addEnhancePower; 
     }
+    
+    public string GetEffectDescription()
+    {
+        return $"攻撃力を{_enhancePowerTurn}ターン{_enhancePower}上昇させる";
+    }
 
     public void ExcuteCardEffect()
     {

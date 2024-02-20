@@ -8,7 +8,7 @@ namespace TsuyoshiBehaviorTree
     /// <summary>
     /// ビヘイビアツリーのルートノード
     /// </summary>
-    [Serializable, NodeMenuItem("Root/Root")]
+    [Serializable, NodeMenuItem("Root")]
     public class Root : Node
     {
         //Todo: 親ノードを追加できないようにする

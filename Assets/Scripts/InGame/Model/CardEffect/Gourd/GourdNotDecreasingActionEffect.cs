@@ -15,6 +15,11 @@ public class GourdNotDecreasingActionEffect : ICardEffect
         
     }
 
+    public string GetEffectDescription()
+    {
+        return $"アクションコストを減らさない";
+    }
+
     public void ExcuteCardEffect()
     {
         var playerManager = FieldInfo.Instance.PlayerManager;

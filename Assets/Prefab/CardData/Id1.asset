@@ -14,24 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayFieldCardType: 0
   Id: 1
-  CardName: 
+  CardName: "\u5192\u967A\u8005"
   CardExplain: "\u03B1\u30D6\u30ED\u30C3\u30AF\u3092\u5F97\u308B\r\n\u81EA\u5206\u306E\u653B\u6483\u529B\u3092\u03B1\u4E0A\u6607\r\n\u203B\u3053\u306E\u52B9\u679C\u306F\u03B1\u884C\u52D5\u3067\u7D42\u4E86"
   CardPrefab: {fileID: 5400089184753962535, guid: 2331aed6482494643b9f34aa425e2ed1, type: 3}
   CardEffects:
-  - rid: 8991444719476670464
-  - rid: 8991444719476670465
+  - rid: 3100971783220887584
+  - rid: 3100971783220887585
   CardEffectView: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 8991444719476670464
+    - rid: 3100971783220887584
       type: {class: EnhancePowerEffect, ns: , asm: Assembly-CSharp}
       data:
-        _enhancePower: 1
-        _addEnhancePower: 1
+        _enhancePower: 10
+        _addEnhancePower: 10
         _enhancePowerTurn: 1
-    - rid: 8991444719476670465
+    - rid: 3100971783220887585
       type: {class: IncreaseShieldValue, ns: , asm: Assembly-CSharp}
       data:
-        _increaseValue: 1
-        _addIncreaseValue: 1
+        _increaseValue: 10
+        _addIncreaseValue: 10

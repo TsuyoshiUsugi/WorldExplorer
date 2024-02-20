@@ -9,6 +9,7 @@ namespace  TsuyoshiBehaviorTree
 {
     /// <summary>
     /// ツリーを実行するクラス
+    /// 利用方法としては、初期化とRunを呼び出し、その後Updateをメインループで呼び出す
     /// </summary>
     public class BehaviorTreeProcesser : BaseGraphProcessor
     {
@@ -39,8 +40,18 @@ namespace  TsuyoshiBehaviorTree
         }
 
         public override void Run()
+        {   //ToDo: これ不要かも
+            Initialize();
+        }
+
+        /// <summary>
+        /// ビヘイビアツリーの初期化処理を行う
+        /// 一度は実行する必要がある
+        /// </summary>
+        private void Initialize()
         {
             Debug.Log("ビヘイビアツリー起動");
+            _resultState = NodeState.Waiting;
 
             for (int i = 0; i < _process.Count; i++)
             {

@@ -13,6 +13,11 @@ public class ApplyDamageEffect : ICardEffect
         //ここに強化後のカードの効果を書く
         _cardDamage += _addDamageWhenEvolved;
     }
+    
+    public string GetEffectDescription()
+    {
+        return $"敵に{_cardDamage}のダメージを与える";
+    }
 
     public void ExcuteCardEffect()
     {
@@ -37,6 +42,11 @@ public class ApplyAttackPowerDownEffect : ICardEffect
         //ここに強化後のカードの効果を書く
         _downPower += _addDownPowerWhenEvolved;
     }
+    
+    public string GetEffectDescription()
+    {
+        return $"敵の攻撃力を{_turn}ターン{_downPower}下げる";
+    }
 
     public void ExcuteCardEffect()
     {
@@ -58,6 +68,11 @@ public class ApplyDamageEffectIfDrunk : ICardEffect
     {
         //ここに強化後のカードの効果を書く
         _damage += _addDamageWhenEvolved;
+    }
+    
+    public string GetEffectDescription()
+    {
+        return $"覚醒状態なら敵に{_damage}のダメージを与える";
     }
 
     public void ExcuteCardEffect()

@@ -21,6 +21,7 @@ MonoBehaviour:
   EnemyBehavior:
   - rid: 3382217852420096002
   - rid: 3382217852420096003
+  BehaviorTree: {fileID: 11400000, guid: fd866521e87255e47a36e1f6e68b3dfa, type: 2}
   references:
     version: 2
     RefIds:

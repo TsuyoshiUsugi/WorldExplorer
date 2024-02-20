@@ -23,6 +23,11 @@ public class MinnadeOsakeEffect : ICardEffect
         _healPoint += _addHealPoint;
         _drankHealPoint += _addDrankHealPoint;
     }
+    
+    public string GetEffectDescription()
+    {
+        return $"覚醒力を{_sakePoint}得る\n体力を{_healPoint}回復する\n覚醒状態の場合、追加で体力を{_drankHealPoint}回復する";
+    }
 
     public void ExcuteCardEffect()
     {

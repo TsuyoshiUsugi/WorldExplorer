@@ -11,7 +11,7 @@ namespace TsuyoshiBehaviorTree
     /// <summary>
     /// ビヘイビアツリーのグラフを表すクラス
     /// </summary>
-    [CreateAssetMenu(menuName = "BehaviorTreeEditorWindow")]
+    [CreateAssetMenu(menuName = "BehaviorTreeEditorGraph")]
     public class BehaviorTreeGraph : BaseGraph
     {
 #if UNITY_EDITOR

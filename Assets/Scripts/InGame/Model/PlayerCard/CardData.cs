@@ -30,6 +30,7 @@ public class CardData : ScriptableObject
 public class CardDataEntity
 {
     public int ID;
+    public string CardName;
     public GameObject CardEntity;
     public List<ICardEffect> CardEffects;
     public CardEffectBase CardEffectView;
@@ -41,7 +42,15 @@ public class CardDataEntity
         CardEntity = cardData.CardPrefab;
         CardEffects = cardData.CardEffects;
         PlayFieldCardType = cardData.PlayFieldCardType;
-        CardExplain = cardData.CardExplain;
+        string description = "";
+        if (CardEffects != null)
+        {
+            foreach (var effect in CardEffects)
+            {
+                description += effect.GetEffectDescription() + "\n";
+            }
+        }
+        CardExplain = description;
         ID = iD;
     }
 
