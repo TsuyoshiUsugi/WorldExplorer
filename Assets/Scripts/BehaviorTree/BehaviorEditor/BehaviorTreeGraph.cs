@@ -1,9 +1,9 @@
 using GraphProcessor;
 using UnityEngine;
 using System.Linq;
+using UnityEditor.Callbacks;
 #if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.Callbacks;
 #endif
 
 namespace TsuyoshiBehaviorTree
@@ -14,7 +14,6 @@ namespace TsuyoshiBehaviorTree
     [CreateAssetMenu(menuName = "BehaviorTreeEditorGraph")]
     public class BehaviorTreeGraph : BaseGraph
     {
-#if UNITY_EDITOR
         [OnOpenAsset(0)]
         public static bool OnBaseGraphOpened(int instanceID, int line)
         {
@@ -39,6 +38,5 @@ namespace TsuyoshiBehaviorTree
                 AddNode(BaseNode.CreateFromType<Root>(Vector2.zero));
             }
         }
-#endif
     }
 }

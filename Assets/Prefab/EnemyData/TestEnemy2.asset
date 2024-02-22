@@ -15,8 +15,8 @@ MonoBehaviour:
   EnemySprite: {fileID: 21300000, guid: 62843d7ea7f10474582cf3d62cc2668d, type: 3}
   Status:
     _hp:
-      value: 100
-    _attackPower: 20
+      value: 1000
+    _attackPower: 50
     _blockPower: 10
   EnemyBehavior:
   - rid: 3382217852420096002

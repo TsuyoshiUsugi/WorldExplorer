@@ -15,6 +15,6 @@ MonoBehaviour:
   PlayerSprite: {fileID: 21300000, guid: 2bb02d0d48f0ac147a3cb49c5950f678, type: 3}
   Status:
     _hp:
-      value: 100
+      value: 1000
     _attackPower: 30
     _blockPower: 10
